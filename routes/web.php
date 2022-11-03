@@ -12,3 +12,5 @@ Route::get('/', function () {
 Route::get('/login',[studentLogin::class,'login']);
 Route::get('/signup',[studentRegistration::class,'registration']);
 Route::post('/registrationData',[studentRegistration::class,'registrationData']);
+Route::post('/loginData',[studentLogin::class,'loginData']);
+Route::get('/dashboard',[studentLogin::class,'dashboard']);

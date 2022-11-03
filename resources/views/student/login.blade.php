@@ -15,29 +15,29 @@
   <body>
     <div class="container">
 <br><br>
-{{-- @if(Session::has('fail'))
+@if(Session::has('fail'))
 <p class="alert alert-danger">Email or Password in incorrect.</p>
-@endif --}}
+@endif
 
 
-<form action="loginData" method="post">
+<form action="{{url('loginData')}}" method="post">
     @csrf
   <div class="form-row">
     <div class="form-group col-md-3">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" name="email" placeholder="takib@mail.com">
-      {{-- @error('email')
+      <input type="email" class="form-control" name="email" value="{{old('email')}}">
+      @error('email')
         <span class="text-error" style="color: red">{{$message}}</span>
-      @enderror --}}
+      @enderror
     </div>
 </div>
 <div class="form-row">
     <div class="form-group col-md-3">
       <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" name="password" placeholder="your password">
-      {{-- @error('password')
+      <input type="password" class="form-control" name="password">
+      @error('password')
       <span class="text-error" style="color: red">{{$message}}</span>
-    @enderror --}}
+    @enderror
     </div>
 
 </div>
