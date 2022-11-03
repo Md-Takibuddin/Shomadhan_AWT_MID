@@ -18,11 +18,11 @@ class studentRegistration extends Controller
     {
         $validate = $regData->validate([
                     "name"=>"required|max:20",
-                    'phone_number'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+                    'phone_number'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/ |unique:student_infos',
                     'school'=>'required',
                     'class'=>'required',
                     'dob'=>'required',
-                    'email'=>'required|email',
+                    'email'=>'required|email|unique:student_infos',
                     'password'=>'required|min:8|max:20'
                     ],
                     );
@@ -42,11 +42,8 @@ class studentRegistration extends Controller
         $student->total_qus = $tq;
 
         $student->save();
-
         Session::flash('regSuccess','Congratulation! Registration successful');
         return redirect()->back();
-
-        echo "baler matyha";
     }
 
 }
