@@ -13,7 +13,7 @@ class StudentInfo extends Migration
      */
     public function up()
     {
-        Schema::create('student_info', function (Blueprint $table) {
+        Schema::create('student_infos', function (Blueprint $table) {
             $table->id();
             $table->string ('name');
             $table->string ('phone_number');
@@ -21,6 +21,8 @@ class StudentInfo extends Migration
             $table->string ('password');
             $table->string ('school');
             $table->string ('class');
+            $table->string ('dob');
+            $table->string ('photo');
             $table->string ('account_type');
             $table->integer ('total_qus');
             $table->timestamps();
