@@ -41,8 +41,8 @@ class studentRegistration extends Controller
         $student->account_type =  $at;
         $student->total_qus = $tq;
 
-        $photoName= time().$regData->name;
-        $path = $regData->file('photo')->storeAs('StudentsPhoto',$photoName,'public');
+        $photoName= time().$regData->name.$regData->file('photo')->getClientOriginalName();
+        $path = $regData->file('photo')->storeAs('images',$photoName,'public');
         $student['photo']='/storage/'.$path;
 
         $student->save();

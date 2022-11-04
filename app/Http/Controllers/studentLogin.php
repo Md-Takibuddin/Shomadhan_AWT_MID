@@ -11,7 +11,11 @@ class studentLogin extends Controller
 {
     public function login()
     {
-        return view("student.login");
+       if(session()->has('email')){
+           return redirect('dashboard');
+           }else{
+            return view('student.login');
+           }
     }
 
     public function loginData(Request $loginData)
@@ -28,6 +32,8 @@ class studentLogin extends Controller
             if (Hash::check($loginData->password,$user->password)){
             $loginData->session()->put('email',$loginData->email);
             Session::flash('user',$user->name);
+            Session::flash('photo',$user->photos);
+
             return redirect('dashboard');
             }
             else {
@@ -44,7 +50,17 @@ class studentLogin extends Controller
 
     public function dashboard()
     {
-        return view("student.dashboard");
+        if(session()->has('email')){
+        return view('student.dashboard');
+       }else return redirect('login');
     }
+
+    public function logout()
+   {
+    Session::forget('key');
+    Session::flush();
+    return redirect('login');
+   }
+
 }
 
