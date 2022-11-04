@@ -21,7 +21,7 @@ class userCheck
         if(Session::has('email')){
             return $next($request);
         }else{
-        Session::flash('notLoggedIn','You need to Login First to access this page');
+
         return redirect('login');
         }
 

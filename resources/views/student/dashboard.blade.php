@@ -19,7 +19,7 @@
 
 
 @if(Session::has('email'))
-<p >{{Session::get('email')}}mnmn</p>
+<p >{{Session::get('email')}}</p>
 @endif
 
 
