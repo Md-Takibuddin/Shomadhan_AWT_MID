@@ -37,9 +37,13 @@ class studentRegistration extends Controller
         $student->school = $regData->school;
         $student->class = $regData->class;
         $student->dob = $regData->dob;
-        $student->photo = $regData->email;
+        $student->photo = $regData->photo;
         $student->account_type =  $at;
         $student->total_qus = $tq;
+
+        $photoName= time().$regData->name;
+        $path = $regData->file('photo')->storeAs('StudentsPhoto',$photoName,'public');
+        $student['photo']='/storage/'.$path;
 
         $student->save();
         Session::flash('regSuccess','Congratulation! Registration successful');

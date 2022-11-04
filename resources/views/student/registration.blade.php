@@ -20,7 +20,7 @@
         <p class="alert alert-success">{{Session::get('regSuccess')}}</p>
         @endif
 
-<form action="{{url('registrationData')}}" method="post">
+<form action="{{url('registrationData')}}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="form-row">
     <div class="form-group col-md-6">
@@ -32,7 +32,7 @@
     </div>
     <div class="form-group col-md-6">
         <label for="inputAddress">phone number</label>
-        <input type="text" class="form-control" name="phone_number" placeholder="">
+        <input type="text" class="form-control" name="phone_number"value="{{old("phone_number")}}">
         @error('phone_number')
         <span class="text-error" style="color: red">{{$message}}</span>
       @enderror
@@ -40,21 +40,21 @@
     <div class="form-row">
         <div class="form-group col-md-6">
             <label for="inputAddress"> School</label>
-            <input type="text" class="form-control" name="school" placeholder="">
+            <input type="text" class="form-control" name="school" value="{{old("school")}}">
             @error('school')
             <span class="text-error" style="color: red">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group col-md-6">
             <label for="inputAddress">class</label>
-            <input type="text" class="form-control" name="class" placeholder="">
+            <input type="text" class="form-control" name="class" value="{{old("class")}}">
             @error('class')
             <span class="text-error" style="color: red">{{$message}}</span>
           @enderror
         </div>
         <div class="form-group col-md-6">
             <label for="inputAddress">Date of Birth</label>
-            <input type="text" class="form-control" name="dob" placeholder="">
+            <input type="date" class="form-control" name="dob" value="{{old("dob")}}">
             @error('class')
             <span class="text-error" style="color: red">{{$message}}</span>
           @enderror
@@ -64,15 +64,22 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" name="email" placeholder="takib@mail.com">
+      <input type="email" class="form-control" name="email" value="{{old("email")}}">
       @error('email')
       <span class="text-error" style="color: red">{{$message}}</span>
     @enderror
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" name="password" placeholder="More than 8 characters">
+      <input type="password" class="form-control" name="password">
       @error('password')
+      <span class="text-error" style="color: red">{{$message}}</span>
+    @enderror
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputphoto">Photo</label>
+      <input type="file" class="form-control" name="photo">
+      @error('file')
       <span class="text-error" style="color: red">{{$message}}</span>
     @enderror
     </div>
