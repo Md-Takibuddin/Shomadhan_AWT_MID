@@ -23,7 +23,7 @@ class studentRegistration extends Controller
                     'class'=>'required',
                     'dob'=>'required',
                     'email'=>'required|email|unique:student_infos',
-                    'password'=>'required|min:8|max:20'
+                    'password'=>'required'
                     ],
                     );
         $at="basic";
@@ -37,15 +37,19 @@ class studentRegistration extends Controller
         $student->school = $regData->school;
         $student->class = $regData->class;
         $student->dob = $regData->dob;
-        $student->photo = $regData->photo;
-        $student->account_type =  $at;
-        $student->total_qus = $tq;
+
+
 
         $photoName= time().$regData->name.$regData->file('photo')->getClientOriginalName();
-        $path = $regData->file('photo')->storeAs('images',$photoName,'public');
+        $path = $regData->file('photo')->storeAs('public/images',$photoName);
         $student['photo']='/storage/'.$path;
+        // $student->photo = $regData->photo;
 
+        $student->account_type =  $at;
+        $student->total_qus = $tq;
         $student->save();
+
+
         Session::flash('regSuccess','Congratulation! Registration successful');
         return redirect()->back();
     }
