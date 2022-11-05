@@ -40,9 +40,9 @@ class studentRegistration extends Controller
 
 
 
-        $photoName= time().$regData->name.$regData->file('photo')->getClientOriginalName();
-        $path = $regData->file('photo')->storeAs('public/images',$photoName);
-        $student['photo']='/storage/'.$path;
+        $photoName= time().$regData->name.".".$regData->file('photo')->getClientOriginalExtension();
+        $path = $regData->file('photo')->storeAs('/public/images',$photoName);
+        $student['photo']='/storage/images/'.$photoName;
         // $student->photo = $regData->photo;
 
         $student->account_type =  $at;

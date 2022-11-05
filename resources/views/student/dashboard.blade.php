@@ -23,7 +23,7 @@
 @endif
 
 
-<img src="{{asset('/storage/images/1667605720Takib uddin74575217_2520664701356780_5892743916645515264_n.jpg')}}" >
+<img src="{{asset("/storage/images/1667608416Sakib Uddin.png")}}" >
 
 <a href="{{url('myData')}}" class="btn btn-primary my-3">My Data</a>
 <a href="{{url('show-data')}}" class="btn btn-primary my-3">See All User</a>
