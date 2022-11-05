@@ -15,7 +15,7 @@
             <aside class="col-span-2 | bg-white">
                 <sidebar-component></sidebar-component>
             </aside>
-            <section class="col-span-10 bg-[#F6F6FF] p-5">
+            <section class="col-span-10 bg-[#F6F6FF] p-10">
                 <haeder-component></haeder-component>
                 <div class="grid grid-cols-12">
                     <div class="col-span-8 flex flex-col space-y-10">
@@ -58,14 +58,14 @@
                                 >
                             </div>
                             <div
-                                class="p-5 rounded-xl bg-orange__ bg-opacity-25"
+                                class="p-5 rounded-xl bg-[#FCAB5E] bg-opacity-25"
                             >
                                 <div class="flex">
                                     <span class="flex-1 font-bold text-[32px]"
                                         >15</span
                                     >
                                     <figure
-                                        class="h-[40px] w-[40px] bg-orange__ rounded-full p-2"
+                                        class="h-[40px] w-[40px] bg-[#FCAB5E] rounded-full p-2"
                                     >
                                         <img
                                             src="../../../public/dashboard/Help.png"
@@ -79,6 +79,77 @@
                             </div>
                             <!--  -->
                         </div>
+
+                        <!-- Ask Ques Start -->
+                        <section class="w-full">
+                            <h3 class="header-1 mb-4">Notes</h3>
+
+                            <div class="bg-white p-5 rounded-xl">
+                                <form action="">
+                                    <textarea
+                                        placeholder="Type your qustion here"
+                                        class="w-full h-[250px] border-none"
+                                    ></textarea>
+
+                                    <div class="w-fit ml-auto flex space-x-2">
+                                        <div>
+                                            <div
+                                                for="dropdown"
+                                                class="text-light_gray rounded-2xl flex space-x-2 py-3 cursor-pointer items-center"
+                                            >
+                                                <img
+                                                    class="w-[20px] h-[20px]"
+                                                    src="../../../public/dropdown.png"
+                                                    alt=""
+                                                />
+                                                <select
+                                                    class="form-select form-select-sm appearance-none block px-2 py-1 text-sm font-normal text-light_gray bg-white bg-clip-padding bg-no-repeat rounded transition ease-in-out m-0 focus:bg-white border-none focus:outline-none w-[100px]"
+                                                >
+                                                    <option value="">
+                                                        Subject
+                                                    </option>
+                                                    <option value="">
+                                                        Subject 2
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label
+                                                for="file-upload"
+                                                class="text-light_gray rounded-2xl flex space-x-2 px-6 py-3 cursor-pointer items-center"
+                                            >
+                                                <img
+                                                    class="w-[20px] h-[20px]"
+                                                    src="../../../public/image.png"
+                                                    alt=""
+                                                />
+                                                <span> Add Image</span>
+                                            </label>
+                                            <input
+                                                class="hidden"
+                                                id="file-upload"
+                                                type="file"
+                                            />
+                                        </div>
+
+                                        <button
+                                            class="bg-purple text-white rounded-2xl flex space-x-2 px-6 py-3 items-center"
+                                            type="submit"
+                                        >
+                                            <img
+                                                class="w-[20px] h-[20px]"
+                                                src="../../../public/submit.png"
+                                                alt=""
+                                            />
+                                            <span>Submit</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                        <!-- Ask Ques End -->
+
                         <!-- Note  Start -->
                         <section class="w-full">
                             <h3 class="header-1 mb-4">Notes</h3>

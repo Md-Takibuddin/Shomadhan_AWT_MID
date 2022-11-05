@@ -4,7 +4,7 @@ class Sidebar extends HTMLElement {
     }
     connectedCallback() {
         this.innerHTML = `
-                <div class="h-screen flex flex-col overflow-x-auto | p-4">
+                <div class="sticky top-0 left-0 h-screen flex flex-col overflow-x-auto | p-4">
                     <figure class="h-[70px] w-full">
                         <img
                             class="h-full w-full object-contain"
