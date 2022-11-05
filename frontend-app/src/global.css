@@ -23,9 +23,9 @@
 }
 
 .input_base {
-    @apply border-gray-300 border-[1px] rounded-[3.53px] !outline-none  focus:shadow appearance-none;
+    @apply border-gray-300 border-[1px] rounded-[3.53px] outline-none  focus:shadow appearance-none;
 }
 
 .cta_btn_base {
-    @apply rounded-[3.53px] w-full p-3 text-white;
+    @apply rounded-[3.53px] w-full p-3 text-white font-semibold;
 }
