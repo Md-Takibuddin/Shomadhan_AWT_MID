@@ -23,6 +23,12 @@
 <p >{{Session::get('id')}}</p>
 @endif
 
+<p>posted qus: {{$totalQus}} </p>
+
+<p>ansed qus: {{$answeredQus}} </p>
+
+<p>pending qus: {{$pendingQus}}</p><br>
+
 
 <img src="{{asset("$photo")}}" >
 

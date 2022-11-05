@@ -48,15 +48,6 @@ class studentLogin extends Controller
 
     }
 
-    public function dashboard()
-    {
-        if(session()->has('email')){
-
-            $user = Student_info::where ('email','=',Session::get('email'))->first();
-            $photo = $user->photo;
-        return view('student.dashboard',compact('photo'));
-       }else return redirect('login');
-    }
 
     public function logout()
    {
