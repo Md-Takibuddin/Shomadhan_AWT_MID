@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\student_info;
 use App\Models\question;
-
 use Session;
 
 class studentDashboard extends Controller

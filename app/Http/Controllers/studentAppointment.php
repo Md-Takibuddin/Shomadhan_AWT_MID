@@ -10,6 +10,7 @@ class studentAppointment extends Controller
 {
     public function appointment()
     {
+
        return view('student.appointment');
     }
 }
