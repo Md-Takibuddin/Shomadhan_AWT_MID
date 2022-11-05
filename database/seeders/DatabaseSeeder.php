@@ -52,5 +52,23 @@ class DatabaseSeeder extends Seeder
             'status'=>'answered',
             's_feedback'=>'null'
             ]);
+
+        DB::table('appointment')->insert([
+            's_id'=>'1',
+            'subject'=>'Math',
+            'duration'=>'1 hour',
+            't_id'=>'null',
+            'date'=>'20/12/2022',
+            'status'=>'pending'
+            ]);
+
+        DB::table('appointment')->insert([
+            's_id'=>'1',
+            'subject'=>'physics',
+            'duration'=>'30 min',
+            't_id'=>'null',
+            'date'=>'20/12/2022',
+            'status'=>'accepted'
+            ]);
     }
 }

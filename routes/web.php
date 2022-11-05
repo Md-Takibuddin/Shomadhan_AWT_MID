@@ -6,6 +6,7 @@ use App\Http\Controllers\studentRegistration;
 use App\Http\Controllers\studentQuestion;
 use App\Http\Controllers\studentSettings;
 use App\Http\Controllers\studentDashboard;
+use App\Http\Controllers\studentAppointment;
 
 
 
@@ -22,3 +23,4 @@ Route::get('/logout',[studentLogin::class,'logout']);
 Route::get('/question',[studentQuestion::class,'question'])->middleware('loginCheck');
 Route::get('/postQuestion',[studentQuestion::class,'postQuestion']);
 Route::get('/settings',[studentSettings::class,'settings'])->middleware('loginCheck');
+Route::get('/appointment',[studentAppointment::class,'appointment'])->middleware('loginCheck');
