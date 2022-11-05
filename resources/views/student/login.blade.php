@@ -85,7 +85,7 @@
                         >
                             <img
                                 class="h-5 w-5"
-                                src="../../public/google_logo.png"
+                                src="storage/ui-photos/google_logo.png"
                                 alt=""
                             />
                             <span> Sign-in with google</span>

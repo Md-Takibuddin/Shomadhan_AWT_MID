@@ -38,7 +38,9 @@
                         </div>
                     </header>
 
-                    <form class="w-full" action="">
+                    <form class="w-full" action="{{url('registrationData')}}"
+                    method="post" enctype="multipart/form-data">
+
                         <div class="grid grid-cols-12 | gap-5">
                             <span class="col-span-6 input_wrapper">
                                 <label for="name">Name</label>
@@ -65,7 +67,7 @@
                                 >
                                 <input
                                     class="form-input input_base"
-                                    name="school_collage_name"
+                                    name="school"
                                     type="text"
                                 />
                             </span>
@@ -81,11 +83,11 @@
 
                             <span class="col-span-6 input_wrapper">
                                 <label for="email_phone_number"
-                                    >Email or phone number</label
+                                    >Email </label
                                 >
                                 <input
                                     class="form-input input_base"
-                                    name="email_phone_number"
+                                    name="Email"
                                     type="text"
                                 />
                             </span>
@@ -103,7 +105,7 @@
                                 <label for="upload_photo">Upload photo</label>
                                 <input
                                     class="form-input input_base"
-                                    name="upload_photo"
+                                    name="photo"
                                     type="file"
                                     accept="image/*"
                                 />
