@@ -742,8 +742,30 @@ body{
   grid-column: span 6 / span 6;
 }
 
+.col-span-5{
+  grid-column: span 5 / span 5;
+}
+
+.col-span-7{
+  grid-column: span 7 / span 7;
+}
+
+.my-10{
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.mx-auto{
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .ml-auto{
   margin-left: auto;
+}
+
+.mt-10{
+  margin-top: 2.5rem;
 }
 
 .flex{
@@ -807,6 +829,10 @@ body{
   gap: 2.5rem;
 }
 
+.gap-5{
+  gap: 1.25rem;
+}
+
 .space-y-5 > :not([hidden]) ~ :not([hidden]){
   --tw-space-y-reverse: 0;
   margin-top: calc(1.25rem * calc(1 - var(--tw-space-y-reverse)));
@@ -817,6 +843,12 @@ body{
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-y-10 > :not([hidden]) ~ :not([hidden]){
+  --tw-space-y-reverse: 0;
+  margin-top: calc(2.5rem * calc(1 - var(--tw-space-y-reverse)));
+  margin-bottom: calc(2.5rem * var(--tw-space-y-reverse));
 }
 
 .overflow-hidden{
@@ -831,6 +863,16 @@ body{
 .bg-gray__{
   --tw-bg-opacity: 1;
   background-color: rgb(45 55 72 / var(--tw-bg-opacity));
+}
+
+.bg-blue__{
+  --tw-bg-opacity: 1;
+  background-color: rgb(87 155 228 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-200{
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 240 138 / var(--tw-bg-opacity));
 }
 
 .object-contain{
@@ -902,4 +944,9 @@ body{
   font-weight: 600;
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
+}
+
+.link{
+  --tw-text-opacity: 1;
+  color: rgb(87 155 228 / var(--tw-text-opacity));
 }

@@ -29,3 +29,7 @@
 .cta_btn_base {
     @apply rounded-[3.53px] w-full p-3 text-white font-semibold;
 }
+
+.link {
+    @apply text-blue__;
+}
