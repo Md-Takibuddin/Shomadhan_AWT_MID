@@ -11,7 +11,11 @@ class studentQuestion extends Controller
 {
     public function question()
     {
-        return view('student.question');
+        $s_id= Session::get('id');
+        $qus = question::where ('s_id','=',$s_id)->get();
+        //$qus = question::all();
+
+        return view('student.question',compact('qus'));
     }
 
     public function postQuestion(Request $qus)

@@ -16,7 +16,18 @@
         @endif
         <p >{{Session::get('id')}}</p>
 <form action="{{url('postQuestion')}}" method="get">
+<br>
+<table>
+    @foreach ($qus as $data)
+    <tr>
+        <td>Qus : {{ $data ->qus}}</td>
+        <td>Ans : {{ $data ->ans}}</td>
+    </tr>
+    @endforeach
+</table>
 
+
+<br>
     <input type="text" name="question" placeholder="type your qus here">
     @error('question')
     <span class="text-error" style="color: red">{{$message}}</span>
