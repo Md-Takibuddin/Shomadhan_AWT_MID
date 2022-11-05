@@ -1,53 +1,103 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
+        <link href="{{ asset('css/output.css') }}" rel="stylesheet">
+        <title>Sign in</title>
+    </head>
+    <body>
+        <main
+            class="custom_container | h-screen | flex flex-col justify-center items-center | overflow-hidden"
+        >
+            <header class="flex flex-col justify-center items-center">
+                <figure class="h-[90px]">
+                    <img
+                        class="h-full w-full object-contain"
+                        src="storage/ui-photos/logo.png"
+                        alt="logo"
+                    />
+                </figure>
+                <div class="flex flex-col">
+                    <h1 class="text-center header-1">Welcome Back</h1>
+                    <span class="text-center text-base"
+                        >Pleasure to see you again</span
+                    >
+                </div>
+            </header>
+            <section class="grid grid-cols-12 | gap-10 | h-min">
+                <figure class="col-span-6">
+                    <img
+                        class="h-full w-full object-contain"
+                        src="storage/ui-photos/signin.png"
+                        alt="figure image"
+                    />
+                </figure>
+                <section
+                    class="col-span-6 | flex flex-col justify-center items-center"
+                >
+                    <form
+                        class="flex flex-col | max-w-lg w-full | ml-auto space-y-5"
+                        action="{{url('loginData')}}" method="post"
+                    >
+                    @csrf
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+                        <span class="input_wrapper">
+                            <label for="email">Email or phone number</label>
+                            <input
+                                class="form-input input_base"
+                                name="email"
+                                type="text"
+                            />
+                            @error('email')
+                            <span class="text-error" style="color: red">{{$message}}</span>
+                            @enderror
+                        </span>
+                        <span class="input_wrapper">
+                            <label for="email">Password</label>
+                            <input
+                                class="form-input input_base"
+                                name="password"
+                                type="password"
+                            />
+                            @error('password')
+                            <span class="text-error" style="color: red">{{$message}}</span>
+                            @enderror
+                        </span>
+                        <!-- <span>
+                            <input
+                                class="form-input input_base"
+                                name="checkbox"
+                                type="checkbox"
+                            />
+                            <label for="email">Remember me</label>
+                        </span> -->
 
-    <title>Login</title>
-  </head>
-<br><br><br>
-  <body>
-    <div class="container">
-<br><br>
-@if(Session::has('fail'))
-<p class="alert alert-danger">Email or Password in incorrect.</p>
-@endif
+                        <button class="cta_btn_base bg-green" type="submit">
+                            Log in
+                        </button>
 
+                        <button
+                            class="cta_btn_base | flex justify-center items-center | space-x-2 bg-gray__"
+                            type="submit"
+                        >
+                            <img
+                                class="h-5 w-5"
+                                src="../../public/google_logo.png"
+                                alt=""
+                            />
+                            <span> Sign-in with google</span>
+                        </button>
 
-
-<form action="{{url('loginData')}}" method="post">
-    @csrf
-  <div class="form-row">
-    <div class="form-group col-md-3">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" name="email" value="{{old('email')}}">
-      @error('email')
-        <span class="text-error" style="color: red">{{$message}}</span>
-      @enderror
-    </div>
-</div>
-<div class="form-row">
-    <div class="form-group col-md-3">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" name="password">
-      @error('password')
-      <span class="text-error" style="color: red">{{$message}}</span>
-    @enderror
-    </div>
-
-</div>
-  <input type="submit" class="btn btn-primary" value="Login">
-  <a href="{{url('signup')}}" class="btn btn-primary my-3">Registration</a>
-</form>
-
-    </div>
-     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-  </body>
+                        <span class="text-center"
+                            >Don't have an account?
+                            <a class="link" href="{{url('signup')}}">Sign up</a></span
+                        >
+                    </form>
+                </section>
+            </section>
+        </main>
+    </body>
 </html>
-

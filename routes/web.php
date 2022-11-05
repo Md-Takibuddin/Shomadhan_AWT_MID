@@ -11,7 +11,7 @@ use App\Http\Controllers\studentAppointment;
 
 
 Route::get('/', function () {
-    return view('student.login');
+    return view('app');
 });
 
 Route::get('/login',[studentLogin::class,'login']);
