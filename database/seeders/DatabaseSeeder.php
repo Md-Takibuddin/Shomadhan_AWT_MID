@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             'school'=>'Dhaka collage',
             'class'=>'10',
             'dob'=>'20,May 2021',
-            'photo'=>'null',
+            'photo'=>'/storage/images/1667635233Sakib Uddin.jpg',
             'account_type'=>'Basic',
             'total_qus'=>'0'
             ]);
@@ -39,6 +39,18 @@ class DatabaseSeeder extends Seeder
             'photo'=>'null',
             'account_type'=>'Basic',
             'total_qus'=>'0'
+            ]);
+
+        DB::table('questions')->insert([
+            's_id'=>'1 ',
+            'qus'=>'what is mass?',
+            't_id'=>'1',
+            'ans'=>'What is mass in short answer?
+            Mass (symbolized m) is a dimensionless quantity representing the amount of matter in a particle or object. The standard unit of mass in the International System (SI) is the kilogram (kg).',
+            'qus_photo'=>'null',
+            'ans_photo'=>'null',
+            'status'=>'answered',
+            's_feedback'=>'null'
             ]);
     }
 }

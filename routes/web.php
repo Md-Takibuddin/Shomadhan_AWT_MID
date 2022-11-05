@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\studentLogin;
 use App\Http\Controllers\studentRegistration;
+use App\Http\Controllers\studentQuestion;
+
 
 
 Route::get('/', function () {
@@ -15,3 +17,5 @@ Route::post('/registrationData',[studentRegistration::class,'registrationData'])
 Route::post('/loginData',[studentLogin::class,'loginData']);
 Route::get('/dashboard',[studentLogin::class,'dashboard'])->middleware('loginCheck');
 Route::get('/logout',[studentLogin::class,'logout']);
+Route::get('/question',[studentQuestion::class,'question']);
+Route::get('/postQuestion',[studentQuestion::class,'postQuestion']);

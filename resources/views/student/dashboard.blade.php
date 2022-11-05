@@ -18,14 +18,15 @@
 <br><br>
 
 
-@if(Session::has('email'))
-<p >{{Session::get('email')}}</p>
+@if(Session::has('name'))
+<p >{{Session::get('name')}}</p>
+<p >{{Session::get('id')}}</p>
 @endif
 
 
-<img src="{{asset("/storage/images/1667608416Sakib Uddin.png")}}" >
+<img src="{{asset("$photo")}}" >
 
-<a href="{{url('myData')}}" class="btn btn-primary my-3">My Data</a>
+<a href="{{url('question')}}" class="btn btn-primary my-3">ask question  </a>
 <a href="{{url('show-data')}}" class="btn btn-primary my-3">See All User</a>
 
 

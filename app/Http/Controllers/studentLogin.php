@@ -31,8 +31,8 @@ class studentLogin extends Controller
         if($user){
             if (Hash::check($loginData->password,$user->password)){
             $loginData->session()->put('email',$loginData->email);
-            Session::flash('user',$user->name);
-            Session::flash('photo',$user->photos);
+            session()->put('name',$user->name);
+            session()->put('id',$user->id);
 
             return redirect('dashboard');
             }
@@ -51,7 +51,10 @@ class studentLogin extends Controller
     public function dashboard()
     {
         if(session()->has('email')){
-        return view('student.dashboard');
+
+            $user = Student_info::where ('email','=',Session::get('email'))->first();
+            $photo = $user->photo;
+        return view('student.dashboard',compact('photo'));
        }else return redirect('login');
     }
 
