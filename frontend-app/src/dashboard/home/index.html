@@ -5,6 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="../../component/sidebar.js"></script>
+        <script src="../../component/header.js"></script>
         <link href="../../../dist/output.css" rel="stylesheet" />
 
         <title>Dashboard</title>
@@ -14,9 +15,13 @@
             <aside class="col-span-2 | bg-white">
                 <sidebar-component></sidebar-component>
             </aside>
-
-            <section class="col-span-7 bg-[#F6F6FF] h-screen"></section>
-            <aside class="col-span-3"></aside>
+            <section class="col-span-10 bg-[#F6F6FF] p-5">
+                <haeder-component></haeder-component>
+                <div class="grid grid-cols-12">
+                    <div class="col-span-8"></div>
+                    <aside class="col-span-4"></aside>
+                </div>
+            </section>
         </main>
     </body>
 </html>
