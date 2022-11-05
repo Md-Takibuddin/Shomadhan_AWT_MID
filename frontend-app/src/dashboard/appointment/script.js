@@ -1,11 +1,11 @@
-l;
 const appointmentBtn = document.querySelector("#appointment_btn");
-console.log("====================================");
-console.log(appointmentBtn);
-console.log("====================================");
+const cancleBtn = document.querySelector("#modal_cancle_btn");
+const modalContainer = document.querySelector("#modal");
+
 appointmentBtn.addEventListener("click", () => {
-    console.log("====================================");
-    console.log("eee");
-    console.log("====================================");
-    appointmentBtn.style.display = "flex";
+    modalContainer.style.display = "flex";
+});
+
+cancleBtn.addEventListener("click", () => {
+    modalContainer.style.display = "hidden";
 });

@@ -6,7 +6,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script src="../../component/sidebar.js"></script>
         <script src="../../component/header.js"></script>
-        <script src="./script.js"></script>
         <link href="../../../dist/output.css" rel="stylesheet" />
         <title>Dashboard | Appointment</title>
     </head>
@@ -34,7 +33,7 @@
                             <div class="grid grid-cols-12 gap-5">
                                 <!-- Item -->
                                 <div
-                                    class="w-full space-y-3 | col-span-4 | bg-white p-5 rounded-xl"
+                                    class="w-full space-y-3 | col-span-4 | bg-white p-5 rounded-xl | cursor-pointer hover:shadow-md transition-shadow duration-300"
                                 >
                                     <div class="flex space-x-4">
                                         <img
@@ -59,9 +58,12 @@
             </div>
             <!-- Modal -->
             <div
-                class="fixed min-h-screen w-screen top-0 left-0 z-50 | backdrop-blur-sm bg-white/10 | justify-center items-center | hidden"
+                id="modal"
+                class="fixed min-h-screen w-screen top-0 left-0 z-50 | backdrop-blur-sm bg-white/10 | justify-center items-center | hidden | transition-all duration-300 ease-in-out"
             >
-                <div class="w-fit bg-white rounded-xl p-5">
+                <div
+                    class="w-fit bg-white rounded-xl p-5 transition-shadow shadow"
+                >
                     <h6 class="text-center font-bold text-2xl py-7">
                         Apply for Appointment
                     </h6>
@@ -90,6 +92,7 @@
                                 class="flex space-x-5 justify-center items-center"
                             >
                                 <button
+                                    id="modal_cancle_btn"
                                     class="cta_btn_base !text-light_gray border-[1px] border-light_gray !w-min"
                                 >
                                     Cancle
@@ -103,5 +106,6 @@
                 </div>
             </div>
         </main>
+        <script src="./script.js"></script>
     </body>
 </html>
