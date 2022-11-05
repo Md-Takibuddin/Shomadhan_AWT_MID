@@ -27,7 +27,7 @@
 <img src="{{asset("$photo")}}" >
 
 <a href="{{url('question')}}" class="btn btn-primary my-3">ask question  </a>
-<a href="{{url('show-data')}}" class="btn btn-primary my-3">See All User</a>
+<a href="{{url('settings')}}" class="btn btn-primary my-3">settings</a>
 
 
     </div>
