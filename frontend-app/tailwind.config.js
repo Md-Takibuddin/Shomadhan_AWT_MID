@@ -4,10 +4,17 @@ module.exports = {
 
     theme: {
         extend: {
+            container: {
+                center: true,
+            },
             fontFamily: {
                 roboto: ["Roboto"],
             },
+            colors: {
+                purple: "#8A70D6",
+                green: "#27AE60",
+            },
         },
     },
-    plugins: [],
+    plugins: [require("@tailwindcss/forms")],
 };

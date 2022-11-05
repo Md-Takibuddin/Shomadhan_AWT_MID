@@ -4,7 +4,79 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
+        <link href="../../dist/output.css" rel="stylesheet" />
+        <title>Home</title>
     </head>
-    <body></body>
+    <body>
+        <main
+            class="custom_container | h-screen | flex flex-col justify-center items-center | overflow-hidden"
+        >
+            <header class="flex flex-col justify-center items-center">
+                <figure class="h-[90px]">
+                    <img
+                        class="h-full w-full object-contain"
+                        src="../../public/logo.png"
+                        alt="logo"
+                    />
+                </figure>
+                <div class="flex flex-col">
+                    <h1 class="text-center header-1">Welcome Back</h1>
+                    <span class="text-center text-base"
+                        >Pleasure to see you again</span
+                    >
+                </div>
+            </header>
+            <section class="grid grid-cols-12 | gap-10 | h-min">
+                <figure class="col-span-6">
+                    <img
+                        class="h-full w-full object-contain"
+                        src="../../public/signin.png"
+                        alt="figure image"
+                    />
+                </figure>
+                <section
+                    class="col-span-6 | flex flex-col justify-center items-center"
+                >
+                    <form
+                        class="flex flex-col | max-w-lg w-full | ml-auto space-y-5"
+                        action=""
+                    >
+                        <span class="input_wrapper">
+                            <label for="email">Email or phone number</label>
+                            <input
+                                class="form-input input_base"
+                                name="text"
+                                type="text"
+                            />
+                        </span>
+                        <span class="input_wrapper">
+                            <label for="email">Password</label>
+                            <input
+                                class="form-input input_base"
+                                name="password"
+                                type="password"
+                            />
+                        </span>
+                        <span>
+                            <input
+                                class="form-input input_base"
+                                name="checkbox"
+                                type="checkbox"
+                            />
+                            <label for="email">Remember me</label>
+                        </span>
+
+                        <button class="cta_btn_base bg-green" type="submit">
+                            Log in
+                        </button>
+
+                        <span class="text-center"
+                            >Don’t have an account?
+                            <a class="text-blue-700" href="">Sign up</a></span
+                        >
+                    </form>
+                </section>
+            </section>
+        </main>
+    </body>
 </html>

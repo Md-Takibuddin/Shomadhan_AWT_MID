@@ -3,3 +3,29 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-roboto;
+    }
+}
+
+.header-1 {
+    @apply font-semibold text-2xl;
+}
+
+.input_wrapper {
+    @apply flex flex-col space-y-2;
+}
+
+.custom_container {
+    @apply max-w-7xl mx-auto px-2;
+}
+
+.input_base {
+    @apply border-gray-300 border-[1px] rounded-[3.53px] !outline-none  focus:shadow appearance-none;
+}
+
+.cta_btn_base {
+    @apply rounded-[3.53px] w-full p-3 text-white;
+}
