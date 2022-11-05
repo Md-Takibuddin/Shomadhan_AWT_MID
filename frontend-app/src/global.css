@@ -33,3 +33,11 @@
 .link {
     @apply text-blue__;
 }
+
+.nav_item {
+    @apply flex items-center h-8 space-x-3 rounded-md px-[20%] py-5 cursor-pointer hover:bg-purple transition-all  ease-in-out text-light_gray hover:text-black hover:bg-opacity-60 hover:font-medium;
+}
+
+.nav_item > img {
+    @apply w-fit object-contain h-8;
+}
