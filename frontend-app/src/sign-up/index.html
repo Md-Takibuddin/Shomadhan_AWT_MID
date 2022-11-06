@@ -38,9 +38,12 @@
                         </div>
                     </header>
 
-                    <form class="w-full" action="{{url('registrationData')}}"
-                    method="post" enctype="multipart/form-data">
-
+                    <form
+                        class="w-full"
+                        action="{{url('registrationData')}}"
+                        method="post"
+                        enctype="multipart/form-data"
+                    >
                         <div class="grid grid-cols-12 | gap-5">
                             <span class="col-span-6 input_wrapper">
                                 <label for="name">Name</label>
@@ -82,12 +85,19 @@
                             </span>
 
                             <span class="col-span-6 input_wrapper">
-                                <label for="email_phone_number"
-                                    >Email </label
-                                >
+                                <label for="email">Email Phone number</label>
                                 <input
                                     class="form-input input_base"
-                                    name="Email"
+                                    name="email"
+                                    type="text"
+                                />
+                            </span>
+
+                            <span class="col-span-6 input_wrapper">
+                                <label for="phone_number">Phone number</label>
+                                <input
+                                    class="form-input input_base"
+                                    name="phone_number"
                                     type="text"
                                 />
                             </span>
