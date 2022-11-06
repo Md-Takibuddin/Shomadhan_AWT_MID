@@ -18,9 +18,10 @@ class Question extends Migration
             $table->id();
             $table->string ('s_id');
             $table->string ('qus');
+            $table->string ('qus_photo');
+            $table->string ('subject');
             $table->string ('t_id');
             $table->string ('ans');
-            $table->string ('qus_photo');
             $table->string ('ans_photo');
             $table->string ('status');
             $table->string ('s_feedback');

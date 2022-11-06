@@ -1,17 +1,392 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="component/sidebar.js"></script>
+        <script src="component/header.js"></script>
+        <link href="{{ asset('css/output.css') }}" rel="stylesheet">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <title>Dashboard</title>
+    </head>
 
-    <title>Dashboard</title>
-  </head>
-<br><br><br>
-  <body>
+    <body>
+        <main class="grid grid-cols-12">
+            <aside class="col-span-2 | bg-white">
+                <sidebar-component></sidebar-component>
+            </aside>
+            <section class="col-span-10 bg-[#F6F6FF] p-10">
+                <haeder-component></haeder-component>
+                <div class="grid grid-cols-12">
+                    <div class="col-span-8 flex flex-col space-y-10">
+                        <div class="grid grid-cols-3 | gap-10">
+                            <!--  -->
+                            <div class="p-5 rounded-xl bg-blue__ bg-opacity-25">
+                                <div class="flex">
+                                    <span class="flex-1 font-bold text-[32px]"
+                                        > {{$totalQus}}</span
+                                    >
+                                    <figure
+                                        class="h-[40px] w-[40px] bg-blue__ rounded-full p-2"
+                                    >
+                                        <img
+                                            src="storage/ui-photos/dashboard/Double Check.png"
+                                            alt=""
+                                        />
+                                    </figure>
+                                </div>
+                                <span class="text-light_gray text-2xl"
+                                    >Posted question</span
+                                >
+                            </div>
+                            <div class="p-5 rounded-xl bg-green bg-opacity-25">
+                                <div class="flex">
+                                    <span class="flex-1 font-bold text-[32px]"
+                                        >{{$answeredQus}}</span
+                                    >
+                                    <figure
+                                        class="h-[40px] w-[40px] bg-green rounded-full p-2"
+                                    >
+                                        <img
+                                            src="storage/ui-photos/dashboard/design.png"
+                                            alt=""
+                                        />
+                                    </figure>
+                                </div>
+                                <span class="text-light_gray text-2xl"
+                                    >Answered question</span
+                                >
+                            </div>
+                            <div
+                                class="p-5 rounded-xl bg-[#FCAB5E] bg-opacity-25"
+                            >
+                                <div class="flex">
+                                    <span class="flex-1 font-bold text-[32px]"
+                                        >{{$pendingQus}}</span
+                                    >
+                                    <figure
+                                        class="h-[40px] w-[40px] bg-[#FCAB5E] rounded-full p-2"
+                                    >
+                                        <img
+                                            src="storage/ui-photos/dashboard/Help.png"
+                                            alt=""
+                                        />
+                                    </figure>
+                                </div>
+                                <span class="text-light_gray text-2xl"
+                                    >Pending question</span
+                                >
+                            </div>
+                            <!--  -->
+                        </div>
+
+                        @if(Session::has('posted'))
+                        <p class="alert alert-success">{{Session::get('posted')}}</p>
+                        @endif
+                        {{-- <!-- Ask Ques Start -->
+                        <section class="w-full">
+                            <h3 class="header-1 mb-4">Ask Question</h3>
+
+                            <div class="bg-white p-5 rounded-xl">
+                                <form action="{{url('postQuestion')}}" method="get" enctype="multipart/form-data">
+                                    @csrf
+                                    <textarea
+                                        placeholder="Type your qustion here"
+                                        class="w-full h-[250px] border-none"
+                                    ></textarea>
+
+                                    <div class="w-fit ml-auto flex space-x-2">
+                                        <div>
+                                            <div
+                                                for="dropdown"
+                                                class="text-light_gray rounded-2xl flex space-x-2 py-3 cursor-pointer items-center"
+                                            >
+                                                <img
+                                                    class="w-[20px] h-[20px]"
+                                                    src="storage/ui-photos/dropdown.png"
+                                                    alt=""
+                                                />
+                                                <select
+                                                    class="form-select form-select-sm appearance-none block px-2 py-1 text-sm font-normal text-light_gray
+                                                    bg-white bg-clip-padding bg-no-repeat rounded transition ease-in-out m-0
+                                                    focus:bg-white border-none focus:outline-none w-[100px]"
+                                                    name="subject"
+
+                                                >
+                                                    <option value="">
+                                                        Subject
+                                                    </option>
+                                                    <option value="Math">
+                                                        Math
+                                                    </option>
+                                                    <option value="Physics">
+                                                        Physics
+                                                    </option>
+                                                    <option value="Chamistry">
+                                                        Chamistry
+                                                    </option>
+                                                    <option value="ICT">
+                                                        ICT
+                                                    </option>
+                                                    <option value="English">
+                                                        Englash
+                                                    </option>
+                                                    <option value="Bangla">
+                                                        Bangla
+                                                    </option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <label
+                                                for="file-upload"
+                                                class="text-light_gray rounded-2xl flex space-x-2 px-6 py-3 cursor-pointer items-center"
+                                            >
+                                                <img
+                                                    class="w-[20px] h-[20px]"
+                                                    src="storage/ui-photos/image.png"
+                                                    alt=""
+                                                />
+                                                <span> Add Image</span>
+                                            </label>
+                                            <input
+                                                class="hidden"
+                                                id="file-upload"
+                                                type="file"
+                                                name="qusPhoto"
+                                            />
+                                        </div>
+
+                                        <button
+                                            class="bg-purple text-white rounded-2xl flex space-x-2 px-6 py-3 items-center"
+                                            type="submit"
+                                        >
+                                            <img
+                                                class="w-[20px] h-[20px]"
+                                                src="storage/ui-photos/submit.png"
+                                                alt=""
+                                            />
+                                            <span>Submit</span>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </section>
+                        <!-- Ask Ques End --> --}}
+
+                        <!-- Note  Start -->
+                        <section class="w-full">
+                            <h3 class="header-1 mb-4">Notes</h3>
+
+                            <!-- Container -->
+                            <div
+                                class="w-full | p-5 rounded-xl bg-white | flex flex-col space-y-5"
+                            >
+                                <!-- Item -->
+                                <div class="grid grid-cols-12 w-full">
+                                    <img
+                                        class="col-span-1 h-[60px] w-[60px] rounded-xl"
+                                        src="storage/ui-photos/dashboard/notes/Group 54.png"
+                                        alt=""
+                                    />
+                                    <div
+                                        class="col-span-11 | flex flex-col justify-center"
+                                    >
+                                        <span class="font-medium text-xl"
+                                            >Math 2 - Chapter 5</span
+                                        >
+                                        <span class="text-light_gray text-sm"
+                                            >Uploaded 10 Sep, 2022</span
+                                        >
+                                    </div>
+                                </div>
+
+                                <!-- Item -->
+                                <div class="grid grid-cols-12 w-full">
+                                    <img
+                                        class="col-span-1 h-[60px] w-[60px] rounded-xl"
+                                        src="storage/ui-photos/dashboard/notes/Group 55.png"
+                                        alt=""
+                                    />
+                                    <div
+                                        class="col-span-11 | flex flex-col justify-center"
+                                    >
+                                        <span class="font-medium text-xl"
+                                            >Physics 1 - Chapter 2</span
+                                        >
+                                        <span class="text-light_gray text-sm"
+                                            >Uploaded 10 Sep, 2022</span
+                                        >
+                                    </div>
+                                </div>
+                                <!-- Item -->
+                                <div class="grid grid-cols-12 w-full">
+                                    <img
+                                        class="col-span-1 h-[60px] w-[60px] rounded-xl"
+                                        src="storage/ui-photos/dashboard/notes/Group 56.png"
+                                        alt=""
+                                    />
+                                    <div
+                                        class="col-span-11 | flex flex-col justify-center"
+                                    >
+                                        <span class="font-medium text-xl"
+                                            >Chemistry 2 - Chapter 6</span
+                                        >
+                                        <span class="text-light_gray text-sm"
+                                            >Uploaded 10 Sep, 2022</span
+                                        >
+                                    </div>
+                                </div>
+                                <!-- Item -->
+                                <div class="grid grid-cols-12 w-full">
+                                    <img
+                                        class="col-span-1 h-[60px] w-[60px] rounded-xl"
+                                        src="storage/ui-photos/dashboard/notes/Group 54.png"
+                                        alt=""
+                                    />
+                                    <div
+                                        class="col-span-11 | flex flex-col justify-center"
+                                    >
+                                        <span class="font-medium text-xl"
+                                            >Math 2 - Chapter 5</span
+                                        >
+                                        <span class="text-light_gray text-sm"
+                                            >Uploaded 10 Sep, 2022</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- Note  End -->
+                    </div>
+                    <aside class="col-span-4 | flex flex-col space-y-10 px-10">
+                        <!-- Start of Active Expertes -->
+                        <section>
+                            <h4 class="header-1 mb-4">Active Expertes</h4>
+                            <div
+                                class="w-full | p-5 rounded-xl bg-white | flex flex-col space-y-5"
+                            >
+                                <div class="flex flex-col">
+                                    <div
+                                        class="text-3xl text-green font-semibold mb-2"
+                                    >
+                                        24
+                                    </div>
+                                    <div class="text-light_gray text-base">
+                                        Instructors are active now to solve your
+                                        problem
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- End of Active Expertes -->
+
+                        <!-- Start of appointment -->
+
+                        <section>
+                            <h4 class="header-1 mb-4">Appointment</h4>
+                            <div
+                                class="w-full | p-5 rounded-xl bg-white | flex flex-col space-y-5"
+                            >
+                                <!-- Item -->
+                                <div class="w-full space-y-3">
+                                    <div class="flex space-x-4">
+                                        <img
+                                            class="h-[22px] w-[22px]"
+                                            src="storage/ui-photos/dashboard/clndr.png"
+                                            alt=""
+                                        />
+                                        <span
+                                            class="text-purple font-medium text-xl"
+                                            >20 Sep, 2022 - 8:00 PM</span
+                                        >
+                                    </div>
+                                    <p class="text-sm text-light_gray">
+                                        You have an appointment with Mr Rafio
+                                    </p>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- End of appointment -->
+                        <!-- Start of Evnets -->
+                        <section>
+                            <h4 class="header-1 mb-4">Evnets</h4>
+                            <div
+                                class="w-full | p-5 rounded-xl bg-white | flex flex-col space-y-5"
+                            >
+                                <!-- Item -->
+                                <div class="grid grid-cols-12 w-full">
+                                    <img
+                                        class="col-span-3 h-[75px] w-[75px] rounded-xl"
+                                        src="storage/ui-photos/dashboard/events/Mask group-1.png"
+                                        alt=""
+                                    />
+                                    <div
+                                        class="col-span-9 | flex flex-col justify-center"
+                                    >
+                                        <span class="font-medium text-xl"
+                                            >Bdapps National Hackathon 2022
+                                        </span>
+                                        <span class="text-sm text-green"
+                                            >Ongoing</span
+                                        >
+                                    </div>
+                                </div>
+                                <!-- Item -->
+                                <div class="grid grid-cols-12 w-full">
+                                    <img
+                                        class="col-span-3 h-[75px] w-[75px] rounded-xl"
+                                        src="storage/ui-photos/dashboard/events/Mask group-2.png"
+                                        alt=""
+                                    />
+                                    <div
+                                        class="col-span-9 | flex flex-col justify-center"
+                                    >
+                                        <span class="font-medium text-xl"
+                                            >CTO Forum launches Innovation
+                                            Hackathon 2022
+                                        </span>
+                                        <span class="text-sm text-green"
+                                            >Ongoing</span
+                                        >
+                                    </div>
+                                </div>
+                                <div class="grid grid-cols-12 w-full">
+                                    <img
+                                        class="col-span-3 h-[75px] w-[75px] rounded-xl"
+                                        src="storage/ui-photos/dashboard/events/Mask group.png"
+                                        alt=""
+                                    />
+                                    <div
+                                        class="col-span-9 | flex flex-col justify-center"
+                                    >
+                                        <span class="font-medium text-xl"
+                                            >AIUB Hackathon
+                                        </span>
+                                        <span class="text-sm text-orange_"
+                                            >Coming soon</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                        <!-- End of Evnets -->
+                    </aside>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+  {{-- <body>
     <div class="container">
         <a href="{{url('logout')}}" class="btn btn-primary my-3 float-right" >Log Out</a>
         <h4>Welcome to Dashboard</h4>
@@ -27,7 +402,8 @@
 
 <p>ansed qus: {{$answeredQus}} </p>
 
-<p>pending qus: {{$pendingQus}}</p><br>
+<p>pending qus: {{$pendingQus}}</p
+    ><br>
 
 
 <img src="{{asset("$photo")}}" >
@@ -39,6 +415,6 @@
     </div>
      <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   </body>
-</html>
+</html> --}}
 
 
