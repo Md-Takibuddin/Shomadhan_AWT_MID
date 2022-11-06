@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\question;
+use App\Models\teacher_infos;
+
 use Session;
 
 
@@ -12,10 +14,21 @@ class studentQuestion extends Controller
     public function question()
     {
         $s_id= Session::get('id');
-        $qus = question::where ('s_id','=',$s_id)->get();
+        $answeredQus = question::where
+        ([
+            ['s_id','=',$s_id],
+            ['status', '=', 'answered'],
+        ])->get();
+
+        $pendingQus = question::where
+        ([
+            ['s_id','=',$s_id],
+            ['status', '=', 'pending'],
+        ])->get();
+
         //$qus = question::all();
 
-        return view('student.question',compact('qus'));
+        return view('student.question',compact('answeredQus','pendingQus'));
     }
 
     public function postQuestion(Request $qus)
@@ -24,6 +37,7 @@ class studentQuestion extends Controller
        $s_id= Session::get('id');
         $validate = $qus->validate([
             "question"=>"required",
+            "subject"=>"required",
             ],
             );
 
@@ -54,7 +68,21 @@ class studentQuestion extends Controller
 
     Session::flash('posted','Question Posted');
     return redirect()->back();
-
-
     }
+
+
+
+    public function viewQus ($id) {
+
+        $qus = question::where ('id','=',$id)->first();
+        if($qus->qus_photo!= "null"){
+            Session::flash('qusPhoto','true');
+        }
+        if($qus->ans_photo!= "null"){
+            Session::flash('ansPhoto','true');
+        }
+
+        return view('student.questionView',compact('qus'));
+    }
+
 }

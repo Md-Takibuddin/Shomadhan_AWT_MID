@@ -126,19 +126,19 @@
                                 </button>
                             </div>
                         </div>
+                    {{-- alart --}}
 
                         <!-- Ask Qus Start -->
                         <section>
                             <h3 class="header-1 mb-4">Answered questions</h3>
                             <div class="grid grid-cols-12 gap-5">
                                 <!-- Item -->
-                                @foreach ($qus as $data)
-                                <div
-                                    class="w-full space-y-3 | col-span-4 | bg-white p-5 rounded-xl | cursor-pointer hover:shadow-md transition-shadow duration-300"
-                                >
+                                @foreach ($answeredQus as $data)
+                                <a href="{{url('questionView/'.$data ->id)}}" class="w-full space-y-3 | col-span-4 |
+                                     bg-white p-5 rounded-xl | cursor-pointer hover:shadow-md transition-shadow duration-300">
                                     <div class="flex space-x-5">
                                         <span
-                                        class="text-white bg-purple h-min px-2 py-1 rounded font-medium text-lg"
+                                        class="text-purple bg-purple bg-opacity-10 h-min px-2 py-1 rounded font-medium text-lg"
                                             >Q</span
                                         >
                                         <p>
@@ -147,7 +147,7 @@
                                     </div>
                                     <div class="flex space-x-5">
                                         <span
-                                            class="text-white bg-green bg-opacity-10 h-min px-2 py-1 rounded font-medium text-lg"
+                                            class="text-green bg-green bg-opacity-10 h-min px-2 py-1 rounded font-medium text-lg"
                                             >A</span
                                         >
                                         <p class="truncate">
@@ -156,7 +156,7 @@
                                     </div>
                                     <span class="flex pt-2 space-x-2">
                                         <span class="text-light_gray text-sm">
-                                            Solver by Shipon Hossain
+                                            Solver by {{$data->t_id}}
                                         </span>
                                         <img
                                             class="h-5 w-5"
@@ -164,7 +164,8 @@
                                             alt=""
                                         />
                                     </span>
-                                </div>
+
+                            </a>
                                 @endforeach
                             </div>
                             <!-- Pagination -->
@@ -205,27 +206,21 @@
                             <h3 class="header-1 mb-4">Pending questions</h3>
                             <div class="grid grid-cols-12 gap-5">
                                 <!-- Item -->
+                                @foreach ($pendingQus as $data )
                                 <div
                                     class="w-full space-y-3 | col-span-4 | bg-white p-5 rounded-xl | cursor-pointer hover:shadow-md transition-shadow duration-300"
                                 >
                                     <div class="flex space-x-5">
                                         <span
-                                            class="text-purple bg-purple bg-opacity-10 h-min p-2 rounded font-medium text-xl"
+                                        class="text-purple bg-purple bg-opacity-10 h-min px-2 py-1 rounded font-medium text-lg"
                                             >Q</span
                                         >
                                         <p>
-                                            What is momentum and its SI units?
-                                            What is the momentum of a racing car
-                                            of mass 500 kg driven at 270 km/h?
+                                            {{ $data ->qus}}
                                         </p>
                                     </div>
-
-                                    <span
-                                        class="flex pt-5 text-light_gray text-sm"
-                                    >
-                                        Solver by Shipon Hossain
-                                    </span>
                                 </div>
+                                @endforeach
                             </div>
                         </section>
 
@@ -236,18 +231,19 @@
             <!-- Modal -->
             <div
                 id="modal"
-                class="fixed min-h-screen w-screen top-0 left-0 z-50 | backdrop-blur-sm bg-white/10 | justify-center items-center | hidden | transition-all duration-300 ease-in-out"
+                class="fixed min-h-screen w-screen top-0 left-0 z-50 | backdrop-blur-sm bg-black/20  |
+                justify-center items-center | hidden | transition-all duration-300 ease-in-out"
             >
                 <div
                     class="w-fit bg-white rounded-xl p-5 transition-shadow shadow | relative"
                 >
-                    <div class="absolute top-5 right-5  !bg-red-600">
+                    <div class="absolute top-5 right-5 ">
                         <button
                             id="close_qus_modal"
                             class="hover:scale-125 transition-transform z-20"
                         >
                             <img
-                                class="h-16 w-16"
+                                class="h-8 w-8"
                                 src="storage/ui-photos/nav-icons/close.svg"
                                 alt=""
                             />
@@ -257,10 +253,12 @@
                         Ask Qustion
                     </h6>
                     <div class="bg-white p-5 rounded-xl w-[700px]">
-                        <form action="">
+                        <form action="{{url('postQuestion')}}" method="post" enctype="multipart/form-data">
+                            @csrf
                             <textarea
                                 placeholder="Type your qustion here"
                                 class="w-full h-[250px] border-none"
+                                name="question"
                             ></textarea>
 
                             <div class="w-fit ml-auto flex space-x-2">
@@ -275,10 +273,27 @@
                                             alt=""
                                         />
                                         <select
-                                            class="form-select form-select-sm appearance-none block px-2 py-1 text-sm font-normal text-light_gray bg-white bg-clip-padding bg-no-repeat rounded transition ease-in-out m-0 focus:bg-white border-none focus:outline-none w-[100px]"
+                                            class="form-select form-select-sm appearance-none block px-2 py-1 text-sm font-normal
+                                             text-light_gray bg-white bg-clip-padding bg-no-repeat rounded transition ease-in-out m-0
+                                             focus:bg-white border-none focus:outline-none w-[100px]"
+                                             name="subject"
                                         >
-                                            <option value="">Subject</option>
-                                            <option value="">Subject 2</option>
+                                        <option value="">
+                                            Subject </option>
+                                        <option value="Math">
+                                            Math </option>
+                                        <option value="Physics">
+                                            Physics </option>
+                                        <option value="Chemistry">
+                                            Chemistry </option>
+                                        <option value="Biology">
+                                            Biology </option>
+                                        <option value="ICT">
+                                            ICT </option>
+                                        <option value="English">
+                                            Englash </option>
+                                        <option value="Bangla">
+                                            Bangla </option>
                                         </select>
                                     </div>
                                 </div>
@@ -298,6 +313,7 @@
                                         class="hidden"
                                         id="file-upload"
                                         type="file"
+                                        name="qusPhoto"
                                     />
                                 </div>
 

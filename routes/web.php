@@ -11,7 +11,7 @@ use App\Http\Controllers\studentAppointment;
 
 
 Route::get('/', function () {
-    return view('login');
+    return view('student.login');
 });
 
 Route::get('/login',[studentLogin::class,'login']);
@@ -24,3 +24,10 @@ Route::get('/question',[studentQuestion::class,'question'])->middleware('loginCh
 Route::post('/postQuestion',[studentQuestion::class,'postQuestion']);
 Route::get('/settings',[studentSettings::class,'settings'])->middleware('loginCheck');
 Route::get('/appointment',[studentAppointment::class,'appointment'])->middleware('loginCheck');
+Route::get('/questionView/{id}',[studentQuestion::class,'viewQus']);
+
+
+Route::get('test',function () {
+    return view('student.questionView');
+ });
+

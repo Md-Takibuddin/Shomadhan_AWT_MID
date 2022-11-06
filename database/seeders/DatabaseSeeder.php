@@ -44,11 +44,11 @@ class DatabaseSeeder extends Seeder
         DB::table('questions')->insert([
             's_id'=>'1 ',
             'qus'=>'what is mass?',
-            't_id'=>'1',
+            't_id'=>'Takib Sarker',
             'qus_photo'=>'null',
             'subject'=>'Math',
             'ans'=>'What is mass in short answer?
-            Mass (symbolized m) is a dimensionless quantity representing the amount of matter in a particle or object. The standard unit of mass in the International System (SI) is the kilogram (kg).',
+             Mass (symbolized m) is a dimensionless quantity representing the amount of matter in a particle or object. The standard unit of mass in the International System (SI) is the kilogram (kg).',
             'ans_photo'=>'null',
             'status'=>'answered',
             's_feedback'=>'null'
@@ -71,5 +71,28 @@ class DatabaseSeeder extends Seeder
             'date'=>'20/12/2022',
             'status'=>'accepted'
             ]);
+
+
+
+
+        DB::table('teacher_infos')->insert([
+            't_id'=>'10',
+            'name'=>'Shihab Mia',
+            't_email'=>'shihab@email.com'
+            ]);
+
+        DB::table('teacher_infos')->insert([
+            't_id'=>'11',
+            'name'=>'Rafio',
+            't_email'=>'rafio@email.com'
+            ]);
+
+        DB::table('teacher_infos')->insert([
+            't_id'=>'12',
+            'name'=>'shan',
+            't_email'=>'shan@email.com'
+            ]);
+
+
     }
 }

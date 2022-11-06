@@ -13,6 +13,7 @@
     <body>
         <main class="grid grid-cols-12">
             <aside class="col-span-2 | bg-white">
+
                 <div class="sticky top-0 left-0 h-screen flex flex-col overflow-x-auto | p-4">
                     <figure class="h-[70px] w-full">
                         <img
@@ -218,8 +219,11 @@
                                                     <option value="Physics">
                                                         Physics
                                                     </option>
-                                                    <option value="Chamistry">
-                                                        Chamistry
+                                                    <option value="Chemistry">
+                                                        Chemistry
+                                                    </option>
+                                                    <option value="Biology">
+                                                        Biology
                                                     </option>
                                                     <option value="ICT">
                                                         ICT
