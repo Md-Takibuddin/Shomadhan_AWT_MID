@@ -21,6 +21,6 @@ Route::post('/loginData',[studentLogin::class,'loginData']);
 Route::get('/dashboard',[studentDashboard::class,'dashboard'])->middleware('loginCheck');
 Route::get('/logout',[studentLogin::class,'logout']);
 Route::get('/question',[studentQuestion::class,'question'])->middleware('loginCheck');
-Route::get('/postQuestion',[studentQuestion::class,'postQuestion']);
+Route::post('/postQuestion',[studentQuestion::class,'postQuestion']);
 Route::get('/settings',[studentSettings::class,'settings'])->middleware('loginCheck');
 Route::get('/appointment',[studentAppointment::class,'appointment'])->middleware('loginCheck');

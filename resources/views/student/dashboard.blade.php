@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link href="{{ asset('css/output.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.css ') }}" rel="stylesheet">
 
         <title>Dashboard</title>
     </head>
@@ -23,7 +23,7 @@
                     </figure>
 
                     <nav class="flex flex-col space-y-4 mt-10">
-                        <a class="nav_item" href="">
+                        <a class="nav_item" href="{{url('dashboard')}}">
                             <img
                                 src="storage/ui-photos/nav-icons/home.png"
                                 alt="nav-icon"
@@ -183,7 +183,7 @@
                             <h3 class="header-1 mb-4">Ask Question</h3>
 
                             <div class="bg-white p-5 rounded-xl">
-                                <form action="{{url('postQuestion')}}" method="get" enctype="multipart/form-data">
+                                <form action="{{url('postQuestion')}}" method="post" enctype="multipart/form-data">
                                     @csrf
                                     <textarea
                                         placeholder="Type your qustion here"

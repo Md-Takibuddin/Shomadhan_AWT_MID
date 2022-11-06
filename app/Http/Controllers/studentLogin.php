@@ -5,17 +5,40 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\student_info;
 use Session;
+use Cookie;
 use Hash;
 
 class studentLogin extends Controller
 {
     public function login()
     {
-       if(session()->has('email')){
+        if(session()->has('email')){
            return redirect('dashboard');
-           }else{
+        }
+        elseif(Cookie::get('email') != null && Cookie::get('email') != ""){
+            if($this->checkLogin(Cookie::get('email'), Cookie::get('password')))
+            {
+                return redirect('dashboard');
+            }
+        }else{
             return view('student.login');
            }
+    }
+
+    public static function checkLogin($email, $password)
+    {
+        $user = Student_info::where('email', $email)->first();
+
+            if ($user && Hash::check($password,$user->password)){
+            $loginData->session()->put('email',$loginData->email);
+            session()->put('name',$user->name);
+            session()->put('id',$user->id);
+            session()->put('photo',$user->photo);
+            return true;
+            }
+            else {
+             return false;
+            }
     }
 
     public function loginData(Request $loginData)
@@ -33,7 +56,11 @@ class studentLogin extends Controller
             $loginData->session()->put('email',$loginData->email);
             session()->put('name',$user->name);
             session()->put('id',$user->id);
-
+            session()->put('photo',$user->photo);
+            if ($loginData->has('remember')) {
+                Cookie::queue('email', $loginData->email, 3600);
+                Cookie::queue('password', $loginData->password, 3600);
+            }
             return redirect('dashboard');
             }
             else {
@@ -53,6 +80,8 @@ class studentLogin extends Controller
    {
     Session::forget('key');
     Session::flush();
+    Cookie::queue(Cookie::forget('email'));
+    Cookie::queue(Cookie::forget('password'));
     return redirect('login');
    }
 

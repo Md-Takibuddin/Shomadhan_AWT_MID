@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
        {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-        <link href="{{ asset('css/output.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <title>Sign in</title>
     </head>
     <body>
@@ -66,14 +66,14 @@
                             <span class="text-error" style="color: red">{{$message}}</span>
                             @enderror
                         </span>
-                        <!-- <span>
+                       <span>
                             <input
                                 class="form-input input_base"
-                                name="checkbox"
                                 type="checkbox"
+                                name="remember"
                             />
                             <label for="email">Remember me</label>
-                        </span> -->
+                        </span>
 
                         <button class="cta_btn_base bg-green" type="submit">
                             Log in
