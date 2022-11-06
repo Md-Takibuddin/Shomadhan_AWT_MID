@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../../../dist/output.css" rel="stylesheet" />
+        <script src="../../component/sidebar.js"></script>
+        <script src="../../component/header.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div class="grid grid-cols-12 | relative">
+            <aside class="col-span-2 | bg-white">
+                <sidebar-component></sidebar-component>
+            </aside>
+            <section class="col-span-10 bg-[#F6F6FF] p-10">
+                <haeder-component></haeder-component>
+                <div class="flex flex-col space-y-10">
+                    <div
+                        class="flex space-x-3 items-center cursor-pointer w-min"
+                    >
+                        <img
+                            class="h-5 w-5"
+                            src="../../../public/dashboard/left-arrow.png"
+                            alt=""
+                        />
+                        <span class="text-lg text-light_gray">Back</span>
+                    </div>
+                    <section>
+                        <article class="flex flex-col space-y-8">
+                            <div
+                                class="bg-white rounded-xl px-10 py-5 font-semibold"
+                            >
+                                <div class="flex space-x-5">
+                                    <span
+                                        class="text-purple bg-purple bg-opacity-10 h-min p-2 rounded font-medium text-xl"
+                                        >Q</span
+                                    >
+                                    <p>
+                                        What is momentum and its SI units? What
+                                        is the momentum of a racing car of mass
+                                        500 kg driven at 270 km/h?
+                                    </p>
+                                </div>
+                                <!-- Ignore whole figure tag if there is not image -->
+                                <figure
+                                    class="flex justify-center items-center mt-5"
+                                >
+                                    <img
+                                        class="h-fit w-fit object-contain max-w-[560px]"
+                                        src="../../../public/dashboard/image 3.png"
+                                        alt=""
+                                    />
+                                </figure>
+                            </div>
+                            <div
+                                class="flex space-x-5 bg-white rounded-xl px-10 py-5"
+                            >
+                                <span
+                                    class="text-green bg-green bg-opacity-10 h-min p-2 rounded font-medium text-xl"
+                                    >A</span
+                                >
+                                <div>
+                                    <span class="flex space-x-2">
+                                        <span class="text-light_gray text-sm">
+                                            Solver by Shipon Hossain
+                                        </span>
+                                        <img
+                                            class="h-5 w-5"
+                                            src="../../../public/dashboard/solved.png"
+                                            alt=""
+                                        />
+                                    </span>
+                                    <p class="py-5">
+                                        From Newton’s second law it follows
+                                        that, if a constant force acts on a
+                                        particle for a given time, the product
+                                        of force and the time interval (the
+                                        impulse) is equal to the change in the
+                                        momentum. Conversely, the momentum of a
+                                        particle is a measure of the time
+                                        required for a constant force to bring
+                                        it to rest.
+                                    </p>
+
+                                    <!-- Ignore whole figure tag if there is not image -->
+                                    <figure
+                                        class="flex justify-center items-center mt-5"
+                                    >
+                                        <img
+                                            class="h-fit w-fit object-contain max-w-[560px]"
+                                            src="../../../public/dashboard/image 4.png"
+                                            alt=""
+                                        />
+                                    </figure>
+                                </div>
+                            </div>
+                        </article>
+                    </section>
+                </div>
+            </section>
+        </div>
+    </body>
+</html>
