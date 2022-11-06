@@ -24,7 +24,6 @@
                             alt="logo"
                         />
                     </figure>
-
                     <nav class="flex flex-col space-y-4 mt-10">
                         <a class="nav_item" href="{{url('dashboard')}}">
                             <img
