@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link href="../../../dist/output.css" rel="stylesheet" />
+        <script src="../../component/sidebar.js"></script>
+        <script src="../../component/header.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <main class="relative">
+            <div class="grid grid-cols-12 | relative">
+                <aside class="col-span-2 | bg-white">
+                    <sidebar-component></sidebar-component>
+                </aside>
+                <section class="col-span-10 bg-[#F6F6FF] p-10">
+                    <haeder-component></haeder-component>
+                    <div
+                        class="grid grid-cols-12 | mt-5 rounded-xl | bg-white p-5"
+                    >
+                        <div class="col-span-8 border-r-2 border-dashed">
+                            <div class="flex space-x-5">
+                                <figure>
+                                    <img
+                                        class="h-[130px] w-[130px] rounded-full"
+                                        src="../../../public/dp.png"
+                                        alt=""
+                                    />
+                                </figure>
+                                <div class="flex flex-col space-y-1">
+                                    <h1 class="font-semibold text-4xl">
+                                        Md Takib Uddin
+                                    </h1>
+                                    <span class="text-light_gray text-xl"
+                                        >Student</span
+                                    >
+                                    <button
+                                        class="rounded-3xl px-6 py-2 font-semibold bg-[#F5F5F5] !w-fit hover:shadow transition-shadow duration-300"
+                                    >
+                                        Edit Profile
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mt-10">
+                                <form class="grid grid-cols-3 gap-10" action="">
+                                    <div class="flex space-x-3">
+                                        <figure>
+                                            <img
+                                                class="h-8 w-8 rounded-full"
+                                                src="../../../public/dashboard/Mail.png"
+                                                alt=""
+                                            />
+                                        </figure>
+                                        <div class="flex flex-col space-y-2">
+                                            <label
+                                                class="text-sm text-light_gray"
+                                                for="email"
+                                                >Email</label
+                                            >
+                                            <input
+                                                disabled
+                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                type="text"
+                                                value="takib@gmail.com"
+                                                name="email"
+                                                id="email"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-3">
+                                        <figure>
+                                            <img
+                                                class="h-8 w-8 rounded-full"
+                                                src="../../../public/dashboard/Mail.png"
+                                                alt=""
+                                            />
+                                        </figure>
+                                        <div class="flex flex-col space-y-2">
+                                            <label
+                                                class="text-sm text-light_gray"
+                                                for="dob"
+                                                >Date of birth</label
+                                            >
+                                            <input
+                                                disabled
+                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                type="text"
+                                                value="29 Feb, 2000"
+                                                name="email"
+                                                id="email"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-3">
+                                        <figure>
+                                            <img
+                                                class="h-8 w-8 rounded-full"
+                                                src="../../../public/dashboard/Mail.png"
+                                                alt=""
+                                            />
+                                        </figure>
+                                        <div class="flex flex-col space-y-2">
+                                            <label
+                                                class="text-sm text-light_gray"
+                                                for="phone_no"
+                                                >Phone No</label
+                                            >
+                                            <input
+                                                disabled
+                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                type="text"
+                                                value="+880 1779 011690"
+                                                name="phone_no"
+                                                id="phone_no"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-3">
+                                        <figure>
+                                            <img
+                                                class="h-8 w-8 rounded-full"
+                                                src="../../../public/dashboard/Mail.png"
+                                                alt=""
+                                            />
+                                        </figure>
+                                        <div class="flex flex-col space-y-2">
+                                            <label
+                                                class="text-sm text-light_gray"
+                                                for="school_collage"
+                                                >School / Collage</label
+                                            >
+                                            <input
+                                                disabled
+                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                type="text"
+                                                value="Dhaka Collage, Dhaka"
+                                                name="school_collage"
+                                                id="school_collage"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="flex space-x-3">
+                                        <figure>
+                                            <img
+                                                class="h-8 w-8 rounded-full"
+                                                src="../../../public/dashboard/Mail.png"
+                                                alt=""
+                                            />
+                                        </figure>
+                                        <div class="flex flex-col space-y-2">
+                                            <label
+                                                class="text-sm text-light_gray"
+                                                for="class"
+                                                >Class</label
+                                            >
+                                            <input
+                                                disabled
+                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                type="text"
+                                                value="HSC"
+                                                name="class"
+                                                id="class"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="space-x-3 hidden">
+                                        <figure>
+                                            <img
+                                                class="h-8 w-8 rounded-full"
+                                                src="../../../public/dashboard/Mail.png"
+                                                alt=""
+                                            />
+                                        </figure>
+                                        <div class="flex flex-col space-y-2">
+                                            <label
+                                                class="text-sm text-light_gray"
+                                                for="photo"
+                                                >Photo</label
+                                            >
+                                            <input
+                                                disabled
+                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                type="file"
+                                                value="takib@gmail.com"
+                                                name="photo"
+                                                id="photo"
+                                                accept="image/*"
+                                            />
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-span-4 px-10 | flex flex-col space-y-5">
+                            <div
+                                class="bg-gradient-to-r from-purple to-blue__ rounded-2xl p-5 text-white flex flex-col space-y-5"
+                            >
+                                <span class="text-xl">Your Plan</span>
+                                <h6 class="font-semibold text-3xl">FREE</h6>
+                                <p>
+                                    Upgrade to Premium Plan to get more Features
+                                    & Storage memory
+                                </p>
+                                <button
+                                    class="rounded-2xl bg-white text-black py-3 hover:shadow-xl transition-shadow duration-300 font-medium"
+                                >
+                                    Upgrade Plan
+                                </button>
+                            </div>
+                            <div>
+                                <button
+                                    class="hover:shadow-xl transition-shadow duration-300 cta_btn_base | bg-purple text-xl"
+                                >
+                                    Change Password
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+    </body>
+</html>
