@@ -4,8 +4,7 @@
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script src="component/sidebar.js"></script>
-        <script src="component/header.js"></script>
+
         <link href="{{ asset('css/output.css') }}" rel="stylesheet">
 
         <title>Dashboard</title>
@@ -14,10 +13,104 @@
     <body>
         <main class="grid grid-cols-12">
             <aside class="col-span-2 | bg-white">
-                <sidebar-component></sidebar-component>
+                <div class="sticky top-0 left-0 h-screen flex flex-col overflow-x-auto | p-4">
+                    <figure class="h-[70px] w-full">
+                        <img
+                            class="h-full w-full object-contain"
+                            src="storage/ui-photos/logo.png"
+                            alt="logo"
+                        />
+                    </figure>
+
+                    <nav class="flex flex-col space-y-4 mt-10">
+                        <a class="nav_item" href="">
+                            <img
+                                src="storage/ui-photos/nav-icons/home.png"
+                                alt="nav-icon"
+                            />
+                            <span>Dashboard</span>
+                        </a>
+                        <a class="nav_item" href="{{url('question')}}">
+                            <img
+                                src="storage/ui-photos/nav-icons/qus.png"
+                                alt="nav-icon"
+                            />
+                            <span>Questions</span>
+                        </a>
+                        <a class="nav_item" href="{{url('appointment')}}">
+                            <img
+                                src="storage/ui-photos/nav-icons/appointment.png"
+                                alt="nav-icon"
+                            />
+                            <span>Appointment</span>
+                        </a>
+                        <a class="nav_item" href="{{url('settings')}}">
+                            <img
+                                src="storage/ui-photos/nav-icons/settings.png"
+                                alt="nav-icon"
+                            />
+                            <span>Settings</span>
+                        </a>
+                        <a class="nav_item" href="{{url('logout')}}">
+                            <img
+                                src="storage/ui-photos/nav-icons/log-out.png"
+                                alt="nav-icon"
+                            />
+                            <span>Log out</span>
+                        </a>
+                    </nav>
+                    <section
+                        class="relative | flex flex-col space-y-7 | mt-auto px-5 pb-5"
+                    >
+                        <div class="relative | z-10 flex flex-col space-y-4">
+                            <figure>
+                                <img
+                                    src="storage/ui-photos/subscription.png"
+                                    alt=""
+                                />
+                            </figure>
+                            <h6 class="text-center font-bold text-xl">
+                                Premium Subscription
+                            </h6>
+                            <p class="text-center text-sm">
+                                Be a Premium user and get access to new features
+                            </p>
+                            <button
+                                class="bg-purple py-3 px-5 rounded-xl text-white font-semibold hover:shadow-xl transition-all ease-in-out duration-300"
+                            >
+                                Upgrade Now
+                            </button>
+                        </div>
+                        <div
+                            class="absolute h-[60%] w-full left-0 bottom-0 z-0 | bg-purple bg-opacity-60 rounded-xl"
+                        ></div>
+                    </section>
+                </div>
             </aside>
             <section class="col-span-10 bg-[#F6F6FF] p-10">
-                <haeder-component></haeder-component>
+                {{-- header --}}
+                <nav class="flex">
+                    <h1 class="flex-1 | text-purple text-[38px] font-bold">
+                        Dashboard
+                    </h1>
+                    <div class="flex space-x-3">
+                        <div class="flex flex-col">
+                            <span class="text-xl font-semibold"
+                                >{{Session::get('name')}}</span
+                            >
+                            <span
+                                class="text-right text-light_gray font-medium text-sm"
+                                >Student</span
+                            >
+                        </div>
+                        <img
+                            class="h-[65px] w-[65px] rounded-full"
+                            src="{{asset("$photo")}}"
+                            alt=""
+                        />
+                    </div>
+                </nav>
+                    {{-- header end --}}
                 <div class="grid grid-cols-12">
                     <div class="col-span-8 flex flex-col space-y-10">
                         <div class="grid grid-cols-3 | gap-10">
@@ -84,7 +177,8 @@
                         @if(Session::has('posted'))
                         <p class="alert alert-success">{{Session::get('posted')}}</p>
                         @endif
-                        {{-- <!-- Ask Ques Start -->
+
+                        <!-- Ask Ques Start -->
                         <section class="w-full">
                             <h3 class="header-1 mb-4">Ask Question</h3>
 
@@ -94,6 +188,7 @@
                                     <textarea
                                         placeholder="Type your qustion here"
                                         class="w-full h-[250px] border-none"
+                                        name="question"
                                     ></textarea>
 
                                     <div class="w-fit ml-auto flex space-x-2">
@@ -151,10 +246,10 @@
                                                 <span> Add Image</span>
                                             </label>
                                             <input
-                                                class="hidden"
-                                                id="file-upload"
                                                 type="file"
+                                                class="hidden"
                                                 name="qusPhoto"
+                                                id="file-upload"
                                             />
                                         </div>
 
@@ -173,7 +268,7 @@
                                 </form>
                             </div>
                         </section>
-                        <!-- Ask Ques End --> --}}
+                        <!-- Ask Ques End -->
 
                         <!-- Note  Start -->
                         <section class="w-full">

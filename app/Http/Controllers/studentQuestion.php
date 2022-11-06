@@ -24,21 +24,29 @@ class studentQuestion extends Controller
        $s_id= Session::get('id');
         $validate = $qus->validate([
             "question"=>"required",
-            "subject"=>"required"
             ],
             );
+
 
     $postQus = new question();
     $postQus->s_id = $s_id;
     $postQus->qus = $qus->question;
+
+    if($qus->file('qusPhoto')){
+        $photoName= time().$qus->subject.".".$qus->file('qusPhoto')->getClientOriginalExtension();
+        $path = $qus->file('qusPhoto')->storeAs('/public/question',$photoName);
+        $postQus['qus_photo']='/storage/question/'.$photoName;
+    } else {
+        $postQus->qus_photo = "null";
+    }
+    // $photoName= time().$regData->name.".".$regData->file('photo')->getClientOriginalExtension();
+    // $path = $regData->file('photo')->storeAs('/public/images',$photoName);
+    // $student['photo']='/storage/images/'.$photoName;
+
+    //$postQus->qus_photo = "null";
     $postQus->subject = $qus->subject;
     $postQus->t_id = "null";
     $postQus->ans = "Not answered yet";
-
-    $photoName= time().$s_id.$qus->subject.".".$qus->file('qusPhoto')->getClientOriginalExtension();
-    $path = $qus->file('qusPhoto')->storeAs('/public/question',$photoName);
-    $postQus['qus_photo']='/storage/question/'.$photoName;
-
     $postQus->ans_photo = "null";
     $postQus->status = "pending";
     $postQus->s_feedback = "null";

@@ -8,7 +8,7 @@ class Sidebar extends HTMLElement {
                     <figure class="h-[70px] w-full">
                         <img
                             class="h-full w-full object-contain"
-                            src="storage/ui-photos/logo.png"
+                            src="storage/ui-photos/ logo.png"
                             alt="logo"
                         />
                     </figure>
@@ -16,35 +16,35 @@ class Sidebar extends HTMLElement {
                     <nav class="flex flex-col space-y-4 mt-10">
                         <a class="nav_item" href="">
                             <img
-                                src="storage/ui-photos/nav-icons/home.png"
+                                src="storage/ui-photos/ nav-icons/home.png"
                                 alt="nav-icon"
                             />
                             <span>Dashboard</span>
                         </a>
-                        <a class="nav_item" href="question">
+                        <a class="nav_item" href="">
                             <img
-                                src="storage/ui-photos/nav-icons/qus.png"
+                                src="storage/ui-photos/ nav-icons/qus.png"
                                 alt="nav-icon"
                             />
                             <span>Questions</span>
                         </a>
                         <a class="nav_item" href="">
                             <img
-                                src="storage/ui-photos/nav-icons/appointment.png"
+                                src="storage/ui-photos/ nav-icons/appointment.png"
                                 alt="nav-icon"
                             />
                             <span>Appointment</span>
                         </a>
                         <a class="nav_item" href="">
                             <img
-                                src="storage/ui-photos/nav-icons/settings.png"
+                                src="storage/ui-photos/ nav-icons/settings.png"
                                 alt="nav-icon"
                             />
                             <span>Settings</span>
                         </a>
                         <a class="nav_item" href="{{url('logout')}}">
                             <img
-                                src="storage/ui-photos/nav-icons/log-out.png"
+                                src="storage/ui-photos/ nav-icons/log-out.png"
                                 alt="nav-icon"
                             />
                             <span>Log out</span>
@@ -56,7 +56,7 @@ class Sidebar extends HTMLElement {
                         <div class="relative | z-10 flex flex-col space-y-4">
                             <figure>
                                 <img
-                                    src="storage/ui-photos/subscription.png"
+                                    src="storage/ui-photos/ subscription.png"
                                     alt=""
                                 />
                             </figure>
