@@ -178,7 +178,7 @@
                                     </p>
 
                                     <!-- Ignore whole figure tag if there is not image -->
-                                    @if (Session::has('qusPhoto'))
+                                    @if (Session::has('ansPhoto'))
                                     <figure
                                         class="flex justify-center items-center mt-5"
                                     >

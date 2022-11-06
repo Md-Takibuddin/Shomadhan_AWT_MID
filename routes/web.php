@@ -25,6 +25,7 @@ Route::post('/postQuestion',[studentQuestion::class,'postQuestion']);
 Route::get('/settings',[studentSettings::class,'settings'])->middleware('loginCheck');
 Route::get('/appointment',[studentAppointment::class,'appointment'])->middleware('loginCheck');
 Route::get('/questionView/{id}',[studentQuestion::class,'viewQus']);
+Route::get('/updateData',[studentSettings::class,'updateData']);
 
 
 Route::get('test',function () {
