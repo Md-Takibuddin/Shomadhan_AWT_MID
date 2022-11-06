@@ -1,4 +1,4 @@
-const inputs = document.querySelectorAll("input");
+const inputs = document.querySelectorAll(".user_form input");
 const modalContainer = document.querySelector("#modal");
 const editProfileBtn = document.querySelector("#edit_profile_btn");
 const saveProfileBtn = document.querySelector("#save_profile_btn");
