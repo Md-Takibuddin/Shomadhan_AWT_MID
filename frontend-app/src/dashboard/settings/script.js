@@ -1,6 +1,9 @@
+const inputs = document.querySelectorAll("input");
+const modalContainer = document.querySelector("#modal");
 const editProfileBtn = document.querySelector("#edit_profile_btn");
 const saveProfileBtn = document.querySelector("#save_profile_btn");
-const inputs = document.querySelectorAll("input");
+const changePasswordBtn = document.querySelector("#change_password_btn");
+const cancleBtn = document.querySelector("#modal_cancle_btn");
 
 const editPhotoField = (inputs, show) => {
     inputs.forEach((e) => {
@@ -32,4 +35,12 @@ saveProfileBtn.addEventListener("click", () => {
     editPhotoField(inputs, false);
     editInputs(inputs, true);
     saveProfileBtn.style.display = "none";
+});
+
+changePasswordBtn.addEventListener("click", () => {
+    modalContainer.style.display = "flex";
+});
+
+cancleBtn.addEventListener("click", () => {
+    modalContainer.style.display = "none";
 });

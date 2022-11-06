@@ -7,5 +7,5 @@ appointmentBtn.addEventListener("click", () => {
 });
 
 cancleBtn.addEventListener("click", () => {
-    modalContainer.style.display = "hidden";
+    modalContainer.style.display = "none";
 });
