@@ -7,6 +7,7 @@
         <link href="../../../dist/output.css" rel="stylesheet" />
         <script src="../../component/sidebar.js"></script>
         <script src="../../component/header.js"></script>
+        <script defer src="./script.js"></script>
         <title>Document</title>
     </head>
     <body>
@@ -36,11 +37,20 @@
                                     <span class="text-light_gray text-xl"
                                         >Student</span
                                     >
-                                    <button
-                                        class="rounded-3xl px-6 py-2 font-semibold bg-[#F5F5F5] !w-fit hover:shadow transition-shadow duration-300"
-                                    >
-                                        Edit Profile
-                                    </button>
+                                    <div class="flex space-x-3">
+                                        <button
+                                            id="edit_profile_btn"
+                                            class="rounded-3xl px-6 py-2 font-semibold bg-[#F5F5F5] !w-fit hover:shadow transition-shadow duration-300"
+                                        >
+                                            Edit Profile
+                                        </button>
+                                        <button
+                                            id="save_profile_btn"
+                                            class="rounded-3xl px-6 py-2 font-semibold bg-purple !w-fit hover:shadow transition-shadow duration-300 text-white hidden"
+                                        >
+                                            Save
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <div class="mt-10">
@@ -61,7 +71,7 @@
                                             >
                                             <input
                                                 disabled
-                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                class="settings_input_disabled"
                                                 type="text"
                                                 value="takib@gmail.com"
                                                 name="email"
@@ -85,7 +95,7 @@
                                             >
                                             <input
                                                 disabled
-                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                class="settings_input_disabled"
                                                 type="text"
                                                 value="29 Feb, 2000"
                                                 name="email"
@@ -109,7 +119,7 @@
                                             >
                                             <input
                                                 disabled
-                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                class="settings_input_disabled"
                                                 type="text"
                                                 value="+880 1779 011690"
                                                 name="phone_no"
@@ -133,7 +143,7 @@
                                             >
                                             <input
                                                 disabled
-                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                class="settings_input_disabled"
                                                 type="text"
                                                 value="Dhaka Collage, Dhaka"
                                                 name="school_collage"
@@ -157,7 +167,7 @@
                                             >
                                             <input
                                                 disabled
-                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                class="settings_input_disabled"
                                                 type="text"
                                                 value="HSC"
                                                 name="class"
@@ -180,8 +190,7 @@
                                                 >Photo</label
                                             >
                                             <input
-                                                disabled
-                                                class="border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl"
+                                                class="settings_input_disabled"
                                                 type="file"
                                                 value="takib@gmail.com"
                                                 name="photo"

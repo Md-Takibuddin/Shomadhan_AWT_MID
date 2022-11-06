@@ -41,3 +41,11 @@
 .nav_item > img {
     @apply w-fit object-contain h-8;
 }
+
+.settings_input_disabled {
+    @apply border-none p-0 border-transparent focus:border-transparent focus:ring-0 text-xl;
+}
+
+.settings_input_enabled {
+    @apply focus:ring-1 rounded-lg;
+}
