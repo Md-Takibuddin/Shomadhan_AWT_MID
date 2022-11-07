@@ -13,7 +13,7 @@ class Appointment extends Migration
      */
     public function up()
     {
-        Schema::create('appointment', function (Blueprint $table) {
+        Schema::create('appointments', function (Blueprint $table) {
             $table->id();
             $table->string ('s_id');
             $table->string ('subject');

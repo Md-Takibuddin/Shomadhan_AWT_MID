@@ -54,25 +54,6 @@ class DatabaseSeeder extends Seeder
             's_feedback'=>'null'
             ]);
 
-        DB::table('appointment')->insert([
-            's_id'=>'1',
-            'subject'=>'Math',
-            'duration'=>'1 hour',
-            't_id'=>'null',
-            'date'=>'20/12/2022',
-            'status'=>'pending'
-            ]);
-
-        DB::table('appointment')->insert([
-            's_id'=>'1',
-            'subject'=>'physics',
-            'duration'=>'30 min',
-            't_id'=>'null',
-            'date'=>'20/12/2022',
-            'status'=>'accepted'
-            ]);
-
-
 
 
         DB::table('teacher_infos')->insert([
@@ -92,6 +73,26 @@ class DatabaseSeeder extends Seeder
             'name'=>'shan',
             't_email'=>'shan@email.com'
             ]);
+
+
+        DB::table('appointments')->insert([
+            's_id'=>'1',
+            'subject'=>'math',
+            'duration'=>'2h',
+            't_id'=>'shipon',
+            'date'=>'15 Dec, 2022',
+            'status'=>'pending'
+            ]);
+
+        DB::table('appointments')->insert([
+                's_id'=>'1',
+                'subject'=>'physics',
+                'duration'=>'1h',
+                't_id'=>'Takib',
+                'date'=>'02 Dec, 2022',
+                'status'=>'accepted'
+                ]);
+
 
 
     }

@@ -28,5 +28,5 @@ Route::get('/appointment',[studentAppointment::class,'appointment'])->middleware
 Route::get('/questionView/{id}',[studentQuestion::class,'viewQus']);
 Route::put('/updateData',[studentSettings::class,'updateData']);
 Route::put('/updatePass',[studentSettings::class,'updatePass']);
-
+Route::post('/setAppointment',[studentAppointment::class,'setAppointment'])->middleware('loginCheck');
 
