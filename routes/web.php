@@ -7,6 +7,7 @@ use App\Http\Controllers\studentQuestion;
 use App\Http\Controllers\studentSettings;
 use App\Http\Controllers\studentDashboard;
 use App\Http\Controllers\studentAppointment;
+use Illuminate\Http\Request;
 
 
 
@@ -25,10 +26,7 @@ Route::post('/postQuestion',[studentQuestion::class,'postQuestion']);
 Route::get('/settings',[studentSettings::class,'settings'])->middleware('loginCheck');
 Route::get('/appointment',[studentAppointment::class,'appointment'])->middleware('loginCheck');
 Route::get('/questionView/{id}',[studentQuestion::class,'viewQus']);
-Route::get('/updateData',[studentSettings::class,'updateData']);
+Route::put('/updateData',[studentSettings::class,'updateData']);
+Route::put('/updatePass',[studentSettings::class,'updatePass']);
 
-
-Route::get('test',function () {
-    return view('student.questionView');
- });
 

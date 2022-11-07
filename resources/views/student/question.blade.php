@@ -127,7 +127,13 @@
                             </div>
                         </div>
                     {{-- alart --}}
-
+                    @if(Session::has('posted'))
+                    <div class="flex p-4 mb-4 text-lg  bg-[#E5FEE5] rounded-lg w-fit " role="alert">
+                        <div class="text-[#27AE60]">
+                          <span class="font-medium">Question posted successfully.</span>
+                        </div>
+                      </div>
+                      @endif
                         <!-- Ask Qus Start -->
                         <section>
                             <h3 class="header-1 mb-4">Answered questions</h3>

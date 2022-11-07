@@ -7,7 +7,7 @@
 
         <link href="{{asset('css/app.css')}}" rel="stylesheet">
 
-        <title>Document</title>
+        <title>Settings</title>
     </head>
     <body>
         <main class="relative">
@@ -92,8 +92,9 @@
                     {{-- <haeder-component>--}}
                         <nav class="flex">
                             <h1 class="flex-1 | text-purple text-[38px] font-bold">
-                                Question
+                                Settings
                             </h1>
+
                             <div class="flex space-x-3">
                                 <div class="flex flex-col">
                                     <span class="text-xl font-semibold"
@@ -111,8 +112,26 @@
                                 />
                             </div>
                         </nav>
-
                     {{--</haeder-component> --}}
+
+                    @if(Session::has('passChanged'))
+                    <div class="flex p-4 mb-4 text-lg  bg-[#E5FEE5] rounded-lg w-fit " role="alert">
+                        <div class="text-[#27AE60]">
+                        <span class="font-medium">Password Changed successfully.</span>
+                        </div>
+                    </div>
+                @endif
+                @if(Session::has('notChanged'))
+                <div class="flex p-4 mb-4 text-lg  bg-[#fee5e5] rounded-lg w-fit " role="alert">
+                    <div class="text-[#e13030]">
+                    <span class="font-medium">Password no changed.</span>
+                    @error('oldPass')
+                    <span class="text-error" style="color: red">{{$message}}</span>
+                  @enderror
+                    </div>
+                </div>
+            @endif
+
                     <div
                         class="grid grid-cols-12 | mt-5 rounded-xl | bg-white p-5"
                     >
@@ -139,14 +158,6 @@
                                         >
                                             Edit Profile
                                         </button>
-                                        <button
-                                            type="submit"
-                                            id="save_profile_btn"
-                                            class="rounded-3xl px-6 py-2 font-semibold bg-purple !w-fit hover:shadow transition-shadow duration-300 text-white hidden"
-                                            form="profile"
-                                        >
-                                            Save
-                                        </button>
                                     </div>
                                 </div>
                             </div>
@@ -155,10 +166,13 @@
                                     id="profile"
                                     class="grid grid-cols-3 gap-10 user_form"
                                     action="{{url('updateData')}}"
-                                    method="get"
+                                    method="post"
+                                    files="true"
                                     enctype="multipart/form-data"
+
                                 >
                                 @csrf
+                                @method('PUT')
                                     <div class="flex space-x-3">
                                         <figure>
                                             <img
@@ -284,7 +298,7 @@
                                         <figure>
                                             <img
                                                 class="h-8 w-8 rounded-full"
-                                                src="storage/ui-photos/image.png"
+                                                src="storage/ui-photos/dashboard/class.png"
                                                 alt=""
                                             />
                                         </figure>
@@ -303,6 +317,25 @@
                                             />
                                         </div>
                                     </div>
+                                <div class="flex space-x-4">
+
+                                    <button
+                                    id="back"
+                                    class="rounded-3xl px-6 py-2 font-semibold border border-purple !w-fit hover:shadow transition-shadow duration-300 text-purple hidden "
+                                    >
+                                    Cencel
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        id="save_profile_btn"
+                                        name="submit"
+                                        class="rounded-3xl px-6 py-2 font-semibold bg-purple  border-purple !w-fit hover:shadow transition-shadow duration-300 text-white hidden "
+                                        form="profile"
+                                    >
+                                        Save
+                                    </button>
+
+                             </div>
                                 </form>
                             </div>
                         </div>
@@ -335,45 +368,51 @@
                     </div>
                 </section>
             </div>
+            @if(Session::has('passChanged'))
+                    <div class="flex p-4 mb-4 text-lg  bg-[#E5FEE5] rounded-lg w-fit " role="alert">
+                        <div class="text-[#27AE60]">
+                          <span class="font-medium">Password Changed successfully.</span>
+                        </div>
+                      </div>
+            @endif
             <!-- Modal -->
             <div
             id="modal"
-            class="fixed min-h-screen w-screen top-0 left-0 z-50 | backdrop-blur-sm bg-white/10 | justify-center items-center | hidden | transition-all duration-300 ease-in-out"
+            class="fixed min-h-screen w-screen top-0 left-0 z-50 | backdrop-blur-sm bg-black/75
+            | justify-center items-center | hidden | transition-all duration-300 ease-in-out"
         >
             <div
-                class="w-fit bg-white rounded-xl p-5 transition-shadow shadow-xl px-16"
+                class="w-min bg-white rounded-xl p-5 transition-shadow shadow-xl px-16"
             >
-                <h6 class="text-center font-bold text-8xl py-7">
+                <h6 class="text-center font-bold text-2xl py-7">
                     Change Password
                 </h6>
                 <form
                     class="flex flex-col space-y-3 text-sm text-light_gray"
-                    action=""
+                    action="{{url('updatePass')}}"
+                    method="post"
                 >
+                @csrf
+                @method('PUT')
                     <div class="w-full flex flex-col">
                         <label for="">Old password</label>
-                        <input class="input_base" type="password" />
+                        <input class="input_base" name = "oldPass" type="text" />
                     </div>
                     <div class="w-full flex flex-col">
                         <label for="">New password</label>
-                        <input class="input_base" type="password" />
+                        <input class="input_base" name="newPass" type="password" />
                     </div>
-                    <div class="w-full flex flex-col">
-                        <label for="">Confirm new password</label>
-                        <input class="input_base" type="password" />
-                    </div>
-
                     <div class="col-span-2">
                         <div
                             class="flex space-x-5 justify-center items-center"
                         >
                             <button
                                 id="modal_cancle_btn"
-                                class="cta_btn_base !text-light_gray border-[1px] border-light_gray !w-min"
+                                class="cta_btn_base !text-light_gray border-[1px] border-purple !w-min"
                             >
                                 Cancle
                             </button>
-                            <button class="cta_btn_base bg-purple !w-min">
+                            <button type="submit" class="cta_btn_base bg-purple !w-min">
                                 Save
                             </button>
                             </div>
@@ -386,54 +425,3 @@
     </body>
 </html>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{{-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=br, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-    <br>
-    <br>
-    <table>
-        <tr>
-            <td>Name: <input type="text" value="{{$data->name}}"> </td>
-        </tr>
-        <tr>
-            <td>number: <input type="text" value="{{$data->phone_number}}"> </td>
-        </tr>
-        <tr>
-            <td>email: <input type="text" value="{{$data->email}}"> </td>
-        </tr>
-        <tr>
-            <td>school: <input type="text" value="{{$data->school}}"> </td>
-        </tr>
-        <tr>
-            <td>class: <input type="text" value="{{$data->class}}"> </td>
-        </tr>
-        <tr>
-            <td>dob: <input type="text" value="{{$data->dob}}"> </td>
-        </tr>
-        <tr>
-            <img src="{{asset("$photo")}}" >
-        </tr>
-    </table>
-</body>
-</html> --}}

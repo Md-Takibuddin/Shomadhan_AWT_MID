@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\student_info;
+use Illuminate\Support\Facades\File;
 use Session;
 use Hash;
 
@@ -21,7 +22,7 @@ class studentRegistration extends Controller
                     'phone_number'=>'required|regex:/^([0-9\s\-\+\(\)]*)$/ |unique:student_infos',
                     'school'=>'required',
                     'class'=>'required',
-                    'dob'=>'required',
+                    'dob'=>'required|date|before:-12 years',
                     'email'=>'required|email|unique:student_infos',
                     'password'=>'required'
                     ],
@@ -39,11 +40,15 @@ class studentRegistration extends Controller
         $student->dob = $regData->dob;
 
 
+        if($regData->file('photo')){
 
         $photoName= time().$regData->name.".".$regData->file('photo')->getClientOriginalExtension();
         $path = $regData->file('photo')->storeAs('/public/images',$photoName);
         $student['photo']='/storage/images/'.$photoName;
         // $student->photo = $regData->photo;
+        }else{
+            $student['photo']='storage/ui-photos/userdp.png';
+        }
 
         $student->account_type =  $at;
         $student->total_qus = $tq;

@@ -165,7 +165,7 @@
                                 <div>
                                     <span class="flex space-x-2">
                                         <span class="text-light_gray text-sm">
-                                            Solver by Shipon Hossain
+                                            Solved by {{$qus->t_id}}
                                         </span>
                                         <img
                                             class="h-5 w-5"

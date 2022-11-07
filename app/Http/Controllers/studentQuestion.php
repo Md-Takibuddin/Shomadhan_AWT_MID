@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\question;
 use App\Models\teacher_infos;
+use App\Models\student_info;
 
 use Session;
 

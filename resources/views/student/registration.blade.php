@@ -55,7 +55,11 @@
                                     class="form-input input_base"
                                     name="name"
                                     type="text"
+                                    value="{{old("name")}}"
                                 />
+                                @error('name')
+                                <span class="text-error" style="color: red">{{$message}}</span>
+                              @enderror
                             </span>
                             <span class="col-span-6 input_wrapper">
                                 <label for="dob"
@@ -65,7 +69,11 @@
                                     class="form-input input_base"
                                     name="dob"
                                     type="date"
+                                    value="{{old("dob")}}"
                                 />
+                                @error('dob')
+                                <span class="text-error" style="color: red">{{$message}}</span>
+                              @enderror
                             </span>
 
                             <span class="col-span-6 input_wrapper">
@@ -76,16 +84,27 @@
                                     class="form-input input_base"
                                     name="school"
                                     type="text"
+                                    value="{{old("school")}}"
                                 />
+                                @error('school')
+                                <span class="text-error" style="color: red">{{$message}}</span>
+                              @enderror
                             </span>
 
                             <span class="col-span-6 input_wrapper">
                                 <label for="school_collage_name">Class</label>
-                                <input
-                                    class="form-input input_base"
-                                    name="class"
-                                    type="text"
-                                />
+                                <select name="class" id="class" value="{{old("class")}} class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <option value="6">6</option>
+                                    <option value="7">7</option>
+                                    <option value="8">8</option>
+                                    <option value="9">9</option>
+                                    <option value="10">10</option>
+                                    <option value="11">11</option>
+                                    <option value="12">12</option>
+                                  </select>
+                                @error('class')
+                                <span class="text-error" style="color: red">{{$message}}</span>
+                              @enderror
                             </span>
 
                             <span class="col-span-6 input_wrapper">
@@ -94,7 +113,11 @@
                                     class="form-input input_base"
                                     name="email"
                                     type="text"
+                                    value="{{old("email")}}"
                                 />
+                                @error('email')
+                                <span class="text-error" style="color: red">{{$message}}</span>
+                              @enderror
                             </span>
 
                             <span class="col-span-6 input_wrapper">
@@ -103,7 +126,11 @@
                                     class="form-input input_base"
                                     name="phone_number"
                                     type="text"
+                                    value="{{old("phone_number")}}"
                                 />
+                                @error('phone_number')
+                                <span class="text-error" style="color: red">{{$message}}</span>
+                              @enderror
                             </span>
 
                             <span class="col-span-6 input_wrapper">
@@ -113,6 +140,9 @@
                                     name="password"
                                     type="password"
                                 />
+                                @error('password')
+                                <span class="text-error" style="color: red">{{$message}}</span>
+                              @enderror
                             </span>
 
 
@@ -123,6 +153,7 @@
                                     name="photo"
                                     type="file"
                                     accept="image/*"
+                                    value="{{old("photo")}}"
                                 />
                             </span>
 
