@@ -50,7 +50,7 @@ class studentQuestion extends Controller
     if($qus->hasfile('qusPhoto')){
         $photoName= time().$qus->subject.".".$qus->file('qusPhoto')->getClientOriginalExtension();
         $path = $qus->file('qusPhoto')->storeAs('/public/question',$photoName);
-        $postQus['qus_photo']='/storage/question/'.$photoName;
+        $postQus['qus_photo']='../storage/question/'.$photoName;
     } else {
         $postQus->qus_photo = "null";
     }

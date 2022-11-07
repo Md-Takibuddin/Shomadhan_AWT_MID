@@ -265,6 +265,7 @@
                                 placeholder="Type your qustion here"
                                 class="w-full h-[250px] border-none"
                                 name="question"
+                                required
                             ></textarea>
 
                             <div class="w-fit ml-auto flex space-x-2">
@@ -283,6 +284,7 @@
                                              text-light_gray bg-white bg-clip-padding bg-no-repeat rounded transition ease-in-out m-0
                                              focus:bg-white border-none focus:outline-none w-[100px]"
                                              name="subject"
+                                             required
                                         >
                                         <option value="">
                                             Subject </option>

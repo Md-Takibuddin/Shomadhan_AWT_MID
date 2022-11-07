@@ -184,7 +184,7 @@
                                     >
                                         <img
                                             class="h-fit w-fit object-contain max-w-[560px]"
-                                            src="../storage/ui-photos/dashboard/image 4.png"
+                                            src="{{$qus->ans_photo}}"
                                             alt=""
                                         />
                                     </figure>

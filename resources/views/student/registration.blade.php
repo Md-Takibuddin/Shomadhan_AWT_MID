@@ -39,7 +39,11 @@
                         </div>
                     </header>
                     @if(Session::has('regSuccess'))
-                    <p class="alert alert-success">{{Session::get('regSuccess')}}</p>
+                    <div class="flex p-4 mb-4 text-lg  bg-[#E5FEE5] rounded-lg w-fit " role="alert">
+                        <div class="text-[#27AE60]">
+                          <span class="font-medium">{{Session::get('regSuccess')}}</span>
+                        </div>
+                      </div>
                     @endif
                     <form
                         class="w-full"

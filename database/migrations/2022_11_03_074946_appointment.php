@@ -18,7 +18,7 @@ class Appointment extends Migration
             $table->string ('s_id');
             $table->string ('subject');
             $table->string ('duration');
-            $table->string ('t_id');
+            $table->string ('t_id')->nullable();
             $table->string ('date');
             $table->string ('status');
             $table->timestamps();

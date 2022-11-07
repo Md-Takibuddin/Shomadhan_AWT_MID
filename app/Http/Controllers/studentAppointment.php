@@ -46,6 +46,7 @@ class studentAppointment extends Controller
         $appointment->subject = $apoData->subject;
         $appointment->status = "pending";
         $appointment->save();
+
         Session::flash('applied','true');
         return redirect()->back();
 

@@ -207,19 +207,19 @@
 
                         <div class="w-full flex flex-col">
                             <label for="">Date</label>
-                            <input class="input_base" type="date" name="date"/>
+                            <input class="input_base" type="date" name="date" required/>
                         </div>
                         <div class="w-full flex flex-col">
                             <label for="">Duration</label>
-                            <input class="input_base" type="text" name="duration"/>
+                            <input class="input_base" type="text" name="duration" required/>
                         </div>
                         <div class="w-full flex flex-col">
                             <label for="">Subject</label>
-                            <input class="input_base" type="text" name="subject"/>
+                            <input class="input_base" type="text" name="subject" required/>
                         </div>
                         <div class="w-full flex flex-col">
                             <label for="">Chapter</label>
-                            <input class="input_base" type="text" name="chapter"/>
+                            <input class="input_base" type="text" name="chapter" required/>
                         </div>
                         <div class="col-span-2">
                             <div
