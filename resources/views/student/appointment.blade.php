@@ -92,7 +92,7 @@
                     {{-- <haeder-component> --}}
                         <nav class="flex">
                             <h1 class="flex-1 | text-purple text-[38px] font-bold">
-                                Question
+                                Appointment
                             </h1>
                             <div class="flex space-x-3">
                                 <div class="flex flex-col">

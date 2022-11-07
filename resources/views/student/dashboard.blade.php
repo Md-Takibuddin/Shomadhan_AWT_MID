@@ -389,6 +389,7 @@
                                 class="w-full | p-5 rounded-xl bg-white | flex flex-col space-y-5"
                             >
                                 <!-- Item -->
+                                @foreach ($acceptedApnt as $data )
                                 <div class="w-full space-y-3">
                                     <div class="flex space-x-4">
                                         <img
@@ -398,13 +399,14 @@
                                         />
                                         <span
                                             class="text-purple font-medium text-xl"
-                                            >20 Sep, 2022 - 8:00 PM</span
+                                            >{{$data->date}}</span
                                         >
                                     </div>
                                     <p class="text-sm text-light_gray">
-                                        You have an appointment with Mr Rafio
+                                        You have an appointment with {{$data->t_id}}
                                     </p>
                                 </div>
+                                @endforeach
                             </div>
                         </section>
                         <!-- End of appointment -->

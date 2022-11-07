@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\student_info;
 use App\Models\question;
+use App\Models\appointment;
+
 use Session;
 
 class studentDashboard extends Controller
@@ -25,17 +27,22 @@ class studentDashboard extends Controller
                 ['s_id',$s_id],
                 ['status','answered']
             ])->get();
-            $answeredQus= $qus->count();
 
+            $answeredQus= $qus->count();
             $qus = question::where([
                 ['s_id',$s_id],
                 ['status','pending']
             ])->get();
+
             $pendingQus= $qus->count();
-
+            $s_id= Session::get('id');
+            $acceptedApnt = appointment::where
+            ([
+                ['s_id','=',$s_id],
+                ['status', '=', 'accepted'],
+            ])->get();
             // $wordCount = $wordlist->count();
-
-        return view('student.dashboard',compact('photo','totalQus','answeredQus','pendingQus'));
+        return view('student.dashboard',compact('photo','totalQus','answeredQus','pendingQus','acceptedApnt'));
        }else return redirect('login');
     }
 
