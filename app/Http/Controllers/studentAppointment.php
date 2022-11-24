@@ -28,7 +28,6 @@ class studentAppointment extends Controller
 
     }
 
-
     public function setAppointment(Request $apoData)
     {
         // $validate = $apoData->validate([
