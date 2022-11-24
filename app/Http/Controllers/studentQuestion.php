@@ -86,4 +86,13 @@ class studentQuestion extends Controller
         return view('student.questionView',compact('qus'));
     }
 
+    public function apiTest(Type $var = null)
+    {
+        return question::all();
+    }
+    public function apiPost(Type $var = null)
+    {
+        # code...
+    }
+
 }
