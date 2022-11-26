@@ -17,6 +17,7 @@ root.render(
         <Router>
             <Routes>
                 {/* Student Route */}
+
                 <Route exact path="/student-login" element={<Login />} />
                 <Route
                     exact
