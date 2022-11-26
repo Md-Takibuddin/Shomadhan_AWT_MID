@@ -1,6 +1,7 @@
-import "./Student.css";
+/* eslint-disable jsx-a11y/img-redundant-alt */
+import "../Student.css";
 
-function Login() {
+const Login = () => {
     return (
         <div>
             <body>
@@ -24,11 +25,11 @@ function Login() {
                     </header>
                     <section className="grid grid-cols-12 | gap-10 | h-min">
                         <figure className="col-span-6">
-                            {/* <img
+                            <img
                                 className="h-full w-full object-contain"
                                 src="storage/ui-photos/signin.png"
                                 alt="figure image"
-                            /> */}
+                            />
                         </figure>
                         <section className="col-span-6 | flex flex-col justify-center items-center">
                             <form
@@ -114,6 +115,6 @@ function Login() {
             </body>
         </div>
     );
-}
+};
 
 export default Login;
