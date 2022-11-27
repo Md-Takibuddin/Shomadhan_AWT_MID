@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Question</title>
+
+        <style>
+            div {
+                display: flex;
+                flex-direction: column;
+                width: 30%;
+            }
+
+            input,
+            button {
+                margin-top: 10px;
+                margin-bottom: 10px;
+                padding-left: 15px;
+                padding-left: 15px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+            }
+
+            form {
+                display: flex;
+                justify-content: center;
+                margin-top: 100px;
+                width: 100%;
+            }
+        </style>
+    </head>
+
+    <body>
+        <form id="form">
+            <div class="">
+                <h1>Post Question</h1>
+
+                <label for="email"><b>Question</b></label>
+                <input
+                    type="text"
+                    placeholder=""
+                    name="qus"
+                    id="qus"
+                    required
+                />
+
+                <label for="psw"><b>Subject</b></label>
+                <input
+                    type="text"
+                    placeholder=""
+                    name="subject"
+                    id="subject"
+                    required
+                />
+
+                <button type="submit" class="registerbtn" id="submit">
+                    Submit
+                </button>
+            </div>
+        </form>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $("#form").on("submit", function (e) {
+                    e.preventDefault();
+
+                    var formData = new FormData(this);
+
+                    $.ajaxSetup({
+                        headers: {
+                            "X-CSRF-TOKEN": $('meta[name="csrf_token"]').attr(
+                                "content"
+                            ),
+                        },
+                    });
+
+                    $.ajax({
+                        url: "http://127.0.0.1:8000/api/qus/post",
+                        type: "post",
+                        data: formData,
+                        processData: false,
+                        contentType: false,
+                        dataType: "json",
+                        success: function (data) {
+                            console.log("send");
+                            alert("Purchase Successful");
+                        },
+                        fail: function () {
+                            alert("request failed");
+                        },
+                    });
+                    console.log("hello");
+                });
+            });
+        </script>
+    </body>
+</html>

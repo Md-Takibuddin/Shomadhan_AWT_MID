@@ -21,4 +21,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::get('/qus/list',[studentQuestion::class,'apiTest']);
-Route::post('/qus/list',[studentQuestion::class,'apiPost']);
+Route::post('/qus/post',[studentQuestion::class,'apiPost']);

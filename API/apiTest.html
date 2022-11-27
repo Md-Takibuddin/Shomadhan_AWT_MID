@@ -1,39 +1,81 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
-        <title></title>
-    </head>
-    <body onload="loadDoc()">
-        <h2>Question API Test</h2>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Question</title>
 
-        <ul>
-            <li id="Question ID"></li>
-            <li id="Student ID"></li>
-            <li id="Question"></li>
-            <li id="Question Status"></li>
-        </ul>
-        <img id="productImg" src="" width="200px" />
-
-        <script>
-            function loadDoc() {
-                const xhttp = new XMLHttpRequest();
-                xhttp.onreadystatechange = function () {
-                    if (this.readyState == 4 && this.status == 200) {
-                        var obj_arr = JSON.parse(this.responseText);
-                        console.log(obj_arr);
-                        document.getElementById("productImg").src =
-                            obj_arr[0].image;
-                        document.getElementById("productId").innerHTML =
-                            obj_arr[0].id;
-                        document.getElementById("productName").innerHTML =
-                            obj_arr[0].name;
-                        document.getElementById("productPrice").innerHTML =
-                            obj_arr[0].price;
-                    }
-                };
-                xhttp.open("GET", "http://127.0.0.1:8000/API/qus/list");
-                xhttp.send();
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 1px solid black;
+                align-items: center;
             }
+
+            th {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                border: 1px solid black;
+                background-color: black;
+                color: aliceblue;
+            }
+
+            td {
+                padding-left: 15px;
+                padding-right: 15px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: center;
+                border: 1px solid black;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <h2>Question</h2>
+            <table id="table">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Question</th>
+                        <th>Answer</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="tdata"></tbody>
+            </table>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $.ajax({
+                    url: "http://127.0.0.1:8000/api/qus/list",
+                    type: "GET",
+                    dataType: "json",
+                    success: function (data) {
+                        let html = "";
+
+                        data.map((d) => {
+                            html += `<tr>
+                        <td>${d.id}</td>
+                        <td>${d.qus}</td>
+                        <td>${d.ans}</td>
+                        <td>${d.status}</td>
+                    </tr>`;
+                        });
+
+                        $("#tdata").html(html);
+                    },
+                    fail: function () {
+                        alert("request failed");
+                    },
+                });
+            });
         </script>
     </body>
 </html>

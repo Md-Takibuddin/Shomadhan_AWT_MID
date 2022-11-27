@@ -86,13 +86,25 @@ class studentQuestion extends Controller
         return view('student.questionView',compact('qus'));
     }
 
-    public function apiTest(Type $var = null)
+    public function apiTest()
     {
         return question::all();
     }
-    public function apiPost(Type $var = null)
-    {
-        # code...
+
+
+    public function apiPost(Request $req){
+        $qus = new Product();
+        $qus->s_id = "10";
+        $qus->qus = $req->qus;
+        $qus->subject = $req->subject;
+        $qus->qus_photo = "null";
+        $qus->t_id = "null";
+        $qus->ans = "Not answered yet";
+        $qus->ans_photo = "null";
+        $qus->status = "pending";
+        $qus->s_feedback = "null";
+        $qus->save();
+        return ["Data send"];
     }
 
 }
