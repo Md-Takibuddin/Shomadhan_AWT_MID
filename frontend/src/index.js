@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 // Student Component Import
 import Login from "./student-component/Login";
 import Dashboard from "./student-component/Dashboard";
+import Question from "./student-component/Question";
 
 // Teacher Component Import
 
@@ -24,6 +25,7 @@ root.render(
                     path="/student-dashboard"
                     element={<Dashboard />}
                 />
+                <Route exact path="/student-question" element={<Question />} />
 
                 {/* Teacher Route */}
 

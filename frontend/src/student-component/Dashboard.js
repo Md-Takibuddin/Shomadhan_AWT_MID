@@ -23,9 +23,9 @@ const Dashboard = () => {
                             <Notes />
                         </div>
                         <aside class="col-span-4 | flex flex-col space-y-10 px-10">
-                            {/* <!-- Start of Active Expertes --> */}
+                            {/* <!-- Start of Active Teacher --> */}
                             <section>
-                                <h4 class="header-1 mb-4">Active Expertes</h4>
+                                <h4 class="header-1 mb-4">Active Teacher</h4>
                                 <div class="w-full | p-5 rounded-xl bg-white | flex flex-col space-y-5">
                                     <div class="flex flex-col">
                                         <div class="text-3xl text-green font-semibold mb-2">
@@ -38,7 +38,7 @@ const Dashboard = () => {
                                     </div>
                                 </div>
                             </section>
-                            {/* <!-- End of Active Expertes --> */}
+                            {/* <!-- End of Active Teacher --> */}
 
                             {/* <!-- Start of appointment --> */}
 
