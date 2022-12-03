@@ -180,9 +180,8 @@ const Question = () => {
                                 method="post"
                                 enctype="multipart/form-data"
                             >
-                                @csrf
                                 <textarea
-                                    placeholder="Type your qustion here"
+                                    placeholder="Type your question here"
                                     class="w-full h-[250px] border-none"
                                     name="question"
                                     required
