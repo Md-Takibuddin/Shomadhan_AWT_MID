@@ -5,6 +5,8 @@ import "../Student.css";
 import AnsQus from "./AnsQus";
 import MiniProfile from "./MiniProfile";
 import SideBar from "./SideBar";
+import axios from "axios";
+import { Navigate } from "react-router-dom";
 
 const Question = () => {
    //    const [name, setName] = useLocalStorage("name", "");
@@ -17,6 +19,27 @@ const Question = () => {
    };
    const cencleBtnAction = () => {
       setShowModal(false);
+   };
+
+   let [qus, setQus] = useState("");
+   let [subject, setSubject] = useState("");
+
+   const postQus = (e) => {
+      e.preventDefault();
+      var postQus = { qus: qus, subject: subject };
+      console.log(postQus);
+      axios
+         .post("http://127.0.0.1:8000/api/postQus", postQus)
+         .then((resp) => {
+            const qus = resp.data;
+            alert(qus);
+            window.location.reload();
+            setShowModal(false);
+            Navigate("/student-question");
+         })
+         .catch((err) => {
+            console.log(err);
+         });
    };
 
    //    const [name1, setName1] = useState(() => {
@@ -193,6 +216,7 @@ const Question = () => {
                               className="w-full h-[250px] border-none"
                               name="question"
                               required
+                              onChange={(e) => setQus(e.target.value)}
                            ></textarea>
                            <div className="w-fit ml-auto flex space-x-2">
                               <div>
@@ -211,6 +235,9 @@ const Question = () => {
                                          focus:bg-white border-none focus:outline-none w-[100px]"
                                        name="subject"
                                        required
+                                       onChange={(e) =>
+                                          setSubject(e.target.value)
+                                       }
                                     >
                                        <option value="">Subject </option>
                                        <option value="Math">Math </option>
@@ -248,6 +275,7 @@ const Question = () => {
                               <button
                                  className="bg-purple text-white rounded-2xl flex space-x-2 px-6 py-3 items-center"
                                  type="submit"
+                                 onClick={postQus}
                               >
                                  <img
                                     className="w-[20px] h-[20px]"

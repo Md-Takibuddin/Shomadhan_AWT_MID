@@ -25,3 +25,4 @@ Route::get('/qus/list',[studentQuestion::class,'apiTest']);
 Route::post('/qus/post',[studentQuestion::class,'apiPost']);
 Route::post('/reactLogin',[studentLogin::class,'reactLogin']);
 Route::get('/ansqus',[studentQuestion::class,'ansqus']);
+Route::post('/postQus',[studentQuestion::class,'postQus']);

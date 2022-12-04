@@ -120,4 +120,31 @@ $answeredQus = question::all();
 
         return $answeredQus;
     }
+
+
+
+    public function postQus(Request $qus)
+    {
+
+
+    $postQus = new question();
+    $postQus->s_id = "1";
+    $postQus->qus = $qus->qus;
+
+
+    // $photoName= time().$regData->name.".".$regData->file('photo')->getClientOriginalExtension();
+    // $path = $regData->file('photo')->storeAs('/public/images',$photoName);
+    // $student['photo']='/storage/images/'.$photoName;
+
+    $postQus->qus_photo = "null";
+    $postQus->subject = $qus->subject;
+    $postQus->t_id = "null";
+    $postQus->ans = "Not answered yet";
+    $postQus->ans_photo = "null";
+    $postQus->status = "pending";
+    $postQus->s_feedback = "null";
+   $postQus->save();
+        return "Question Posted";
+
+}
 }
