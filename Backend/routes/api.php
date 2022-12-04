@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\studentQuestion;
+use App\Http\Controllers\studentLogin;
 
 
 /*
@@ -22,3 +23,5 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::get('/qus/list',[studentQuestion::class,'apiTest']);
 Route::post('/qus/post',[studentQuestion::class,'apiPost']);
+Route::post('/reactLogin',[studentLogin::class,'reactLogin']);
+Route::get('/ansqus',[studentQuestion::class,'ansqus']);

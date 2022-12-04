@@ -21,10 +21,9 @@ root.render(
       <Router>
          <Routes>
             {/* Student Route */}
-
+            <Route exact path="/" element={<Login />} />
             <Route exact path="/student-login" element={<Login />} />
             <Route exact path="/student-dashboard" element={<Dashboard />} />
-            <Route exact path="/" element={<Login />} />
             <Route exact path="/student-question" element={<Question />} />
             <Route
                exact

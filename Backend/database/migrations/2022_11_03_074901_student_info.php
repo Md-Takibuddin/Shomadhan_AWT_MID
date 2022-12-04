@@ -27,6 +27,15 @@ class StudentInfo extends Migration
             $table->integer ('total_qus');
             $table->timestamps();
         });
+
+        Schema::create('tokens', function (Blueprint $table) {
+            $table->id();
+            $table->string ('userId');
+            $table->string ('token');
+            $table->dateTime('created');
+            $table->dateTime('expired');
+            $table->timestamps();
+        });
     }
 
     /**

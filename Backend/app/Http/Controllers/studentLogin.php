@@ -4,9 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\student_info;
+use App\Models\token;
+use Illuminate\Support\Str;
+
 use Session;
 use Cookie;
 use Hash;
+use DateTime;
 
 class studentLogin extends Controller
 {
@@ -84,6 +88,32 @@ class studentLogin extends Controller
     Cookie::queue(Cookie::forget('password'));
     return redirect('login');
    }
+
+   public function reactLogin(Request $req)
+    {
+        $user = Student_info::where ('email','=',$req->email)->first();
+        if ($user){
+            if (Hash::check($req->password,$user->password)){
+                session()->put('name',$user->name);
+                session()->put('id',$user->id);
+                $api_token = Str::random(64);
+
+                $token = new token();
+                $token->userid = $user->id;
+                $token->token = $api_token;
+                $token->created = new DateTime();
+
+                $token->save();
+                return $token;
+            }
+            return "No user found";
+
+        }
+
+        return "No user found";
+
+    }
+
 
 }
 
