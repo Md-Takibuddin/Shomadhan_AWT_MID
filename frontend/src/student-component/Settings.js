@@ -1,8 +1,16 @@
+import { useState } from "react";
 import "../Student.css";
 import MiniProfile from "./MiniProfile";
 import SideBar from "./SideBar";
 
 const Settings = () => {
+   const [userInfo, setInfo] = useState(() => {
+      // getting stored value
+      const saved = localStorage.getItem("userInfo");
+      const initialValue = JSON.parse(saved);
+      return initialValue;
+   });
+
    return (
       <body>
          <main className="relative">
@@ -47,7 +55,7 @@ const Settings = () => {
                            <figure>
                               <img
                                  className="h-[130px] w-[130px] rounded-full"
-                                 src=""
+                                 src={userInfo.photo}
                                  alt=""
                               />
                            </figure>
@@ -96,7 +104,7 @@ const Settings = () => {
                                        disabled
                                        className="settings_input_disabled"
                                        type="text"
-                                       value="{{$data->email}}"
+                                       value={userInfo.email}
                                        name="email"
                                        id="email"
                                        readonly
@@ -122,7 +130,7 @@ const Settings = () => {
                                        disabled
                                        className="settings_input_disabled"
                                        type="text"
-                                       value="{{$data->dob}}"
+                                       value={userInfo.dob}
                                        name="dob"
                                        id="email"
                                     />
@@ -147,7 +155,7 @@ const Settings = () => {
                                        disabled
                                        className="settings_input_disabled"
                                        type="text"
-                                       value="{{$data->phone_number}}"
+                                       value={userInfo.phone_number}
                                        name="phone_no"
                                        id="phone_no"
                                     />
@@ -172,7 +180,7 @@ const Settings = () => {
                                        disabled
                                        className="settings_input_disabled"
                                        type="text"
-                                       value="{{$data->school}}"
+                                       value={userInfo.school}
                                        name="school_collage"
                                        id="school_collage"
                                     />
@@ -182,7 +190,7 @@ const Settings = () => {
                                  <figure>
                                     <img
                                        className="h-8 w-8 rounded-full"
-                                       src="storage/ui-photos/dashboard/className.png"
+                                       src="storage/ui-photos/dashboard/class.png"
                                        alt=""
                                     />
                                  </figure>
@@ -191,13 +199,13 @@ const Settings = () => {
                                        className="text-sm text-light_gray"
                                        for="className"
                                     >
-                                       className
+                                       Class
                                     </label>
                                     <input
                                        disabled
                                        className="settings_input_disabled"
                                        type="text"
-                                       value="{{$data->className}}"
+                                       value={userInfo.class}
                                        name="className"
                                        id="className"
                                     />

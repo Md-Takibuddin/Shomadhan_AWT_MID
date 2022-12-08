@@ -5,8 +5,15 @@ import TopBar from "./TopBar";
 import Notes from "./Notes";
 import AskQus from "./AskQus";
 import Summery from "./Summery";
+import { useState } from "react";
 
 const Dashboard = () => {
+   const [name, setName] = useState(() => {
+      // getting stored value
+      const saved = localStorage.getItem("name");
+      const initialValue = JSON.parse(saved);
+      return initialValue;
+   });
    return (
       <div>
          <main className="grid grid-cols-12">

@@ -4,34 +4,56 @@ import { Link } from "react-router-dom";
 import React, { useState, userEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useLocalStorage } from "../hook";
 
 const Login = () => {
+   const [userInfo, setInfo] = useLocalStorage("userInfo", "");
+
    let [token, setToken] = useState("");
    let [email, setEmail] = useState("");
    let [password, setPassword] = useState("");
    const navigate = useNavigate();
 
-   const loginSubmit = (e) => {
+   const loginSubmit = async (e) => {
       e.preventDefault();
       var obj = { email: email, password: password };
       //alert(obj.username);
-      axios
-         .post("http://127.0.0.1:8000/api/reactLogin", obj)
-         .then((resp) => {
-            var token = resp.data;
-            console.log(token);
-            var user = { userId: token.userid, access_token: token.token };
-            localStorage.setItem("user", JSON.stringify(user));
-            console.log(localStorage.getItem("user"));
-            if (token === "No user found") {
-               navigate("/student-login");
-            } else {
-               navigate("/student-dashboard");
-            }
-         })
-         .catch((err) => {
-            console.log(err);
-         });
+      try {
+         const resp = await axios.post(
+            "http://127.0.0.1:8000/api/reactLogin",
+            obj
+         );
+         const { login, userInfo } = resp.data;
+         console.log({ login, resp });
+         var user = { userId: token.userid, access_token: token.token };
+         setInfo(userInfo);
+         localStorage.setItem("user", JSON.stringify(user));
+         console.log(localStorage.getItem("user"));
+         if (token === "No user found") {
+            navigate("/student-login");
+         } else {
+            navigate("/student-dashboard");
+         }
+      } catch (error) {
+         console.log(error);
+      }
+      // axios
+      //    .post("http://127.0.0.1:8000/api/reactLogin", obj)
+      //    .then((resp) => {
+      //       const { login, userInfo } = resp.data;
+      //       console.log({ login, resp });
+      //       var user = { userId: token.userid, access_token: token.token };
+      //       localStorage.setItem("user", JSON.stringify(user));
+      //       console.log(localStorage.getItem("user"));
+      //       if (token === "No user found") {
+      //          navigate("/student-login");
+      //       } else {
+      //          navigate("/student-dashboard");
+      //       }
+      //    })
+      //    .catch((err) => {
+      //       console.log(err);
+      //    });
    };
    return (
       <body>

@@ -7,6 +7,7 @@ use App\Models\student_info;
 use App\Models\token;
 use Illuminate\Support\Str;
 
+
 use Session;
 use Cookie;
 use Hash;
@@ -102,9 +103,14 @@ class studentLogin extends Controller
                 $token->userid = $user->id;
                 $token->token = $api_token;
                 $token->created = new DateTime();
-
                 $token->save();
-                return $token;
+
+                return response()->json([
+                    'login' => $token,
+                    'userInfo' => $user
+                ]);
+
+
             }
             return "No user found";
 

@@ -109,14 +109,12 @@ class studentQuestion extends Controller
 
     public function ansqus ()
     {
-        // $s_id= Session::get('id');
-        // $answeredQus = question::where
-        // ([
-        //     ['s_id','=',$s_id],
-        //     ['status', '=', 'answered'],
-        // ])->get();
-$answeredQus = question::all();
-
+        $s_id= Session::get('id');
+        $answeredQus = question::where
+        ([
+            ['s_id','=',$s_id],
+            ['status', '=', 'answered'],
+        ])->get();
 
         return $answeredQus;
     }
