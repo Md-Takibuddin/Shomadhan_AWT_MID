@@ -15,9 +15,16 @@ class TeacherInfo extends Migration
     {
         Schema::create('teacher_infos', function (Blueprint $table){
 
-            $table->id('t_id');
-            $table->string('name');
-            $table->string('t_email');
+            $table->id('t_id')->nullable();
+            $table->string('name')->nullable();
+            $table->string('t_email')->unique()->nullable();
+            $table->string('phoneNo')->nullable();
+            $table->string('password')->nullable();
+            $table->string('current_job')->nullable();
+            $table->string('cv')->nullable();
+            $table->string('photo')->nullable();
+            $table->date('dob')->nullable();
+            $table->string('active_time')->nullable();  
         });
     }
     /**
