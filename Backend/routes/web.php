@@ -7,6 +7,15 @@ use App\Http\Controllers\studentQuestion;
 use App\Http\Controllers\studentSettings;
 use App\Http\Controllers\studentDashboard;
 use App\Http\Controllers\studentAppointment;
+
+
+use App\Http\Controllers\teacherRegcontroller;
+use App\Http\Controllers\tlogcontroller;
+use App\Http\Controllers\tquescontroller;
+use App\Http\Controllers\tprofcontroller;
+use App\Http\Controllers\tcrappointmentcontroller;
+use App\Http\Controllers\insainscontroller;
+use App\Http\Middleware\validatelogin;
 use Illuminate\Http\Request;
 
 
@@ -30,3 +39,28 @@ Route::put('/updateData',[studentSettings::class,'updateData']);
 Route::put('/updatePass',[studentSettings::class,'updatePass']);
 Route::post('/setAppointment',[studentAppointment::class,'setAppointment'])->middleware('loginCheck');
 
+Route::group(['middleware'=>'web'],function(){
+    Route::view("Register","teacher.treg");
+    Route::post("treg",[teacherRegcontroller::class,'inputData']);
+    Route::post("tdash",[tlogcontroller::class,'checkLogin']);
+    //Route::get("tlog",[tlogcontroller::class,'checkLogin']);
+    Route::get("logout",[tlogcontroller::class,'logout'])->name('logout');
+   //Route::view("/","tlog");
+    Route::view("tlog","teacher.tlog");
+    Route::view("tdash","teacher.tdash");
+    Route::view("tques","teacher.tques");
+    Route::view("tnotific","teacher.tnotific");
+    Route::view("apnt","teacher.tcappnt");
+    Route::view("tabout","teacher.tabout");
+    Route::get("tques",[tquescontroller::class,'unansques']);
+    Route::get("tans",[tquescontroller::class,'ansques']);
+    Route::get("tprofile",[tprofcontroller::class,'showdata']);
+    Route::get("inc.side",[tprofcontroller::class,'showname']);
+    Route::post("tprofile",[tprofcontroller::class,'updatedata']);
+    Route::get("tdash",[tquescontroller::class,'quescount']);
+    //Route::get("tdash",[tprofcontroller::class,'showdata']);
+    Route::get("apnt",[tcrappointmentcontroller::class,'appointment']);
+    Route::get("insans/{q_id}",[insainscontroller::class,'ans']);
+    Route::post("insans",[insainscontroller::class,'ansupdate']);
+    
+    });

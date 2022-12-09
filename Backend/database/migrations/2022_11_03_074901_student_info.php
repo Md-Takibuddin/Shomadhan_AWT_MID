@@ -33,7 +33,7 @@ class StudentInfo extends Migration
             $table->string ('userId');
             $table->string ('token');
             $table->dateTime('created');
-            $table->dateTime('expired');
+            $table->dateTime('expired')->nullable();
             $table->timestamps();
         });
     }

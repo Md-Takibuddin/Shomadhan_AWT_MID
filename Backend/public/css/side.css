@@ -1,0 +1,151 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family:Verdana, Geneva, Tahoma, sans-serif, sans-serif;
+    background: rgba(220, 185, 234, 0.199);
+  }
+  
+  header{
+    position: fixed;
+    background: #ffffff;
+    padding: 25px;
+    width: 13%;
+    height: 30px;
+    margin-top: -1.6%;
+    padding-bottom: 50%;
+  }
+  
+  .left_area h3{
+    color:  #9952d7;
+    margin: 0;
+    font-size: 22px;
+    font-weight: 900;
+    padding-left: 50px;
+  }
+  
+  .left_area span{
+    color: #500baf;
+  }
+  
+  .logout_btn{
+    padding: 5px;
+    background: #a270ee90;
+    text-decoration:solid;
+    float: right;
+    margin-top: -30px;
+    margin-right: 40px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 600;
+    color: rgb(255, 255, 255);
+    transition: 0.5s;
+    transition-property: background;
+  }
+  
+  .logout_btn:hover{
+    background: #4c0ba6;
+  }
+  
+  .sidebar {
+    background: #fffefd;
+    margin-top: 70px;
+    padding-top: 30px;
+    position: fixed;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transition: 0.5s;
+    transition-property: left;
+  }
+  
+  .sidebar .profile_image{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }
+  
+  .sidebar h4{
+    color: rgb(0, 0, 0);
+    margin-top: 0;
+    margin-bottom: 20px;
+  }
+  
+  .sidebar a{
+    color: rgb(0, 0, 0);
+    display: block;
+    width: 80%;
+    line-height: 50px;
+    text-decoration: none;
+    padding-left: 40px;
+    white-space:nowrap;
+    border-radius: 80px;
+    transition: 0.5s;
+    transition-property: background;
+  }
+  
+  .sidebar a:hover{
+    background: #9f5ee188;
+  }
+  
+  .sidebar i{
+    padding-right: 10px;
+  }
+  
+  label #sidebar_btn{
+    z-index: 1;
+    color: rgb(0, 0, 0);
+    position: fixed;
+    cursor: pointer;
+    top: 14px;
+    font-size: 30px;
+    margin: 6px 0;
+    transition: 0.5s;
+    transition-property: color;
+  }
+  
+  label #sidebar_btn:hover{
+    color: #9661ea;
+  }
+  
+  #check:checked ~ .sidebar{
+    left: -190px;
+   
+    
+  }
+  
+  #check:checked ~ .sidebar a span{
+    display:none;
+
+  }
+  
+  #check:checked ~ .sidebar a{
+    font-size: 20px;
+    margin-left: 190px;
+    width: 80px;
+    
+  }
+  
+  .content{
+    margin-left: 250px;
+    background: url(background.png) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: 0.5s;
+  }
+  
+  #check:checked ~ .content{
+    margin-left: 250px;
+  }
+  
+  #check{
+    display:none;
+  }
+     
+   .profile_image{
+    width: 100px;
+    height: 100px;
+    border-radius: 100px;
+    margin-bottom: 10px;
+  }

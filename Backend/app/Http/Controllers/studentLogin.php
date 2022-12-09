@@ -12,6 +12,7 @@ use Session;
 use Cookie;
 use Hash;
 use DateTime;
+use TeacherInfo;
 
 class studentLogin extends Controller
 {
@@ -93,6 +94,7 @@ class studentLogin extends Controller
    public function reactLogin(Request $req)
     {
         $user = Student_info::where ('email','=',$req->email)->first();
+        
         if ($user){
             if (Hash::check($req->password,$user->password)){
                 session()->put('name',$user->name);
@@ -112,7 +114,9 @@ class studentLogin extends Controller
 
             }else return "No user found";
 
-        } else return "No user found";
+           
+        }
+        else return "No user found";
 
     }
 
