@@ -44,7 +44,7 @@ Route::group(['middleware'=>'web'],function(){
     Route::post("treg",[teacherRegcontroller::class,'inputData']);
     Route::post("tdash",[tlogcontroller::class,'checkLogin']);
     //Route::get("tlog",[tlogcontroller::class,'checkLogin']);
-    Route::get("logout",[tlogcontroller::class,'logout'])->name('logout');
+    Route::get("tlogout",[tlogcontroller::class,'logout'])->name('tlogout');
    //Route::view("/","tlog");
     Route::view("tlog","teacher.tlog");
     Route::view("tdash","teacher.tdash");

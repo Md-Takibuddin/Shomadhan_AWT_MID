@@ -34,6 +34,7 @@ class tlogcontroller extends Controller
     //echo $session[0];
     
     return redirect("tdash");
+    //echo session()->get('email');
    }
    else
    {
