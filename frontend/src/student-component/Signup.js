@@ -140,7 +140,8 @@ const Signup = () => {
                         <span class="col-span-6 input_wrapper">
                            <label for="upload_photo">Upload photo</label>
                            <input
-                              class="form-input input_base"
+                              // class="form-input input_base"
+                              class="file-input file-input-bordered w-full max-w-xs"
                               name="photo"
                               type="file"
                               accept="image/*"

@@ -45,11 +45,11 @@ const Login = () => {
          <main className="custom_container | h-screen | flex flex-col justify-center items-center | overflow-hidden">
             <header className="flex flex-col justify-center items-center">
                <figure className="h-[90px]">
-                  <img
+                  {/* <img
                      className="h-full w-full object-contain"
                      src="storage/ui-photos/logo.png"
                      alt="logo"
-                  />
+                  /> */}
                </figure>
                <div className="flex flex-col">
                   <h1 className="text-center header-1">Welcome Back</h1>
@@ -70,11 +70,23 @@ const Login = () => {
                   {showModal && (
                      <Alert color="red">Email or Password is incorrect</Alert>
                   )}
+
                   <form
                      className="flex flex-col | max-w-lg w-full | ml-auto space-y-5"
                      action="{{url('loginData')}}"
                      method="post"
                   >
+                     <figure className="h-[70px]">
+                        <img
+                           className="h-full w-full object-contain"
+                           src="storage/ui-photos/logo.png"
+                           alt="logo"
+                        />
+                     </figure>
+
+                     <span className="text-center text-base ">
+                        Login with your email and password
+                     </span>
                      <span className="input_wrapper">
                         <Input
                            label="Email or phone number"
