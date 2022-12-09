@@ -5,9 +5,11 @@ import React, { useState, userEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "../hook";
+import { Alert, Input } from "@material-tailwind/react";
 
 const Login = () => {
    const [userInfo, setInfo] = useLocalStorage("userInfo", "");
+   const [showModal, setShowModal] = useState(false);
 
    let [token, setToken] = useState("");
    let [email, setEmail] = useState("");
@@ -24,36 +26,19 @@ const Login = () => {
             obj
          );
          const { login, userInfo } = resp.data;
-         console.log({ login, resp });
-         var user = { userId: token.userid, access_token: token.token };
+         console.log({ login, userInfo });
+         // var user = { userId: token.userid, access_token: token.token };
          setInfo(userInfo);
-         localStorage.setItem("user", JSON.stringify(user));
          console.log(localStorage.getItem("user"));
-         if (token === "No user found") {
-            navigate("/student-login");
-         } else {
+         if (login === "ok") {
             navigate("/student-dashboard");
+         } else {
+            navigate("/student-login");
+            setShowModal(true);
          }
       } catch (error) {
          console.log(error);
       }
-      // axios
-      //    .post("http://127.0.0.1:8000/api/reactLogin", obj)
-      //    .then((resp) => {
-      //       const { login, userInfo } = resp.data;
-      //       console.log({ login, resp });
-      //       var user = { userId: token.userid, access_token: token.token };
-      //       localStorage.setItem("user", JSON.stringify(user));
-      //       console.log(localStorage.getItem("user"));
-      //       if (token === "No user found") {
-      //          navigate("/student-login");
-      //       } else {
-      //          navigate("/student-dashboard");
-      //       }
-      //    })
-      //    .catch((err) => {
-      //       console.log(err);
-      //    });
    };
    return (
       <body>
@@ -82,17 +67,24 @@ const Login = () => {
                   />
                </figure>
                <section className="col-span-6 | flex flex-col justify-center items-center">
+                  {showModal && (
+                     <Alert color="red">
+                        An error alert for showing message.
+                     </Alert>
+                  )}
                   <form
                      className="flex flex-col | max-w-lg w-full | ml-auto space-y-5"
                      action="{{url('loginData')}}"
                      method="post"
                   >
                      <span className="input_wrapper">
+                        <br />
                         <label htmlFor="email">Email or phone number</label>
-                        <input
+                        <Input
                            className="form-input input_base"
                            name="email"
                            type="text"
+                           label="Username"
                            onChange={(e) => setEmail(e.target.value)}
                         />
                         {/* @error('email')

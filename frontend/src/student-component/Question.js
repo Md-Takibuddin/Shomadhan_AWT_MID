@@ -9,13 +9,9 @@ import axios from "axios";
 import { Navigate } from "react-router-dom";
 
 const Question = () => {
-   const [name, setName] = useLocalStorage("name", "");
-   console.log(name);
-
    const [showModal, setShowModal] = useState(false);
    const askBtnAction = () => {
       setShowModal(true);
-      setName({ name: "takib", age: "15" });
    };
    const cencleBtnAction = () => {
       setShowModal(false);
@@ -41,13 +37,6 @@ const Question = () => {
             console.log(err);
          });
    };
-
-   const [name1, setName1] = useState(() => {
-      // getting stored value
-      const saved = localStorage.getItem("name");
-      const initialValue = JSON.parse(saved);
-      return initialValue;
-   });
 
    return (
       <body>

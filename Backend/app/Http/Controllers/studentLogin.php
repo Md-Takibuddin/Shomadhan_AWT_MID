@@ -106,17 +106,13 @@ class studentLogin extends Controller
                 $token->save();
 
                 return response()->json([
-                    'login' => $token,
+                    'login' => "ok",
                     'userInfo' => $user
                 ]);
 
+            }else return "No user found";
 
-            }
-            return "No user found";
-
-        }
-
-        return "No user found";
+        } else return "No user found";
 
     }
 

@@ -11,6 +11,15 @@ const Settings = () => {
       return initialValue;
    });
 
+   const [showModal, setShowModal] = useState(false);
+   const change_password_btn = () => {
+      console.log("clicked");
+      setShowModal(true);
+   };
+   const modal_Cancel_btn = () => {
+      setShowModal(false);
+   };
+
    return (
       <body>
          <main className="relative">
@@ -272,6 +281,7 @@ const Settings = () => {
                            <button
                               id="change_password_btn"
                               className=" bg-purple text-xl rounded-2xl| hover:shadow-xl transition-shadow duration-300 cta_btn_base "
+                              onClick={change_password_btn}
                            >
                               Change Password
                            </button>
@@ -288,55 +298,58 @@ const Settings = () => {
                       </div>
             @endif */}
             {/* <!-- Modal --> */}
-            <div
-               id="modal"
-               className="fixed min-h-screen w-screen top-0 left-0 z-50 | backdrop-blur-sm bg-black/75
-            | justify-center items-center | hidden | transition-all duration-300 ease-in-out"
-            >
-               <div className="w-min bg-white rounded-xl p-5 transition-shadow shadow-xl px-16">
-                  <h6 className="text-center font-bold text-2xl py-7">
-                     Change Password
-                  </h6>
-                  <form
-                     className="flex flex-col space-y-3 text-sm text-light_gray"
-                     action="{{url('updatePass')}}"
-                     method="post"
-                  >
-                     <div className="w-full flex flex-col">
-                        <label for="">Old password</label>
-                        <input
-                           className="input_base"
-                           name="oldPass"
-                           type="text"
-                        />
-                     </div>
-                     <div className="w-full flex flex-col">
-                        <label for="">New password</label>
-                        <input
-                           className="input_base"
-                           name="newPass"
-                           type="password"
-                        />
-                     </div>
-                     <div className="col-span-2">
-                        <div className="flex space-x-5 justify-center items-center">
-                           <button
-                              id="modal_cancle_btn"
-                              className="cta_btn_base !text-light_gray border-[1px] border-purple !w-min"
-                           >
-                              Cancle
-                           </button>
-                           <button
-                              type="submit"
-                              className="cta_btn_base bg-purple !w-min"
-                           >
-                              Save
-                           </button>
+            {showModal && (
+               <div
+                  id="modal"
+                  className="flex fixed min-h-screen w-screen top-0 left-0 z-50 | backdrop-blur-sm bg-black/75
+            | justify-center items-center | transition-all duration-300 ease-in-out"
+               >
+                  <div className="w-min bg-white rounded-xl p-5 transition-shadow shadow-xl px-16">
+                     <h6 className="text-center font-bold text-2xl py-7">
+                        Change Password
+                     </h6>
+                     <form
+                        className="flex flex-col space-y-3 text-sm text-light_gray"
+                        action="{{url('updatePass')}}"
+                        method="post"
+                     >
+                        <div className="w-full flex flex-col">
+                           <label for="">Old password</label>
+                           <input
+                              className="input_base"
+                              name="oldPass"
+                              type="text"
+                           />
                         </div>
-                     </div>
-                  </form>
+                        <div className="w-full flex flex-col">
+                           <label for="">New password</label>
+                           <input
+                              className="input_base"
+                              name="newPass"
+                              type="password"
+                           />
+                        </div>
+                        <div className="col-span-2">
+                           <div className="flex space-x-5 justify-center items-center">
+                              <button
+                                 id="modal_Cancel_btn"
+                                 className="cta_btn_base !text-light_gray border-[1px] border-purple !w-min"
+                                 onClick={modal_Cancel_btn}
+                              >
+                                 Cancel
+                              </button>
+                              <button
+                                 type="submit"
+                                 className="cta_btn_base bg-purple !w-min"
+                              >
+                                 Save
+                              </button>
+                           </div>
+                        </div>
+                     </form>
+                  </div>
                </div>
-            </div>
+            )}
          </main>
          <script src="js/settingsScript.js"></script>
       </body>
