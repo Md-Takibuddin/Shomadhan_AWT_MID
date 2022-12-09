@@ -68,9 +68,7 @@ const Login = () => {
                </figure>
                <section className="col-span-6 | flex flex-col justify-center items-center">
                   {showModal && (
-                     <Alert color="red">
-                        An error alert for showing message.
-                     </Alert>
+                     <Alert color="red">Email or Password is incorrect</Alert>
                   )}
                   <form
                      className="flex flex-col | max-w-lg w-full | ml-auto space-y-5"
@@ -78,15 +76,18 @@ const Login = () => {
                      method="post"
                   >
                      <span className="input_wrapper">
-                        <br />
-                        <label htmlFor="email">Email or phone number</label>
                         <Input
-                           className="form-input input_base"
-                           name="email"
-                           type="text"
-                           label="Username"
+                           label="Email or phone number"
                            onChange={(e) => setEmail(e.target.value)}
                         />
+                        {/* <label htmlFor="email">Email or phone number</label> */}
+                        {/* <Input
+                           className=" input_base"
+                           name="email"
+                           type="text"
+                           label="Email or phone number"
+                           onChange={(e) => setEmail(e.target.value)}
+                        /> */}
                         {/* @error('email')
                                     <span
                                         className="text-error"
@@ -97,13 +98,18 @@ const Login = () => {
                                     @enderror */}
                      </span>
                      <span className="input_wrapper">
-                        <label htmlFor="email">Password</label>
+                        <Input
+                           // type="password"
+                           label="Password"
+                           onChange={(e) => setPassword(e.target.value)}
+                        />
+                        {/* <label htmlFor="email">Password</label>
                         <input
                            className="form-input input_base"
                            name="password"
                            type="password"
                            onChange={(e) => setPassword(e.target.value)}
-                        />
+                        /> */}
                         {/* @error('password')
                                         <span
                                             className="text-error"
