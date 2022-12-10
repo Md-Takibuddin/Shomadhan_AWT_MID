@@ -8,6 +8,7 @@ import { useLocalStorage } from "../hook";
 import { Alert, Input } from "@material-tailwind/react";
 
 const Login = () => {
+   window.localStorage.clear();
    const [userInfo, setInfo] = useLocalStorage("userInfo", "");
    const [showModal, setShowModal] = useState(false);
 
@@ -33,9 +34,10 @@ const Login = () => {
          if (login === "ok") {
             navigate("/student-dashboard");
          } 
-         else if (login === "t_ok") {
-            navigate("/teacher-dash");
-         } 
+         else if(login==='t_ok')
+         {
+            navigate("/teacher-dash")
+         }
          else {
             navigate("/student-login");
             setShowModal(true);

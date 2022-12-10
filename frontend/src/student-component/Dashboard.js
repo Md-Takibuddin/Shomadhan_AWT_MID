@@ -6,6 +6,7 @@ import Notes from "./Notes";
 import AskQus from "./AskQus";
 import Summery from "./Summery";
 import { useState } from "react";
+import { Redirect } from "react-router-dom";
 
 const Dashboard = () => {
    const [name, setName] = useState(() => {

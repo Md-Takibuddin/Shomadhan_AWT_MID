@@ -9,7 +9,6 @@
 
         <title>Question</title>
     </head>
-
     <body>
         <main class="relative">
             <div class="grid grid-cols-12 | relative">
