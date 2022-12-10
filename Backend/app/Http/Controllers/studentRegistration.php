@@ -59,4 +59,43 @@ class studentRegistration extends Controller
         return redirect()->back();
     }
 
+    public function reactSignIn(Request $regData )
+    {
+        $at="basic";
+        $tq=0;
+
+        $student = new Student_info();
+        $student->name = $regData->name;
+        $student->phone_number = $regData->phone_number;
+        $student->email = $regData->email;
+        $student->password = Hash::make ($regData->password);
+        $student->school = $regData->school;
+        $student->class = $regData->class;
+        $student->dob = $regData->dob;
+        if($regData->file('photo')){
+
+            $photoName= time().$regData->name.".".$regData->file('photo')->getClientOriginalExtension();
+            $path = $regData->file('photo')->storeAs('/public/images',$photoName);
+            $student['photo']='http://localhost:8000/storage/images/'.$photoName;
+
+            }else{
+                $student['photo']='http://localhost:8000/storage/ui-photos/userdp.png';
+            }
+
+            $student->account_type =  $at;
+            $student->total_qus = $tq;
+            if($student->save()){
+                return "Data saved";
+            }else return "not saved";
+
+
+
+
+        // if ($vali){
+        //         return $regData;
+        // }else return "Invalid Data";
+        // return $regData->file('photo');
+
+    }
+
 }

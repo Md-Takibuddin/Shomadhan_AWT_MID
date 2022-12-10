@@ -1,3 +1,4 @@
 {
-   "cSpell.ignoreWords": ["cencle"]
+   "cSpell.ignoreWords": ["cencle"],
+   "blade.format.enable": true
 }
