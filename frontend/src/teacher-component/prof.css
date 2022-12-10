@@ -1,0 +1,60 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    }
+    
+    .div1 { grid-area: 1 / 1 / 2 / 2; }
+    .div2 { grid-area: 2 / 1 / 5 / 2; }
+    .div3 { grid-area: 5 / 1 / 6 / 6; }
+    .div4 { grid-area: 1 / 5 / 2 / 6; }
+    .div5 { 
+        position: absolute;
+        left: 25%;
+        top: 5%;
+        grid-area: 2 / 2 / 5 / 5; }
+    .div6 { grid-area: 1 / 2 / 2 / 5; }
+    .div7 { grid-area: 2 / 5 / 5 / 6; }
+
+.form-control:focus {
+    box-shadow: none;
+    border-color: #BA68C8
+}
+
+.profile-button {
+    background: rgb(99, 39, 120);
+    box-shadow: none;
+    border: none
+}
+
+.profile-button:hover {
+    background: #682773
+}
+
+.profile-button:focus {
+    background: #682773;
+    box-shadow: none
+}
+
+.profile-button:active {
+    background: #682773;
+    box-shadow: none
+}
+
+.back:hover {
+    color: #682773;
+    cursor: pointer
+}
+
+.labels {
+    font-size: 11px
+}
+
+.add-experience:hover {
+    background: #BA68C8;
+    color: #fff;
+    cursor: pointer;
+    border: solid 1px #BA68C8
+}

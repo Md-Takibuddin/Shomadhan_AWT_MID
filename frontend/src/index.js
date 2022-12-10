@@ -11,7 +11,15 @@ import Appointment from "./student-component/Appointment";
 import Settings from "./student-component/Settings";
 import Signup from "./student-component/Signup";
 
+
 // Teacher Component Import
+import Tsidebar from "./teacher-component/Tsidebar";
+import Tdash from "./teacher-component/Tdash";
+import Tprofile from "./teacher-component/Tprofile";
+import Tques from "./teacher-component/Tques";
+import Tapp from "./teacher-component/Tapp";
+import Tans from "./teacher-component/Tans";
+import Tgiveans from "./teacher-component/Tgiveans";
 
 // Admin Component Import
 
@@ -34,6 +42,14 @@ root.render(
             <Route exact path="/student-signup" element={<Signup />} />
 
             {/* Teacher Route */}
+            <Route exact path="/teacher-sidebar" element={<Tsidebar />} />
+            <Route exact path="/teacher-dash" element={<Tdash />} />
+            <Route exact path="/teacher-profile" element={<Tprofile />} />
+            <Route exact path="/teacher-ques" element={<Tques />} />
+            <Route exact path="/teacher-appointment" element={<Tapp />} />
+            <Route exact path="/teacher-showans" element={<Tans />} />
+            <Route exact path="/teacher-answer" element={<Tgiveans />} />
+
 
             {/* Admin Route */}
          </Routes>

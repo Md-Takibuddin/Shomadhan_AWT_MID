@@ -128,13 +128,14 @@ class studentLogin extends Controller
                 ]);
             } 
             else return "No user found";
-        } elseif ($user1) {
+        } 
+        elseif ($user1) {
             
             return response()->json([
-                'login' => "ok",
+                'login' => "t_ok",
                 'userInfo' => $user1
             ]);
-            }
+        }
         
         else return "No user found";
     }
