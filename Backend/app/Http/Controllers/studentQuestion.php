@@ -116,7 +116,7 @@ class studentQuestion extends Controller
             ['status', '=', 'answered'],
         ])->get();
 
-        return $answeredQus;
+        return question::all();
     }
 
 

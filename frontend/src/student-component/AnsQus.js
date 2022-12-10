@@ -6,6 +6,13 @@ export default class AnsQus extends React.Component {
       qus: [],
    };
 
+   // const [userInfo, setInfo] = useState(() => {
+   //    // getting stored value
+   //    const saved = localStorage.getItem("userInfo");
+   //    const initialValue = JSON.parse(saved);
+   //    return initialValue;
+   // });
+
    componentDidMount() {
       axios.get(`http://127.0.0.1:8000/api/ansqus`).then((res) => {
          const qus = res.data;

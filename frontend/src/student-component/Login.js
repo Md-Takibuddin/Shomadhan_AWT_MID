@@ -8,6 +8,7 @@ import { useLocalStorage } from "../hook";
 import { Alert, Input } from "@material-tailwind/react";
 
 const Login = () => {
+   window.localStorage.clear();
    const [userInfo, setInfo] = useLocalStorage("userInfo", "");
    const [showModal, setShowModal] = useState(false);
 
