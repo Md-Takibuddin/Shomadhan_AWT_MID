@@ -19,6 +19,7 @@ use App\Http\Controllers\studentRegistration;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
 // student API
 Route::get('/qus/list',[studentQuestion::class,'apiTest']);
 Route::post('/qus/post',[studentQuestion::class,'apiPost']);
