@@ -166,7 +166,11 @@ const Login = () => {
                      <span className="text-center">
                         Don't have an account?
                         <Link to={"/student-signup"} className="link">
-                           Sign up
+                           Sign up as Student
+                        </Link>
+                        <br/>
+                        <Link to={"/teacher-signup"} className="link">
+                           Sign up as Teacher
                         </Link>
                      </span>
                   </form>

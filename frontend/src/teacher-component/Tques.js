@@ -8,8 +8,8 @@ const Tques = () => {
 <Tsidebar/>
 
 <center>
-<h2>Question Pending</h2> 
-<h1>Question List</h1>
+    <h2>Question Pending</h2> 
+    <h1>Question List</h1>
 <div className="tques">
   
            

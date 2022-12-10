@@ -76,7 +76,7 @@ const Dashboard = () => {
                      {/* <!-- End of appointment -->
                         <!-- Start of Evnets --> */}
                      <section>
-                        <h4 className="header-1 mb-4">Evnets</h4>
+                        <h4 className="header-1 mb-4">Events</h4>
                         <div className="w-full | p-5 rounded-xl bg-white | flex flex-col space-y-5">
                            {/* <!-- Item --> */}
                            <div className="grid grid-cols-12 w-full">

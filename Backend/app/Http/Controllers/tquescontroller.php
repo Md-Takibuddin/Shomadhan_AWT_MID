@@ -19,7 +19,8 @@ class tquescontroller extends Controller
            $tid=session()->get('id');
     //$data =  question::all();   
     $data1 = question:: where([['t_id',$tid],['status','Answered']])->get();    
-    return view('teacher.tans')->with('questions',$data1);}
+    //return view('teacher.tans')->with('questions',$data1);
+    return $data1;}
     else
     {
         echo "access denied";
@@ -32,7 +33,8 @@ class tquescontroller extends Controller
            $tid=session()->get('id');
     //$data =  question::all();
     $data2 = question:: where([['t_id',$tid],['status','pending']])->get();    
-    return view('teacher.tques')->with('questions',$data2);}
+    //return view('teacher.tques')->with('questions',$data2);
+    return $data2;}
     else
     {
         echo "access denied";
@@ -42,9 +44,11 @@ class tquescontroller extends Controller
 
     function quescount()
     {  
-        if(session()->has('email'))
+        
+        if(true)
         {
-           $tid=session()->get('id');     
+           //$tid=session()->get('id');     
+           $tid=13;
            $qus1 = question:: where([['t_id',$tid],['status','Answered']])->get();
            $answeredQus= $qus1->count();
    
@@ -57,8 +61,8 @@ class tquescontroller extends Controller
            $data=  teacher_infos::where('t_id',$tid)->get();
            //return view('tdash',['teacher_info'=>$data]); 
 
-           return view('teacher.tdash')->with('countans',$answeredQus)->with('countnotans',$notansweredQus)->with('countapp',$app)->with('teacher_info',$data);
-
+          // return view('teacher.tdash')->with('countans',$answeredQus)->with('countnotans',$notansweredQus)->with('countapp',$app)->with('teacher_info',$data);
+            return $data;
         }
         else
         {

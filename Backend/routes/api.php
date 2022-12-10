@@ -4,7 +4,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\studentQuestion;
 use App\Http\Controllers\studentLogin;
-
+use App\Http\Controllers\tprofcontroller;
+use App\Http\Controllers\tquescontroller;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,3 +27,5 @@ Route::post('/qus/post',[studentQuestion::class,'apiPost']);
 Route::post('/reactLogin',[studentLogin::class,'reactLogin']);
 Route::get('/ansqus',[studentQuestion::class,'ansqus']);
 Route::post('/postQus',[studentQuestion::class,'postQus']);
+Route::get("tdashdata",[tquescontroller::class,"quescount"]);
+Route::post("updateteacher",[tprofcontroller::class,"updatedata"]);
