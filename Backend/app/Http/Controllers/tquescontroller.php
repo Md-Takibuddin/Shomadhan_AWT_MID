@@ -42,13 +42,14 @@ class tquescontroller extends Controller
 
     }
 
-    function quescount()
+    function quescount(Request $id)
     {  
         
         if(true)
         {
            //$tid=session()->get('id');     
-           $tid=13;
+          // $tid=13;
+           $tid= $id->t_id;
            $qus1 = question:: where([['t_id',$tid],['status','Answered']])->get();
            $answeredQus= $qus1->count();
    
@@ -58,11 +59,13 @@ class tquescontroller extends Controller
            $app = appointment::where('t_id',$tid)->count();
 
            //$tid=session()->get('id');
-           $data=  teacher_infos::where('t_id',$tid)->get();
+          // $data=  teacher_infos::where('t_id',$tid)->get();
+          //$data =  appointment::where('t_id',$tid)->get();   
+       
            //return view('tdash',['teacher_info'=>$data]); 
 
           // return view('teacher.tdash')->with('countans',$answeredQus)->with('countnotans',$notansweredQus)->with('countapp',$app)->with('teacher_info',$data);
-            return $data;
+            return [$answeredQus,$notansweredQus,$app];
         }
         else
         {
