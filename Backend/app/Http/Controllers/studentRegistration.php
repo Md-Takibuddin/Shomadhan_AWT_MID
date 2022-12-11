@@ -98,8 +98,6 @@ class studentRegistration extends Controller
             }else return "not saved";
 
 
-
-
         // if ($vali){
         //         return $regData;
         // }else return "Invalid Data";
