@@ -19,6 +19,7 @@ import Tques from "./teacher-component/Tques";
 import Tapp from "./teacher-component/Tapp";
 import Tans from "./teacher-component/Tans";
 import Tgiveans from "./teacher-component/Tgiveans";
+import Treg from "./teacher-component/Treg";
 
 // Admin Component Import
 
@@ -50,6 +51,7 @@ root.render(
             <Route exact path="/teacher-appointment" element={<Tapp />} />
             <Route exact path="/teacher-showans" element={<Tans />} />
             <Route exact path="/teacher-answer" element={<Tgiveans />} />
+            <Route exact path="/teacher-register" element={<Treg />} />
 
             {/* Admin Route */}
          </Routes>

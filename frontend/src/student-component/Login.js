@@ -139,7 +139,7 @@ const Login = () => {
                            Sign up as Student
                         </Link>
                         <br />
-                        <Link to={"/teacher-signup"} className="link">
+                        <Link to={"/teacher-register"} className="link">
                            Sign up as Teacher
                         </Link>
                      </span>
