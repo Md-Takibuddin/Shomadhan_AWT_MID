@@ -1,7 +1,45 @@
 import Tsidebar from "./Tsidebar";
 import "./teacherques.css";
-
+import axios from "axios";
+import { useEffect, useState } from "react";
 const Tans = () => {
+
+    const [userInfo, setInfo] = useState(() => {
+        // getting stored value
+        const saved = localStorage.getItem("userInfo");
+        const initialValue = JSON.parse(saved);
+        return initialValue;
+     });
+   // const [qid, setQid] = useState();
+   // const [sid, setSid] = useState();
+    const [ans, setAns] = useState();
+    //const [qusphoto, setPhoto] = useState();
+    const callApi = async () => {
+        try {
+           const resp = await axios.post(
+              "http://127.0.0.1:8000/api/tdashdata",
+              {
+                 t_id: userInfo.t_id,
+              }
+           );
+           const { accepted, pending } = resp.data;
+           //setAccepted(accepted);
+           //setPending(pending);
+           //setQid(resp.data[3][0]);
+           //setSid(resp.data[3][0]);
+           setAns(resp.data[5]);
+           //setQid(resp.data[3][0]);
+           console.log(resp.data[5])
+        } catch (error) {
+           console.log(error);
+        }
+     };
+  
+     useEffect(() => {
+        callApi();
+     }, []);
+ 
+
     return ( 
         <div>
             <Tsidebar/>

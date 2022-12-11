@@ -1,6 +1,43 @@
 import Tsidebar from "./Tsidebar";
 import "./teacherques.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 const Tapp = () => {
+
+    
+    const [userInfo, setInfo] = useState(() => {
+        // getting stored value
+        const saved = localStorage.getItem("userInfo");
+        const initialValue = JSON.parse(saved);
+        return initialValue;
+     });
+    const [appointment, setAppointment] = useState();
+   
+    const callApi = async () => {
+        try {
+           const resp = await axios.post(
+              "http://127.0.0.1:8000/api/tdashdata",
+              {
+                 t_id: userInfo.t_id,
+              }
+           );
+           const { accepted, pending } = resp.data;
+           //setAccepted(accepted);
+           //setPending(pending);
+           setAppointment(resp.data[4]);
+          // setSid(resp.data[3][0]);
+           //setQus(resp.data[3]);
+           //setQid(resp.data[3][0]);
+           console.log(resp.data[4])
+        } catch (error) {
+           console.log(error);
+        }
+     };
+  
+     useEffect(() => {
+        callApi();
+     }, []);
+
     return ( 
         <div>
             <Tsidebar/>
@@ -32,24 +69,24 @@ const Tapp = () => {
     <td>&nbsp;</td>
     </tr>
    
+    {appointment?.map((appointment) => (
+    <tr align="center">
 
-    <tr>
 
-
-        <td></td>
+        <td>{appointment.id}</td>
           
-        <td></td>
+        <td>{appointment.s_id}</td>
           
-        <td></td>
+        <td>{appointment.subject}</td>
 
-        <td></td>
+        <td>{appointment.duration}</td>
                     
-        <td></td>
+        <td>{appointment.date}</td>
 
-        <td></td>
+        <td>{appointment.status}</td>
 
     </tr>
- 
+    ))}
 </table>
 </div>
 </center> 
