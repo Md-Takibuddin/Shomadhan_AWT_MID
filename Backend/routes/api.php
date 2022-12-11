@@ -5,6 +5,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\studentQuestion;
 use App\Http\Controllers\studentLogin;
 use App\Http\Controllers\studentRegistration;
+use App\Http\Controllers\studentAppointment;
+
 use App\Http\Controllers\tquescontroller;
 use App\Http\Controllers\tprofcontroller;
 
@@ -30,6 +32,7 @@ Route::post('/reactLogin',[studentLogin::class,'reactLogin']);
 Route::post('/ansqus',[studentQuestion::class,'ansqus']);
 Route::post('/pendingQus',[studentQuestion::class,'pendingQus']);
 Route::post('/postQus',[studentQuestion::class,'postQus']);
+Route::post('/postAppointment',[studentAppointment::class,'postAppointment']);
 Route::post('/reactSignIn',[studentRegistration::class,'reactSignIn']);
 
 

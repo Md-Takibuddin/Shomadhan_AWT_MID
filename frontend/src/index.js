@@ -11,7 +11,6 @@ import Appointment from "./student-component/Appointment";
 import Settings from "./student-component/Settings";
 import Signup from "./student-component/Signup";
 
-
 // Teacher Component Import
 import Tsidebar from "./teacher-component/Tsidebar";
 import Tdash from "./teacher-component/Tdash";
@@ -33,11 +32,13 @@ root.render(
             <Route exact path="/student-login" element={<Login />} />
             <Route exact path="/student-dashboard" element={<Dashboard />} />
             <Route exact path="/student-question" element={<Question />} />
+            <Route exact path="/student-question/:id" element={<Settings />} />
             <Route
                exact
                path="/student-appointment"
                element={<Appointment />}
             />
+
             <Route exact path="/student-settings" element={<Settings />} />
             <Route exact path="/student-signup" element={<Signup />} />
 
@@ -49,7 +50,6 @@ root.render(
             <Route exact path="/teacher-appointment" element={<Tapp />} />
             <Route exact path="/teacher-showans" element={<Tans />} />
             <Route exact path="/teacher-answer" element={<Tgiveans />} />
-
 
             {/* Admin Route */}
          </Routes>

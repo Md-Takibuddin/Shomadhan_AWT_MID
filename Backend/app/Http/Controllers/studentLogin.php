@@ -35,7 +35,7 @@ class studentLogin extends Controller
         $user = Student_info::where('email', $email)->first();
 
         if ($user && Hash::check($password, $user->password)) {
-            $loginData->session()->put('email', $loginData->email);
+           // $loginData->session()->put('email', $loginData->email);
             session()->put('name', $user->name);
             session()->put('id', $user->id);
             session()->put('photo', $user->photo);
@@ -125,9 +125,9 @@ class studentLogin extends Controller
                     'login' => "ok",
                     'userInfo' => $user
                 ]);
-            } 
+            }
             else return "No user found";
-        } 
+        }
         elseif ($user1) {
             $session = teacher_infos::where('t_email', '=', $req->email)->where('password', '=', $req->password)->get();
 
@@ -144,7 +144,7 @@ class studentLogin extends Controller
                 'userInfo' => $user1
             ]);
         }
-        
+
         else return "No user found";
     }
 }

@@ -50,4 +50,16 @@ class studentAppointment extends Controller
         return redirect()->back();
 
     }
+    public function postAppointment(Request $apoData)
+    {
+        $appointment = new appointment();
+        $appointment->s_id =  $apoData->s_id;;
+        $appointment->date = $apoData->date;
+        $appointment->duration = $apoData->duration;
+        $appointment->subject = $apoData->subject;
+        $appointment->status = "pending";
+        if($appointment->save()){
+            return "Posted";
+        }else return "Error";
+    }
 }
