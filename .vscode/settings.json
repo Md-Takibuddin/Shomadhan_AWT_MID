@@ -1,4 +1,5 @@
 {
    "cSpell.ignoreWords": ["cencle"],
-   "blade.format.enable": true
+   "blade.format.enable": true,
+   "cSpell.words": ["signin"]
 }

@@ -5,6 +5,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\studentQuestion;
 use App\Http\Controllers\studentLogin;
 use App\Http\Controllers\studentRegistration;
+use App\Http\Controllers\tquescontroller;
+use App\Http\Controllers\tprofcontroller;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -30,3 +33,5 @@ Route::post('/reactSignIn',[studentRegistration::class,'reactSignIn']);
 
 
 //teacher API
+Route::get("tdashdata",[tquescontroller::class,"quescount"]);
+Route::post("updateteacher",[tprofcontroller::class,"updatedata"]);

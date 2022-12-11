@@ -33,6 +33,8 @@ const Login = () => {
          console.log(localStorage.getItem("user"));
          if (login === "ok") {
             navigate("/student-dashboard");
+         } else if (login === "t_ok") {
+            navigate("/teacher-dash");
          } else {
             navigate("/student-login");
             setShowModal(true);
