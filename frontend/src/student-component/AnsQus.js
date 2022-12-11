@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useLocalStorage } from "../hook";
 import { useState, userEffect } from "react";
+import { Link } from "react-router-dom";
 
 const AnsQus = () => {
    const [qus, setQus] = useState();
@@ -38,8 +39,8 @@ const AnsQus = () => {
    return (
       <div className="grid grid-cols-12 gap-5">
          {qus?.map((qus) => (
-            <a
-               href="{{url('questionView/'.$data ->id)}}"
+            <Link
+               to={`/questionView/${qus.id}`}
                className="w-full space-y-3 | col-span-4 |
         bg-white p-5 rounded-xl | cursor-pointer hover:shadow-md transition-shadow duration-300"
             >
@@ -65,7 +66,7 @@ const AnsQus = () => {
                      alt=""
                   />
                </span>
-            </a>
+            </Link>
             //    <li key={qus.id}>{qus.qus}</li>
          ))}
       </div>
