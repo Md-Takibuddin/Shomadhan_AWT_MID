@@ -14,6 +14,7 @@ use Cookie;
 use Hash;
 use DateTime;
 use TeacherInfo;
+use Mail;
 
 class studentLogin extends Controller
 {
@@ -67,6 +68,8 @@ class studentLogin extends Controller
                     Cookie::queue('email', $loginData->email, 3600);
                     Cookie::queue('password', $loginData->password, 3600);
                 }
+
+
                 return redirect('dashboard');
             } else {
                 Session::flash('fail', 'Email or Password in incorrect.');

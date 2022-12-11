@@ -7,6 +7,7 @@ use App\Models\student_info;
 use Illuminate\Support\Facades\File;
 use Session;
 use Hash;
+use Mail;
 
 class studentRegistration extends Controller
 {
@@ -84,7 +85,16 @@ class studentRegistration extends Controller
 
             $student->account_type =  $at;
             $student->total_qus = $tq;
+
             if($student->save()){
+                $name =['name'=> $regData->name];
+                $email['to']=$regData->email;
+                Mail::send('mail',$name, function ($message)use ($email) {
+                    $message->from('shomadhan.edu@gmail.com', 'Shomadhan');
+                    $message->to($email['to']);
+                    $message->subject('Account Created Successful');
+                });
+
                 return "Data saved";
             }else return "not saved";
 

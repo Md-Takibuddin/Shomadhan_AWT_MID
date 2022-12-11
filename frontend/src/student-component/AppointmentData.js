@@ -14,7 +14,9 @@ const AppointmentData = () => {
       const initialValue = JSON.parse(saved);
       return initialValue;
    });
-
+   console.log(userInfo);
+   console.log("-----------");
+   console.log(userInfo.id, userInfo.email);
    const callApi = async () => {
       try {
          const resp = await axios.post(

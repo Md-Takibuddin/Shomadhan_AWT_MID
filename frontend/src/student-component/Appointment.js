@@ -43,10 +43,10 @@ const Appointment = () => {
          .then((resp) => {
             console.log(resp.data);
             if (resp.data === "Posted") {
-               // window.location.reload();
                setPostedAlert(true);
                setShowModal(false);
             }
+
             // const qus = resp.data;
             // alert(qus);
             //
