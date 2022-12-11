@@ -107,16 +107,16 @@ class studentQuestion extends Controller
         return ["Data send"];
     }
 
-    public function ansqus ()
+    public function ansqus (Request $id)
     {
-        $s_id= Session::get('id');
+        $s_id= $id->s_id;
         $answeredQus = question::where
         ([
             ['s_id','=',$s_id],
             ['status', '=', 'answered'],
         ])->get();
 
-        return question::all();
+        return $answeredQus;
     }
 
 

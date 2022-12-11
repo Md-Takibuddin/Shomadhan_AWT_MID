@@ -81,12 +81,7 @@ const Signup = () => {
                         </div>
                       </div>
                     @endif */}
-                  <form
-                     class="w-full"
-                     action="{{url('registrationData')}}"
-                     method="post"
-                     enctype="multipart/form-data"
-                  >
+                  <form class="w-full">
                      <div class="grid grid-cols-12 | gap-5">
                         <span class="col-span-6 input_wrapper">
                            <label for="name">Name</label>

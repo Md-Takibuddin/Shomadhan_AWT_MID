@@ -195,11 +195,7 @@ const Question = () => {
                         Ask Qustion
                      </h6>
                      <div className="bg-white p-5 rounded-xl w-[700px]">
-                        <form
-                           action="{{url('postQuestion')}}"
-                           method="post"
-                           enctype="multipart/form-data"
-                        >
+                        <form>
                            <textarea
                               placeholder="Type your question here"
                               className="w-full h-[250px] border-none"

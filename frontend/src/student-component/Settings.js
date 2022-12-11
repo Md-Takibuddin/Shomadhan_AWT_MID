@@ -92,7 +92,6 @@ const Settings = () => {
                               action="{{url('updateData')}}"
                               method="post"
                               files="true"
-                              enctype="multipart/form-data"
                            >
                               <div className="flex space-x-3">
                                  <figure>

@@ -6,11 +6,7 @@ const AskQus = () => {
          <h3 className="header-1 mb-4">Ask Question</h3>
 
          <div className="bg-white p-5 rounded-xl">
-            <form
-               action="{{url('postQuestion')}}"
-               method="post"
-               enctype="multipart/form-data"
-            >
+            <form action="{{url('postQuestion')}}" method="post">
                <textarea
                   placeholder="Type your qustion here"
                   className="w-full h-[250px] border-none"
