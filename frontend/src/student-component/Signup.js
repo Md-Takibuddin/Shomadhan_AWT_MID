@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import "../Student.css";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 const Signup = () => {
@@ -27,7 +27,6 @@ const Signup = () => {
          dob: dob,
          photo: photo,
       };
-      console.log(obj);
       const data = new FormData();
       data.append("name", name);
       data.append("phone_number", phone_number);
@@ -42,7 +41,10 @@ const Signup = () => {
             "http://127.0.0.1:8000/api/reactSignIn",
             data
          );
-         console.log(resp);
+         if (resp.statusText === "OK") {
+            console.log("ok hoise");
+            redirect("/student-login");
+         }
       } catch (error) {
          console.log(error);
       }

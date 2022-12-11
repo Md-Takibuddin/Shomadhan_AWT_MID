@@ -94,7 +94,7 @@ const Login = () => {
                      </span>
                      <span className="input_wrapper">
                         <Input
-                           // type="password"
+                           type="password"
                            label="Password"
                            onChange={(e) => setPassword(e.target.value)}
                         />
