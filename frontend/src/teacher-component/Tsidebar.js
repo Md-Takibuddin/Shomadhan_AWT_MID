@@ -26,7 +26,7 @@ const Tsidebar = () => {
       <a href="#"><i className="fa fa-book"></i>about</a>
 			</li>
 			<li>
-				<a href="#"><i className="fa fa-sign-out"></i>LogOut</a>
+				<a href="/student-login"><i className="fa fa-sign-out"></i>LogOut</a>
 			</li>
 		</ul>
 	</nav>

@@ -51,6 +51,7 @@ const Tans = () => {
 <h1>Question List</h1>
 <div className="tques">
 <table border="0" width="80%" >
+
     <tr>
         <th>Question ID</th>
           
@@ -79,22 +80,23 @@ const Tans = () => {
  
     </tr>
    
-   
+    {ans?.map((ans) => (
     <tr>
 
-        <td align="center"></td>
+        <td align="center">{ans.id}</td>
           
-        <td align="center"></td>
+        <td align="center">{ans.s_id}</td>
           
-        <td align="center"></td>
+        <td align="center">{ans.qus}</td>
         
-        <td align="center"><img src="" alt="question photo" width="120" height="90"/></td>
+        <td align="center"><img src={ans.qus_photo} alt="question photo" width="120" height="90"/></td>
         
-        <td align="left"></td>
+        <td align="left">{ans.ans}</td>
 
-        <td align="center"><img src="" alt="answer photo" width="120" height="90"/></td>
+        <td align="center"><img src={ans.ans_photo} alt="answer photo" width="120" height="90"/></td>
                        
     </tr>
+    ))}
 </table>
 
             </div>
