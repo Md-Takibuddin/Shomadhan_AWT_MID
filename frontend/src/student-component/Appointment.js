@@ -3,6 +3,8 @@ import axios from "axios";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import "../Student.css";
+import AppointmentData from "./AppointmentData";
+
 import MiniProfile from "./MiniProfile";
 import SideBar from "./SideBar";
 
@@ -92,59 +94,9 @@ const Appointment = () => {
                            A success alert for showing message.
                         </Alert>
                      )}
-                     <section>
-                        <h3 className="header-1 mb-4">Accepted Appointment</h3>
-                        <div className="grid grid-cols-12 gap-5">
-                           {/* <!-- Item --> */}
-                           {/* @foreach ($acceptedApnt as $data )
-                            <div
-                                className="w-full space-y-3 | col-span-4 | bg-white p-5 rounded-xl | cursor-pointer hover:shadow-md transition-shadow duration-300"
-                            >
-                                <div className="flex space-x-4">
-                                    <img
-                                        className="h-[22px] w-[22px]"
-                                        src="storage/ui-photos/dashboard/clndr.png"
-                                        alt=""
-                                    />
-                                    <span
-                                        className="text-purple font-medium text-xl"
-                                        >{{$data->date}}</span
-                                    >
-                                </div>
-                                <div className="text-sm text-light_gray">
-                                    <div>Instructor : {{$data->t_id}}</div>
-                                    <div>Subject : {{$data->subject}}</div>
-                                </div>
-                            </div>
-                            @endforeach */}
-                        </div>
-                     </section>
-                     <section>
-                        <h3 className="header-1 mb-4">Pending Appointment</h3>
-                        <div className="grid grid-cols-12 gap-5">
-                           {/* <!-- Item --> */}
-                           {/* @foreach ($pendingApnt as $data )
-                            <div
-                                className="w-full space-y-3 | col-span-4 | bg-white p-5 rounded-xl | cursor-pointer hover:shadow-md transition-shadow duration-300"
-                            >
-                                <div className="flex space-x-4">
-                                    <img
-                                        className="h-[22px] w-[22px]"
-                                        src="storage/ui-photos/dashboard/clndr.png"
-                                        alt=""
-                                    />
-                                    <span
-                                        className="text-purple font-medium text-xl"
-                                        >{{$data->date}}</span
-                                    >
-                                </div>
-                                <div className="text-sm text-light_gray">
-                                    <div>Subject : {{$data->subject}}</div>
-                                </div>
-                            </div>
-                            @endforeach */}
-                        </div>
-                     </section>
+                     <AppointmentData />
+
+                     {/* <!-- Item --> */}
                   </div>
                </section>
             </div>

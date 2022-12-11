@@ -27,7 +27,7 @@ const Login = () => {
             obj
          );
          const { login, userInfo } = resp.data;
-         console.log({ login, userInfo });
+         // console.log({ login, userInfo });
          // var user = { userId: token.userid, access_token: token.token };
          setInfo(userInfo);
          console.log(localStorage.getItem("user"));

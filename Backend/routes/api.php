@@ -33,6 +33,7 @@ Route::post('/ansqus',[studentQuestion::class,'ansqus']);
 Route::post('/pendingQus',[studentQuestion::class,'pendingQus']);
 Route::post('/postQus',[studentQuestion::class,'postQus']);
 Route::post('/postAppointment',[studentAppointment::class,'postAppointment']);
+Route::post('/appointments',[studentAppointment::class,'appointments']);
 Route::post('/reactSignIn',[studentRegistration::class,'reactSignIn']);
 
 

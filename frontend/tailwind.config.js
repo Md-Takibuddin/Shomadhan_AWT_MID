@@ -12,7 +12,7 @@ module.exports = withMT({
          },
          colors: {
             purple: "#8A70D6",
-            // green: "#27AE60",
+            green: "#27AE60",
             gray__: "#2D3748",
             blue__: "#579BE4",
             orange_: "#FCAB5E",

@@ -62,4 +62,25 @@ class studentAppointment extends Controller
             return "Posted";
         }else return "Error";
     }
+
+    public function appointments(Request $id)
+    {
+        $s_id=$id->s_id;
+        $acceptedApnt = appointment::where
+        ([
+            ['s_id','=',$s_id],
+            ['status', '=', 'accepted'],
+        ])->get();
+
+        $pendingApnt = appointment::where
+        ([
+            ['s_id','=',$s_id],
+            ['status', '=', 'pending'],
+        ])->get();
+        return response()->json([
+            'accepted' => $acceptedApnt,
+            'pending' => $pendingApnt
+        ]);
+
+    }
 }
