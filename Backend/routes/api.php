@@ -38,5 +38,5 @@ Route::post('/reactSignIn',[studentRegistration::class,'reactSignIn']);
 
 
 //teacher API
-Route::get("tdashdata",[tquescontroller::class,"quescount"]);
+Route::post("tdashdata",[tquescontroller::class,"quescount"]);
 Route::post("updateteacher",[tprofcontroller::class,"updatedata"]);

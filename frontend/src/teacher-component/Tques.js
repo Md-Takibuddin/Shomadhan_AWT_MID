@@ -1,6 +1,35 @@
 import Tsidebar from "./Tsidebar";
 import "./teacherques.css";
 const Tques = () => {
+
+    const [ans, setAns] = useState();
+    const callApi = async () => {
+        try {
+           const resp = await axios.post(
+              "http://127.0.0.1:8000/api/tdashdata",
+              {
+                 t_id: userInfo.t_id,
+              }
+           );
+           const { accepted, pending } = resp.data;
+           setAccepted(accepted);
+           setPending(pending);
+           setAns(resp.data[1]);
+           setQuspend(resp.data[0]);
+           setAppointment(resp.data[2]);
+           console.log(resp.data)
+        } catch (error) {
+           console.log(error);
+        }
+     };
+  
+     useEffect(() => {
+        callApi();
+     }, []);
+ 
+ 
+
+
     return (
 
 
