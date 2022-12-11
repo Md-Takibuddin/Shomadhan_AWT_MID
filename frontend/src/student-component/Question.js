@@ -5,6 +5,7 @@ import "../Student.css";
 import AnsQus from "./AnsQus";
 import MiniProfile from "./MiniProfile";
 import SideBar from "./SideBar";
+import PendingQus from "./PendingQus";
 import axios from "axios";
 import { Navigate } from "react-router-dom";
 
@@ -148,24 +149,7 @@ const Question = () => {
                      {/* <!-- Pending Qus Start --> */}
                      <section>
                         <h3 className="header-1 mb-4">Pending questions</h3>
-                        <div className="grid grid-cols-12 gap-5">
-                           {/* <!-- Item -->
-                                @foreach ($pendingQus as $data )
-                                <div
-                                    className="w-full space-y-3 | col-span-4 | bg-white p-5 rounded-xl | cursor-pointer hover:shadow-md transition-shadow duration-300"
-                                >
-                                    <div className="flex space-x-5">
-                                        <span
-                                        className="text-purple bg-purple bg-opacity-10 h-min px-2 py-1 rounded font-medium text-lg"
-                                            >Q</span
-                                        >
-                                        <p>
-                                            {{ $data ->qus}}
-                                        </p>
-                                    </div>
-                                </div>
-                                @endforeach */}
-                        </div>
+                        <PendingQus />
                      </section>
 
                      {/* <!-- Pending Qus End --> */}

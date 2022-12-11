@@ -11,7 +11,6 @@ const AnsQus = () => {
       const initialValue = JSON.parse(saved);
       return initialValue;
    });
-   console.log(userInfo.id);
    // componentDidMount() {
    //    axios.get(`http://127.0.0.1:8000/api/ansqus`).then((res) => {
    //       const qus = res.data;
@@ -36,7 +35,6 @@ const AnsQus = () => {
    useEffect(() => {
       callApi();
    }, []);
-   console.log(qus);
    return (
       <div className="grid grid-cols-12 gap-5">
          {qus?.map((qus) => (

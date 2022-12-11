@@ -145,4 +145,18 @@ class studentQuestion extends Controller
         return "Question Posted";
 
 }
+public function pendingQus (Request $id)
+{
+    $s_id= $id->s_id;
+    $pendingQus = question::where
+    ([
+        ['s_id','=',$s_id],
+        ['status', '=', 'pending'],
+    ])->get();
+
+    return $pendingQus;
+}
+
+
+
 }
