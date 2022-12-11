@@ -45,7 +45,7 @@ class studentRegistration extends Controller
 
         $photoName= time().$regData->name.".".$regData->file('photo')->getClientOriginalExtension();
         $path = $regData->file('photo')->storeAs('/public/images',$photoName);
-        $student['photo']='/storage/images/'.$photoName;
+        $student['photo']='/storage/public/images/'.$photoName;
         // $student->photo = $regData->photo;
         }else{
             $student['photo']='storage/ui-photos/userdp.png';
@@ -76,9 +76,8 @@ class studentRegistration extends Controller
         if($regData->file('photo')){
 
             $photoName= time().$regData->name.".".$regData->file('photo')->getClientOriginalExtension();
-            $path = $regData->file('photo')->storeAs('/public/images',$photoName);
+            $path = $regData->file('photo')->storeAs('/images',$photoName);
             $student['photo']='http://localhost:8000/storage/images/'.$photoName;
-
             }else{
                 $student['photo']='http://localhost:8000/storage/ui-photos/userdp.png';
             }
