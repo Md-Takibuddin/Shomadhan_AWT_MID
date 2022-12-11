@@ -1,10 +1,27 @@
 import "./grid.css";
 import "./button.css";
 import Tsidebar from "./Tsidebar";
-const dummy1=5;
-const dummy2=50;
-const dummy3=25;
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 const Tdash = () => {
+
+    const dummy1=5;
+    const dummy2=50;
+    const dummy3=25;
+
+    const [posts, setPosts] = useState ([]);
+
+    useEffect(()=>{
+        axios.get("http://127.0.0.1:8000/api/tdashdata")
+        .then(resp=>{
+            console.log(resp.data);
+            setPosts(resp.data);
+        }).catch(err=>{
+            console.log(err);
+        });
+    },[]);
+
     return ( 
 /*
 <div classNameName="parent">

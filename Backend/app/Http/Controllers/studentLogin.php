@@ -115,7 +115,6 @@ class studentLogin extends Controller
                 session()->put('name', $user->name);
                 session()->put('id', $user->id);
                 $api_token = Str::random(64);
-
                 $token = new token();
                 $token->userid = $user->id;
                 $token->token = $api_token;
@@ -130,7 +129,16 @@ class studentLogin extends Controller
             else return "No user found";
         } 
         elseif ($user1) {
-            
+            $session = teacher_infos::where('t_email', '=', $req->email)->where('password', '=', $req->password)->get();
+
+            $req->session()->put('id', $session[0]->t_id);
+            $req->session()->put('name', $session[0]->name);
+            $req->session()->put('email', $session[0]->t_email);
+            $req->session()->put('phn', $session[0]->phoneNo);
+            $req->session()->put('pass', $session[0]->password);
+            $req->session()->put('cj', $session[0]->current_job);
+            $req->session()->put('cv', $session[0]->cv);
+            $req->session()->put('db', $session[0]->dob);
             return response()->json([
                 'login' => "t_ok",
                 'userInfo' => $user1
