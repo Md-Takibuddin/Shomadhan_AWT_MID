@@ -35,6 +35,7 @@ Route::post('/postQus',[studentQuestion::class,'postQus']);
 Route::post('/postAppointment',[studentAppointment::class,'postAppointment']);
 Route::post('/appointments',[studentAppointment::class,'appointments']);
 Route::post('/reactSignIn',[studentRegistration::class,'reactSignIn']);
+Route::post('/QusView',[studentQuestion::class,'QusView']);
 
 
 //teacher API

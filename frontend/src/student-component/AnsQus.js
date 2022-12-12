@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useLocalStorage } from "../hook";
 import { useState, userEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Route, Router } from "react-router-dom";
 
 const AnsQus = () => {
    const [qus, setQus] = useState();

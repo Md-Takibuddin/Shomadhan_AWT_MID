@@ -1,8 +1,9 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import "../Student.css";
-import { Link, redirect, useNavigate } from "react-router-dom";
+import { BrowserRouter, Link, redirect, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
+import { Alert } from "@material-tailwind/react";
 const Signup = () => {
    let [name, setName] = useState("");
    let [phone_number, setPhone_number] = useState("");
@@ -14,7 +15,7 @@ const Signup = () => {
    let [photo, setPhoto] = useState("");
 
    const navigate = useNavigate();
-
+   const [showModal, setShowModal] = useState(false);
    const handleSubmit = async (e) => {
       e.preventDefault();
       var obj = {
@@ -42,8 +43,7 @@ const Signup = () => {
             data
          );
          if (resp.statusText === "OK") {
-            console.log("ok hoise");
-            redirect("/student-login");
+            setShowModal(true);
          }
       } catch (error) {
          console.log(error);
@@ -76,13 +76,11 @@ const Signup = () => {
                         </span>
                      </div>
                   </header>
-                  {/* @if(Session::has('regSuccess'))
-                    <div class="flex p-4 mb-4 text-lg  bg-[#E5FEE5] rounded-lg w-fit " role="alert">
-                        <div class="text-[#27AE60]">
-                          <span class="font-medium">{{Session::get('regSuccess')}}</span>
-                        </div>
-                      </div>
-                    @endif */}
+                  {showModal && (
+                     <Alert color="light-green">
+                        Account Created Successfully. Go to login
+                     </Alert>
+                  )}
                   <form class="w-full">
                      <div class="grid grid-cols-12 | gap-5">
                         <span class="col-span-6 input_wrapper">
