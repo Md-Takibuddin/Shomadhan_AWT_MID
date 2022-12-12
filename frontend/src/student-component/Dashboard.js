@@ -6,7 +6,6 @@ import Notes from "./Notes";
 import AskQus from "./AskQus";
 import Summery from "./Summery";
 import { useState } from "react";
-import { Redirect } from "react-router-dom";
 
 const Dashboard = () => {
    const [name, setName] = useState(() => {
@@ -24,9 +23,6 @@ const Dashboard = () => {
                <div className="grid grid-cols-12">
                   <div className="col-span-8 flex flex-col space-y-10">
                      <Summery />
-                     {/* @if(Session::has('posted'))
-                        <p className="alert alert-success">{{Session::get('posted')}}</p>
-                        @endif */}
                      <AskQus />
                      <Notes />
                   </div>
@@ -54,24 +50,22 @@ const Dashboard = () => {
                         <h4 className="header-1 mb-4">Appointment</h4>
                         <div className="w-full | p-5 rounded-xl bg-white | flex flex-col space-y-5">
                            {/* <!-- Item --> */}
-                           {/* @foreach ($acceptedApnt as $data )
-                                <div className="w-full space-y-3">
-                                    <div className="flex space-x-4">
-                                        <img
-                                            className="h-[22px] w-[22px]"
-                                            src="storage/ui-photos/dashboard/clndr.png"
-                                            alt=""
-                                        />
-                                        <span
-                                            className="text-purple font-medium text-xl"
-                                            >{{$data->date}}</span
-                                        >
-                                    </div>
-                                    <p className="text-sm text-light_gray">
-                                        You have an appointment with {{$data->t_id}}
-                                    </p>
-                                </div>
-                                @endforeach */}
+
+                           <div className="w-full space-y-3">
+                              <div className="flex space-x-4">
+                                 <img
+                                    className="h-[22px] w-[22px]"
+                                    src="storage/ui-photos/dashboard/clndr.png"
+                                    alt=""
+                                 />
+                                 <span className="text-purple font-medium text-xl">
+                                    20 Dec, 2022
+                                 </span>
+                              </div>
+                              <p className="text-sm text-light_gray">
+                                 You have an appointment with MR Shipon
+                              </p>
+                           </div>
                         </div>
                      </section>
                      {/* <!-- End of appointment -->

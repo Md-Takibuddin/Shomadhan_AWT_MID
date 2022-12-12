@@ -171,4 +171,31 @@ public function QusView(Request $id)
         return $qus;
 }
 
+public function countAqus(Request $id)
+{
+    $s_id= $id->s_id;
+    $answeredQus = question::where
+    ([
+        ['s_id','=',$s_id],
+        ['status', '=', 'answered'],
+    ])->get();
+
+
+    return $answeredQus;
+
+}
+public function countPqus(Request $id)
+{
+    $s_id= $id->s_id;
+    $pending = question::where
+    ([
+        ['s_id','=',$s_id],
+        ['status', '=', 'pending'],
+    ])->get();
+
+
+    return $pending;
+
+}
+
 }
