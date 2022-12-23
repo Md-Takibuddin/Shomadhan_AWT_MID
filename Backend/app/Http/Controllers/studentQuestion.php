@@ -157,18 +157,18 @@ public function pendingQus (Request $id)
     return $pendingQus;
 }
 
-public function QusView(Request $id)
+public function QusView(Request $request)
 {
 
-    $qus = question::where ('id','=',$id->id)->first();
+   // $qus = question::where ('id','=',$id->id)->first();
         // if($qus->qus_photo!= "null"){
         //     $qPhoto = 1;
         // }
         // if($qus->ans_photo!= "null"){
         //     $aPhoto=1;
         // }
-
-        return $qus;
+        $cons_id = $request->get('id');
+        return $cons_id;
 }
 
 public function countAqus(Request $id)

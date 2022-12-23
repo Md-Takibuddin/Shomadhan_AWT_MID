@@ -231,7 +231,7 @@
                                        border-bottom: 0px solid transparent;
                                     ">
                                             <!--<![endif]-->
-                                            {{-- <table id="u_content_image_1"
+                                            <table id="u_content_image_1"
                                                 style="
                                           font-family: 'Open Sans', sans-serif;
                                        "
@@ -258,8 +258,8 @@
                                                          "
                                                                         align="center">
                                                                         <img align="center" border="0"
-                                                                            src="images/image-6.png" alt="image"
-                                                                            title="image"
+                                                                            src="https://i.ibb.co/9TWJrJB/image-6.png"
+                                                                            alt="image" title="image"
                                                                             style="
                                                                outline: none;
                                                                text-decoration: none;
@@ -280,7 +280,7 @@
                                                         </td>
                                                     </tr>
                                                 </tbody>
-                                            </table> --}}
+                                            </table>
 
                                             <table
                                                 style="
@@ -308,9 +308,9 @@
                                                             padding-left: 0px;
                                                          "
                                                                         align="center">
-                                                                        {{-- <img align="center" border="0"
-                                                                            src="images/image-5.png" alt="Image"
-                                                                            title="Image"
+                                                                        <img align="center" border="0"
+                                                                            src="https://i.ibb.co/PwrfKk4/image-5.png"
+                                                                            alt="Image" title="Image"
                                                                             style="
                                                                outline: none;
                                                                text-decoration: none;
@@ -324,7 +324,7 @@
                                                                max-width: 600px;
                                                             "
                                                                             width="600"
-                                                                            class="v-src-width v-src-max-width" /> --}}
+                                                                            class="v-src-width v-src-max-width" />
                                                                     </td>
                                                                 </tr>
                                                             </table>
@@ -707,7 +707,7 @@
                                                                                     <a href="https://facebook.com/"
                                                                                         title="Facebook"
                                                                                         target="_blank">
-                                                                                        {{-- <img src="images/image-1.png"
+                                                                                        <img src="https://i.ibb.co/KGN8vYL/image-1.png"
                                                                                             alt="Facebook"
                                                                                             title="Facebook"
                                                                                             width="32"
@@ -721,7 +721,7 @@
                                                                            height: auto;
                                                                            float: none;
                                                                            max-width: 32px !important;
-                                                                        " /> --}}
+                                                                        " />
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
@@ -759,7 +759,7 @@
                                                                                     <a href="https://twitter.com/"
                                                                                         title="Twitter"
                                                                                         target="_blank">
-                                                                                        {{-- <img src="images/image-2.png"
+                                                                                        <img src="https://i.ibb.co/Tm3rLPK/image-2.png"
                                                                                             alt="Twitter"
                                                                                             title="Twitter"
                                                                                             width="32"
@@ -773,7 +773,7 @@
                                                                            height: auto;
                                                                            float: none;
                                                                            max-width: 32px !important;
-                                                                        " /> --}}
+                                                                        " />
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
@@ -811,7 +811,7 @@
                                                                                     <a href="https://linkedin.com/"
                                                                                         title="LinkedIn"
                                                                                         target="_blank">
-                                                                                        {{-- <img src="images/image-3.png"
+                                                                                        <img src="https://i.ibb.co/s1zMZM1/image-3.png.png"
                                                                                             alt="LinkedIn"
                                                                                             title="LinkedIn"
                                                                                             width="32"
@@ -825,7 +825,7 @@
                                                                            height: auto;
                                                                            float: none;
                                                                            max-width: 32px !important;
-                                                                        " /> --}}
+                                                                        " />
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>
@@ -863,7 +863,7 @@
                                                                                     <a href="https://instagram.com/"
                                                                                         title="Instagram"
                                                                                         target="_blank">
-                                                                                        {{-- <img src="images/image-4.png"
+                                                                                        <img src="https://i.ibb.co/ZXsSvJh/image-4.png"
                                                                                             alt="Instagram"
                                                                                             title="Instagram"
                                                                                             width="32"
@@ -877,7 +877,7 @@
                                                                            height: auto;
                                                                            float: none;
                                                                            max-width: 32px !important;
-                                                                        " /> --}}
+                                                                        " />
                                                                                     </a>
                                                                                 </td>
                                                                             </tr>

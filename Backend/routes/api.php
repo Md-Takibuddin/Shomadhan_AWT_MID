@@ -35,7 +35,7 @@ Route::post('/postQus',[studentQuestion::class,'postQus']);
 Route::post('/postAppointment',[studentAppointment::class,'postAppointment']);
 Route::post('/appointments',[studentAppointment::class,'appointments']);
 Route::post('/reactSignIn',[studentRegistration::class,'reactSignIn']);
-Route::post('/QusView',[studentQuestion::class,'QusView']);
+Route::get('/QusView/{id}',[studentQuestion::class,'QusView']);
 Route::post('/countAqus',[studentQuestion::class,'countAqus']);
 Route::post('/countPqus',[studentQuestion::class,'countPqus']);
 

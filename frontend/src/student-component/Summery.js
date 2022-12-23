@@ -27,7 +27,6 @@ const Summery = () => {
             s_id: userInfo.id,
          });
 
-         console.log(resp.data.length);
          setPQus(resp.data.length);
       } catch (error) {
          console.log(error);
