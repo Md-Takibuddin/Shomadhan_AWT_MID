@@ -1,5 +1,3 @@
-import "../Student.css";
-
 const Notes = () => {
    return (
       <section className="w-full">

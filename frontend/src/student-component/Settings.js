@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "../Student.css";
 import MiniProfile from "./MiniProfile";
 import SideBar from "./SideBar";
 
@@ -19,6 +18,9 @@ const Settings = () => {
    const modal_Cancel_btn = () => {
       setShowModal(false);
    };
+
+   const [disable, setDisable] = useState(true);
+   const [dob, setDob] = useState(userInfo.dob);
 
    return (
       <body>
@@ -79,6 +81,9 @@ const Settings = () => {
                                  <button
                                     id="edit_profile_btn"
                                     className="rounded-3xl px-6 py-2 font-semibold bg-[#F5F5F5] !w-fit hover:shadow transition-shadow duration-300"
+                                    onClick={() => {
+                                       setDisable(!disable);
+                                    }}
                                  >
                                     Edit Profile
                                  </button>
@@ -109,8 +114,8 @@ const Settings = () => {
                                        Email
                                     </label>
                                     <input
-                                       disabled
-                                       className="settings_input_disabled"
+                                       disabled={disable}
+                                       className="settings_input_disabled={disable}"
                                        type="text"
                                        value={userInfo.email}
                                        name="email"
@@ -135,10 +140,13 @@ const Settings = () => {
                                        Date of birth
                                     </label>
                                     <input
-                                       disabled
-                                       className="settings_input_disabled"
+                                       disabled={disable}
+                                       className="!bg-black"
                                        type="text"
-                                       value={userInfo.dob}
+                                       value={dob}
+                                       onChange={(e) => {
+                                          setDob(e.target.value);
+                                       }}
                                        name="dob"
                                        id="email"
                                     />
@@ -160,8 +168,8 @@ const Settings = () => {
                                        Phone No
                                     </label>
                                     <input
-                                       disabled
-                                       className="settings_input_disabled"
+                                       disabled={disable}
+                                       className="settings_input_disabled={disable}"
                                        type="text"
                                        value={userInfo.phone_number}
                                        name="phone_no"
@@ -185,8 +193,8 @@ const Settings = () => {
                                        School / Collage
                                     </label>
                                     <input
-                                       disabled
-                                       className="settings_input_disabled"
+                                       disabled={disable}
+                                       className="settings_input_disabled={disable}"
                                        type="text"
                                        value={userInfo.school}
                                        name="school_collage"
@@ -210,8 +218,8 @@ const Settings = () => {
                                        Class
                                     </label>
                                     <input
-                                       disabled
-                                       className="settings_input_disabled"
+                                       disabled={disable}
+                                       className="settings_input_disabled={disable}"
                                        type="text"
                                        value={userInfo.class}
                                        name="className"
@@ -235,7 +243,7 @@ const Settings = () => {
                                        Photo
                                     </label>
                                     <input
-                                       className="settings_input_disabled"
+                                       className="settings_input_disabled={disable}"
                                        type="file"
                                        name="photo"
                                        id="photo"

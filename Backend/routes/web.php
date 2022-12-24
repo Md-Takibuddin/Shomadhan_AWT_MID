@@ -34,7 +34,7 @@ Route::get('/question',[studentQuestion::class,'question'])->middleware('loginCh
 Route::post('/postQuestion',[studentQuestion::class,'postQuestion']);
 Route::get('/settings',[studentSettings::class,'settings'])->middleware('loginCheck');
 Route::get('/appointment',[studentAppointment::class,'appointment'])->middleware('loginCheck');
-Route::get('/questionView/{id}',[studentQuestion::class,'viewQus']);
+Route::get('/questionView/{id}',[studentQuestion::class,'qusView']);
 Route::put('/updateData',[studentSettings::class,'updateData']);
 Route::put('/updatePass',[studentSettings::class,'updatePass']);
 Route::post('/setAppointment',[studentAppointment::class,'setAppointment'])->middleware('loginCheck');
@@ -62,5 +62,5 @@ Route::group(['middleware'=>'web'],function(){
     Route::get("apnt",[tcrappointmentcontroller::class,'appointment']);
     Route::get("insans/{q_id}",[insainscontroller::class,'ans']);
     Route::post("insans",[insainscontroller::class,'ansupdate']);
-    
+
     });

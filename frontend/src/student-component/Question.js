@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import { useState } from "react";
 import { useLocalStorage } from "../hook";
-import "../Student.css";
+
 import AnsQus from "./AnsQus";
 import MiniProfile from "./MiniProfile";
 import SideBar from "./SideBar";

@@ -73,7 +73,6 @@ const AnsQus = () => {
    );
 };
 
-// import "../Student.css";
 // import { Link } from "react-router-dom";
 // import React, { useState, userEffect } from "react";
 // import axios from "axios";

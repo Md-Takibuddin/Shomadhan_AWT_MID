@@ -83,7 +83,7 @@ class studentQuestion extends Controller
             Session::flash('ansPhoto','true');
         }
 
-        return view('student.questionView',compact('qus'));
+        return $id;
     }
 
     public function apiTest()
@@ -157,7 +157,7 @@ public function pendingQus (Request $id)
     return $pendingQus;
 }
 
-public function QusView(Request $request)
+public function qusView(Request $request)
 {
 
    // $qus = question::where ('id','=',$id->id)->first();
@@ -167,8 +167,8 @@ public function QusView(Request $request)
         // if($qus->ans_photo!= "null"){
         //     $aPhoto=1;
         // }
-        $cons_id = $request->get('id');
-        return $cons_id;
+        // $cons_id = $request->get('id');
+        return $request;
 }
 
 public function countAqus(Request $id)

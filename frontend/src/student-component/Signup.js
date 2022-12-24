@@ -1,19 +1,20 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import "../Student.css";
 import { BrowserRouter, Link, redirect, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import { Alert } from "@material-tailwind/react";
-const Signup = () => {
-   let [name, setName] = useState("");
-   let [phone_number, setPhone_number] = useState("");
-   let [email, setEmail] = useState("");
-   let [password, setPassword] = useState("");
-   let [school, setSchool] = useState("");
-   let [sClass, setClass] = useState("");
-   let [dob, setDob] = useState("");
-   let [photo, setPhoto] = useState("");
 
+const Signup = () => {
+   const [name, setName] = useState("");
+   const [phone_number, setPhone_number] = useState("");
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
+   const [school, setSchool] = useState("");
+   const [sClass, setClass] = useState("");
+   const [dob, setDob] = useState("");
+   const [photo, setPhoto] = useState("");
+
+   const [loading, setLoading] = useState(false);
    const navigate = useNavigate();
    const [showModal, setShowModal] = useState(false);
    const handleSubmit = async (e) => {
@@ -37,6 +38,7 @@ const Signup = () => {
       data.append("class", sClass);
       data.append("dob", dob);
       data.append("photo", photo);
+      setLoading(true);
       try {
          const resp = await axios.post(
             "http://127.0.0.1:8000/api/reactSignIn",
@@ -47,154 +49,161 @@ const Signup = () => {
          }
       } catch (error) {
          console.log(error);
+      } finally {
+         setLoading(false);
       }
    };
    return (
       <body>
-         <main class="custom_container | h-screen | flex flex-col justify-center items-center | overflow-hidden">
-            <section class="grid grid-cols-12 | gap-10 | h-min">
-               <figure class="col-span-5">
-                  <img
-                     class="h-full w-full object-contain"
-                     src="storage/ui-photos/signup.png"
-                     alt="figure image"
-                  />
-               </figure>
-               <section class="col-span-7 | flex flex-col justify-center items-center | space-y-10">
-                  <header class="flex flex-col | w-full">
-                     <figure class="h-[90px]">
-                        <img
-                           class="h-full object-contain"
-                           src="storage/ui-photos/logo.png"
-                           alt="logo"
-                        />
-                     </figure>
-                     <div class="flex flex-col">
-                        <h1 class="header-1">Create account</h1>
-                        <span class="text-base">
-                           Be a member of your family
-                        </span>
-                     </div>
-                  </header>
-                  {showModal && (
-                     <Alert color="light-green">
-                        Account Created Successfully. Go to login
-                     </Alert>
-                  )}
-                  <form class="w-full">
-                     <div class="grid grid-cols-12 | gap-5">
-                        <span class="col-span-6 input_wrapper">
-                           <label for="name">Name</label>
-                           <input
-                              class="form-input input_base"
-                              name="name"
-                              type="text"
-                              onChange={(e) => setName(e.target.value)}
+         {loading ? (
+            <div>,,,lod</div>
+         ) : (
+            <main class="custom_container | h-screen | flex flex-col justify-center items-center | overflow-hidden">
+               <section class="grid grid-cols-12 | gap-10 | h-min">
+                  <figure class="col-span-5">
+                     <img
+                        class="h-full w-full object-contain"
+                        src="storage/ui-photos/signup.png"
+                        alt="figure image"
+                     />
+                  </figure>
+                  <section class="col-span-7 | flex flex-col justify-center items-center | space-y-10">
+                     <header class="flex flex-col | w-full">
+                        <figure class="h-[90px]">
+                           <img
+                              class="h-full object-contain"
+                              src="storage/ui-photos/logo.png"
+                              alt="logo"
                            />
-                           {/* @error('name')
+                        </figure>
+                        <div class="flex flex-col">
+                           <h1 class="header-1">Create account</h1>
+                           <span class="text-base">
+                              Be a member of your family
+                           </span>
+                        </div>
+                     </header>
+                     {showModal && (
+                        <Alert color="light-green">
+                           Account Created Successfully. Go to login
+                        </Alert>
+                     )}
+                     <form class="w-full">
+                        <div class="grid grid-cols-12 | gap-5">
+                           <span class="col-span-6 input_wrapper">
+                              <label for="name">Name</label>
+                              <input
+                                 class="form-input input_base"
+                                 name="name"
+                                 type="text"
+                                 onChange={(e) => setName(e.target.value)}
+                              />
+                              {/* @error('name')
                                 <span class="text-error" style="color: red">{{$message}}</span>
                               @enderror */}
-                        </span>
-                        <span class="col-span-6 input_wrapper">
-                           <label for="dob">Date of birth (MM/DD/YY)</label>
-                           <input
-                              class="form-input input_base"
-                              name="dob"
-                              type="date"
-                              onChange={(e) => setDob(e.target.value)}
-                           />
-                           {/* @error('dob')
+                           </span>
+                           <span class="col-span-6 input_wrapper">
+                              <label for="dob">Date of birth (MM/DD/YY)</label>
+                              <input
+                                 class="form-input input_base"
+                                 name="dob"
+                                 type="date"
+                                 onChange={(e) => setDob(e.target.value)}
+                              />
+                              {/* @error('dob')
                                 <span class="text-error" style="color: red">{{$message}}</span>
                               @enderror */}
-                        </span>
+                           </span>
 
-                        <span class="col-span-6 input_wrapper">
-                           <label for="school_collage_name">
-                              School or Collage name
-                           </label>
-                           <input
-                              class="form-input input_base"
-                              name="school"
-                              type="text"
-                              onChange={(e) => setSchool(e.target.value)}
-                           />
-                           {/* @error('school')
+                           <span class="col-span-6 input_wrapper">
+                              <label for="school_collage_name">
+                                 School or Collage name
+                              </label>
+                              <input
+                                 class="form-input input_base"
+                                 name="school"
+                                 type="text"
+                                 onChange={(e) => setSchool(e.target.value)}
+                              />
+                              {/* @error('school')
                                 <span class="text-error" style="color: red">{{$message}}</span>
                               @enderror */}
-                        </span>
+                           </span>
 
-                        <span class="col-span-6 input_wrapper">
-                           <label for="school_collage_name">Class</label>
-                           <select
-                              name="class"
-                              id="class"
-                              class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                              onChange={(e) => setClass(e.target.value)}
-                           >
-                              <option value="">select class</option>
-                              <option value="7">7</option>
-                              <option value="8">8</option>
-                              <option value="9">9</option>
-                              <option value="10">10</option>
-                              <option value="11">11</option>
-                              <option value="12">12</option>
-                           </select>
-                           {/* @error('class')
+                           <span class="col-span-6 input_wrapper">
+                              <label for="school_collage_name">Class</label>
+                              <select
+                                 name="class"
+                                 id="class"
+                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                 onChange={(e) => setClass(e.target.value)}
+                              >
+                                 <option value="">select class</option>
+                                 <option value="7">7</option>
+                                 <option value="8">8</option>
+                                 <option value="9">9</option>
+                                 <option value="10">10</option>
+                                 <option value="11">11</option>
+                                 <option value="12">12</option>
+                              </select>
+                              {/* @error('class')
                                 <span class="text-error" style="color: red">{{$message}}</span>
                               @enderror */}
-                        </span>
+                           </span>
 
-                        <span class="col-span-6 input_wrapper">
-                           <label for="email">Email Phone number</label>
-                           <input
-                              class="form-input input_base"
-                              name="email"
-                              type="text"
-                              onChange={(e) => setEmail(e.target.value)}
-                           />
-                           {/* @error('email')
+                           <span class="col-span-6 input_wrapper">
+                              <label for="email">Email Phone number</label>
+                              <input
+                                 class="form-input input_base"
+                                 name="email"
+                                 type="text"
+                                 onChange={(e) => setEmail(e.target.value)}
+                              />
+                              {/* @error('email')
                                 <span class="text-error" style="color: red">{{$message}}</span>
                               @enderror */}
-                        </span>
+                           </span>
 
-                        <span class="col-span-6 input_wrapper">
-                           <label for="phone_number">Phone number</label>
-                           <input
-                              class="form-input input_base"
-                              name="phone_number"
-                              type="text"
-                              onChange={(e) => setPhone_number(e.target.value)}
-                           />
-                           {/* @error('phone_number')
+                           <span class="col-span-6 input_wrapper">
+                              <label for="phone_number">Phone number</label>
+                              <input
+                                 class="form-input input_base"
+                                 name="phone_number"
+                                 type="text"
+                                 onChange={(e) =>
+                                    setPhone_number(e.target.value)
+                                 }
+                              />
+                              {/* @error('phone_number')
                                 <span class="text-error" style="color: red">{{$message}}</span>
                               @enderror */}
-                        </span>
+                           </span>
 
-                        <span class="col-span-6 input_wrapper">
-                           <label for="password">Password</label>
-                           <input
-                              class="form-input input_base"
-                              name="password"
-                              type="password"
-                              onChange={(e) => setPassword(e.target.value)}
-                           />
-                           {/* @error('password')
+                           <span class="col-span-6 input_wrapper">
+                              <label for="password">Password</label>
+                              <input
+                                 class="form-input input_base"
+                                 name="password"
+                                 type="password"
+                                 onChange={(e) => setPassword(e.target.value)}
+                              />
+                              {/* @error('password')
                                 <span class="text-error" style="color: red">{{$message}}</span>
                               @enderror */}
-                        </span>
+                           </span>
 
-                        <span class="col-span-6 input_wrapper">
-                           <label for="upload_photo">Upload photo</label>
-                           <input
-                              // class="form-input input_base"
-                              class="file-input file-input-bordered w-full max-w-xs"
-                              name="photo"
-                              type="file"
-                              accept="image/*"
-                              onChange={(e) => setPhoto(e.target.files[0])}
-                           />
-                        </span>
-                        {/* 
+                           <span class="col-span-6 input_wrapper">
+                              <label for="upload_photo">Upload photo</label>
+                              <input
+                                 // class="form-input input_base"
+                                 class="file-input file-input-bordered w-full max-w-xs"
+                                 name="photo"
+                                 type="file"
+                                 accept="image/*"
+                                 onChange={(e) => setPhoto(e.target.files[0])}
+                              />
+                           </span>
+                           {/* 
                             {{-- <span
                                 class="col-span-6 flex space-x-2 justify-center items-center"
                             >
@@ -209,39 +218,40 @@ const Signup = () => {
                                     <a href="" class="link"> Privacy policy</a>
                                 </label>
                             </span> --}} */}
-                     </div>
+                        </div>
 
-                     <div class="grid grid-cols-12 | gap-5 | my-10">
-                        <button
-                           class="col-span-6 | cta_btn_base bg-blue__"
-                           type="submit"
-                           onClick={handleSubmit}
-                        >
-                           Create account
-                        </button>
+                        <div class="grid grid-cols-12 | gap-5 | my-10">
+                           <button
+                              class="col-span-6 | cta_btn_base bg-blue__"
+                              type="submit"
+                              onClick={handleSubmit}
+                           >
+                              Create account
+                           </button>
 
-                        <button
-                           class="col-span-6 | cta_btn_base | flex justify-center items-center | space-x-2 bg-gray__"
-                           type="submit"
-                        >
-                           <img
-                              class="h-5 w-5"
-                              src="storage/ui-photos/google_logo.png"
-                              alt=""
-                           />
-                           <span> Sign-in with google</span>
-                        </button>
-                     </div>
-                     <span class="text-center w-full">
-                        Already have an account?
-                        <Link to={"/student-login"} class="text-blue-700">
-                           Sign in
-                        </Link>
-                     </span>
-                  </form>
+                           <button
+                              class="col-span-6 | cta_btn_base | flex justify-center items-center | space-x-2 bg-gray__"
+                              type="submit"
+                           >
+                              <img
+                                 class="h-5 w-5"
+                                 src="storage/ui-photos/google_logo.png"
+                                 alt=""
+                              />
+                              <span> Sign-in with google</span>
+                           </button>
+                        </div>
+                        <span class="text-center w-full">
+                           Already have an account?
+                           <Link to={"/student-login"} class="text-blue-700">
+                              Sign in
+                           </Link>
+                        </span>
+                     </form>
+                  </section>
                </section>
-            </section>
-         </main>
+            </main>
+         )}
       </body>
    );
 };

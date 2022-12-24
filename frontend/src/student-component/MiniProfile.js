@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import { useState } from "react";
-import "../Student.css";
 
 const MiniProfile = () => {
    const [userInfo, setInfo] = useState(() => {

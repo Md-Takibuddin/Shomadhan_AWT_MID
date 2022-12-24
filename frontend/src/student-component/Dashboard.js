@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
-import "../Student.css";
+
 import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 import Notes from "./Notes";

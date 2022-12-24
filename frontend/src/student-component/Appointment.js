@@ -2,7 +2,7 @@ import { Alert, Input } from "@material-tailwind/react";
 import axios from "axios";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
-import "../Student.css";
+
 import AppointmentData from "./AppointmentData";
 
 import MiniProfile from "./MiniProfile";
